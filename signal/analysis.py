@@ -3,10 +3,10 @@
 import torch
 import torch.nn as nn
     
-class Generator(nn.Module):
+class Analysis(nn.Module):
     
     def __init__(self):
-        super(Generator, self).__init__()
+        super(Analysis, self).__init__()
         self.apply(self.init_parameters)
     
     def init_parameters(self, m):
