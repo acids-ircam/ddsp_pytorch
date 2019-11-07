@@ -7,7 +7,7 @@ This reimplementation was done by [Antoine Caillon](http://github.com/caillonant
 
 ## Real-time implementation
 
-You can see the real-time PureData + TouchOSC bow made by [Antoine](http://github.com/caillonantoine) in action at [https://www.youtube.com/watch?v=U2ZXANU9EQg](https://www.youtube.com/watch?v=U2ZXANU9EQg)
+You can see the real-time PureData + TouchOSC bow made by [Antoine](http://github.com/caillonantoine) in action on [Youtube](https://www.youtube.com/watch?v=U2ZXANU9EQg)
 
 ## Examples
 
