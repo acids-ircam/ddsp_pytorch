@@ -13,9 +13,9 @@ You can see the real-time PureData + TouchOSC bow made by [Antoine](http://githu
 
 Audio examples are available at this repo's page: [https://caillonantoine.github.io/ddsp-recode/](https://caillonantoine.github.io/ddsp-recode/).
 
-![infered parameters](showcase/infered_parameters.png)
+![infered parameters](docs/images/infered_parameters.png)
 
-![reconstruction](showcase/reconstruction.png)
+![reconstruction](docs/images/reconstruction.png)
 
 ## Note
 
