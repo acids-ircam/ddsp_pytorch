@@ -19,50 +19,53 @@ from models.vae.vae_flow import VAEFlow
 from models.loss import multinomial_loss, multinomial_mse_loss
 from models.basic import GatedMLP, GatedCNN, construct_encoder_decoder, construct_flow, construct_regressor, construct_disentangle
 from evaluate import evaluate_model
-
 # Define arguments
 parser = argparse.ArgumentParser()
 # Data arguments
 parser.add_argument('--path',           type=str,   default='',             help='')
-parser.add_argument('--test_sounds',    type=str,   default='',             help='')
 parser.add_argument('--output',         type=str,   default='outputs',      help='')
 parser.add_argument('--dataset',        type=str,   default='32par',        help='')
-parser.add_argument('--train_type',     type=str,   default='fixed',        help='')
 parser.add_argument('--nbworkers',      type=int,   default=0,              help='')
+# Preprocessing arguments
+parser.add_argument('--sr',             type=int,   default=16000,                              help='')
+parser.add_argument('--f0_estimate',    type=str,   default='crepe',                            help='')
+parser.add_argument('--fft_scales',     type=list,  default=[2048, 1024, 512, 256, 128, 64],    help='')
+parser.add_argument('--block_size',     type=int,   default=160,                                help='')
+parser.add_argument('--smooth_kernel',  type=int,   default=8,                                  help='')
+parser.add_argument('--seq_size',       type=int,   default=200,                                help='')
+# DDSP parameters
+parser.add_argument('--partials',       type=int,   default=50,                                 help='')
+parser.add_argument('--filter_size',    type=int,   default=64,                                 help='')
+parser.add_argument('--seq_size',       type=int,   default=200,                                help='')
+parser.add_argument('--seq_size',       type=int,   default=200,                                help='')
 # Model arguments
 parser.add_argument('--model',          type=str,   default='vae',          help='')
-parser.add_argument('--loss',           type=str,   default='mse',          help='')
-parser.add_argument('--n_classes',      type=int,   default=61,             help='')
+parser.add_argument('--layers',         type=str,   default='gated_cnn',    help='')
+parser.add_argument('--strides',        type=list,  default=[2,4,4,5],      help='')
+parser.add_argument('--gru_hidden',     type=int,   default=512,            help='')
 parser.add_argument('--n_hidden',       type=int,   default=1024,           help='')
 parser.add_argument('--n_layers',       type=int,   default=4,              help='')
-# CNN parameters
-parser.add_argument('--channels',       type=int,   default=64,             help='')
-parser.add_argument('--kernel',         type=int,   default=5,              help='')
-parser.add_argument('--dilation',       type=int,   default=3,              help='')
-# AE-specific parameters
-parser.add_argument('--layers',         type=str,   default='gated_cnn',    help='')
+parser.add_argument('--channels',       type=int,   default=128,            help='')
+parser.add_argument('--kernel',         type=int,   default=15,             help='')
+parser.add_argument('--n_layers',       type=int,   default=4,              help='')
 parser.add_argument('--encoder_dims',   type=int,   default=64,             help='')
 parser.add_argument('--latent_dims',    type=int,   default=0,              help='')
-parser.add_argument('--warm_latent',    type=int,   default=50,             help='')
+parser.add_argument('--warm_amp',       type=int,   default=0,              help='')
+parser.add_argument('--warm_synth',     type=int,   default=200,            help='')
+parser.add_argument('--warm_conv',      type=int,   default=500,            help='')
+parser.add_argument('--warm_noise',     type=int,   default=2000,           help='')
 parser.add_argument('--beta_factor',    type=int,   default=1,              help='')
-# Two-step training parameters
-parser.add_argument('--ref_model',      type=str,   default='',             help='')
 # Flow specific parameters
 parser.add_argument('--flow',           type=str,   default='iaf',          help='')
 parser.add_argument('--flow_length',    type=int,   default=8,              help='')
 # Optimization arguments
-parser.add_argument('--k_run',          type=int,   default=0,              help='')
 parser.add_argument('--early_stop',     type=int,   default=60,             help='')
 parser.add_argument('--plot_interval',  type=int,   default=100,            help='')
 parser.add_argument('--batch_size',     type=int,   default=64,             help='')
 parser.add_argument('--epochs',         type=int,   default=200,            help='')
-parser.add_argument('--eval',           type=int,   default=100,            help='')
 parser.add_argument('--lr',             type=float, default=2e-4,           help='')
 # Evaluation parameters
-parser.add_argument('--batch_evals',    type=int,   default=16,             help='')
-parser.add_argument('--batch_out',      type=int,   default=3,              help='')
 parser.add_argument('--check_exists',   type=int,   default=0,              help='')
-parser.add_argument('--time_limit',     type=int,   default=0,              help='')
 # CUDA arguments
 parser.add_argument('--device',         type=str,   default='cpu',          help='Device for CUDA')
 args = parser.parse_args()

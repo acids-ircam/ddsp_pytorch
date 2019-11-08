@@ -4,6 +4,9 @@ import torch
 import torch.nn as nn
     
 class Effects(nn.Module):
+    """
+    Generic class for effects
+    """
     
     def __init__(self):
         super(Effects, self).__init__()
