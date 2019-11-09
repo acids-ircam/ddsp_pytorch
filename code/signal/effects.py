@@ -45,6 +45,34 @@ class ReverbSimple(Effects):
         self.wetdry  = nn.Parameter(torch.Tensor([4]), requires_grad=True)
 
     def forward(self):
+        # CONVOLUTION WITH AN IMPULSE RESPONSE #################################
+        y = nn.functional.pad(y, (0, preprocess.block_size*preprocess.sequence_size),
+                              "constant", 0)
+
+        Y_S = torch.rfft(y,1)
+
+        impulse = self.impulse(reverb, conv_pass)
+
+        impulse = nn.functional.pad(impulse,
+                                    (0, preprocess.block_size*preprocess.sequence_size),
+                                    "constant", 0)
+
+        if y.shape[-1] > preprocess.sequence_size * preprocess.block_size:
+            impulse = nn.functional.pad(impulse,
+                                        (0, y.shape[-1]-impulse.shape[-1]),
+                                        "constant", 0)
+        if conv_pass:
+            IR_S = torch.rfft(impulse,1).expand_as(Y_S)
+        else:
+            IR_S = torch.rfft(impulse.detach(),1).expand_as(Y_S)
+
+        Y_S_CONV = torch.zeros_like(IR_S)
+        Y_S_CONV[:,:,0] = Y_S[:,:,0] * IR_S[:,:,0] - Y_S[:,:,1] * IR_S[:,:,1]
+        Y_S_CONV[:,:,1] = Y_S[:,:,0] * IR_S[:,:,1] + Y_S[:,:,1] * IR_S[:,:,0]
+
+        y = torch.irfft(Y_S_CONV, 1, signal_sizes=(y.shape[-1],))
+
+        y = y[:,:-preprocess.block_size*preprocess.sequence_size]
         idx = torch.sigmoid(self.wetdry) * torch.linspace()
         imp = torch.sigmoid(1 - self.wetdry) * self.impulse
         dcy = torch.exp(-(torch.exp(self.decay)+2) * \
