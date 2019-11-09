@@ -2,7 +2,7 @@
 
 # Plotting
 import matplotlib
-matplotlib.use('agg')
+#matplotlib.use('agg')
 import os
 import time
 import argparse
@@ -10,41 +10,41 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.optim as optim
+from data import load_dataset
 
+# Default path on my computer
+default_path = '/Users/esling/Datasets/instruments_solo_recordings/'
 # Define arguments
 parser = argparse.ArgumentParser()
 # Data arguments
-parser.add_argument('--path',           type=str,   default='',             help='Path to the dataset')
+parser.add_argument('--path',           type=str,   default=default_path,   help='Path to the dataset')
 parser.add_argument('--output',         type=str,   default='outputs',      help='Output result directory')
-parser.add_argument('--dataset',        type=str,   default='32par',        help='Name of the dataset')
+parser.add_argument('--dataset',        type=str,   default='violin_simple',help='Name of the dataset')
 parser.add_argument('--nbworkers',      type=int,   default=0,              help='Number of parallel workers (multithread)')
 # Preprocessing arguments
-parser.add_argument('--sr',             type=int,   default=16000,                              help='')
-parser.add_argument('--f0_estimate',    type=str,   default='crepe',                            help='')
-parser.add_argument('--fft_scales',     type=list,  default=[2048, 1024, 512, 256, 128, 64],    help='')
-parser.add_argument('--block_size',     type=int,   default=160,                                help='')
-parser.add_argument('--smooth_kernel',  type=int,   default=8,                                  help='')
-parser.add_argument('--seq_size',       type=int,   default=200,                                help='')
+parser.add_argument('--sr',             type=int,   default=16000,          help='Sample rate of the signal')
+parser.add_argument('--f0_estimate',    type=str,   default='crepe',        help='Type of F0 estimate')
+parser.add_argument('--fft_scales',     type=list,  default=[64, 6],        help='Minimum and number of scales')
+parser.add_argument('--smooth_kernel',  type=int,   default=8,              help='Size of the smoothing kernel')
 # DDSP parameters
-parser.add_argument('--partials',       type=int,   default=50,                                 help='')
-parser.add_argument('--filter_size',    type=int,   default=64,                                 help='')
-parser.add_argument('--seq_size',       type=int,   default=200,                                help='')
-parser.add_argument('--seq_size',       type=int,   default=200,                                help='')
+parser.add_argument('--partials',       type=int,   default=50,             help='Number of partials')
+parser.add_argument('--filter_size',    type=int,   default=64,             help='Size of the filter')
+parser.add_argument('--block_size',     type=int,   default=160,            help='Size of individual processed blocks')
+parser.add_argument('--kernel_size',    type=int,   default=15,             help='Size of the kernel')
+parser.add_argument('--sequence_size',  type=int,   default=200,            help='Size of the sequence')
 # Model arguments
 parser.add_argument('--model',          type=str,   default='vae',          help='Type of model (mlp, cnn, ae, vae, wae, flow)')
 parser.add_argument('--layers',         type=str,   default='gru',          help='Type of layers in the model')
-parser.add_argument('--strides',        type=list,  default=[2,4,4,5],      help='')
-parser.add_argument('--gru_hidden',     type=int,   default=512,            help='')
-parser.add_argument('--n_hidden',       type=int,   default=1024,           help='Number of hidden units')
+parser.add_argument('--strides',        type=list,  default=[2,4,4,5],      help='Set of processing strides')
+parser.add_argument('--n_hidden',       type=int,   default=512,            help='Number of hidden units')
 parser.add_argument('--n_layers',       type=int,   default=4,              help='Number of computing layers')
 parser.add_argument('--channels',       type=int,   default=128,            help='Number of channels in convolution')
 parser.add_argument('--kernel',         type=int,   default=15,             help='Size of convolution kernel')
 parser.add_argument('--encoder_dims',   type=int,   default=64,             help='Number of encoder output dimensions')
 parser.add_argument('--latent_dims',    type=int,   default=0,              help='Number of latent dimensions')
-parser.add_argument('--warm_amp',       type=int,   default=0,              help='')
-parser.add_argument('--warm_synth',     type=int,   default=200,            help='')
-parser.add_argument('--warm_conv',      type=int,   default=500,            help='')
-parser.add_argument('--warm_noise',     type=int,   default=2000,           help='')
+parser.add_argument('--warm_amp',       type=int,   default=0,              help='Warmup on amplitude training')
+parser.add_argument('--warm_synth',     type=int,   default=200,            help='Warmup on synthesis')
+parser.add_argument('--warm_noise',     type=int,   default=2000,           help='Warmup on noise')
 parser.add_argument('--beta_factor',    type=int,   default=1,              help='Beta factor in VAE')
 # Flow specific parameters
 parser.add_argument('--flow',           type=str,   default='iaf',          help='Type of flow to use')
@@ -100,7 +100,7 @@ Dataset import definitions
 ################### 
 """
 print('[Loading dataset]')
-ref_split = args.path + '/reference_split_' + args.dataset+ "_" + args.data + '.th'
+ref_split = args.path + '/reference_split_' + args.dataset + '.th'
 if (args.train_type == 'random' or (not os.path.exists(ref_split))):
     train_loader, valid_loader, test_loader, args = load_dataset(args)
     if (args.train_type == 'fixed'):
@@ -125,7 +125,7 @@ Model definition section
 """
 print('[Creating model]')
 if (model in ['ae', 'vae', 'wae']):
-    
+    model = NeuralSynth()
 else:
     raise Exception('Unknown model ' + args.model)
 # Send model to device
