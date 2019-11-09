@@ -1,7 +1,6 @@
 # Differentiable Digital Signal Processing (DDSP) in Pytorch
 
 Implementation of [Differentiable Digital Signal Processing (DDSP)](https://storage.googleapis.com/ddsp/index.html) in Pytorch.
-
 The original paper is available at [https://openreview.net/pdf?id=B1x1ma4tDr](https://openreview.net/pdf?id=B1x1ma4tDr).
 
 This reimplementation was done by [Antoine Caillon](http://github.com/caillonantoine) and [Philippe Esling](http://esling.github.io) at the [IRCAM - ACIDS team](http://acids.ircam.fr)
