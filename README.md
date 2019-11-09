@@ -9,6 +9,8 @@ This reimplementation was done by [Antoine Caillon](http://github.com/caillonant
 
 You can see the real-time PureData + TouchOSC bow made by [Antoine](http://github.com/caillonantoine) in action on [Youtube](https://www.youtube.com/watch?v=U2ZXANU9EQg)
 
+[![Click to see on youtube](https://img.youtube.com/vi/U2ZXANU9EQg/0.jpg)](https://www.youtube.com/watch?v=U2ZXANU9EQg)
+
 ## Examples
 
 Audio examples are available at this repo's page: [https://caillonantoine.github.io/ddsp-recode/](https://caillonantoine.github.io/ddsp-recode/).
