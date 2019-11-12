@@ -67,8 +67,6 @@ class VAE(AE):
         # Retrieve mean and var
         mu, log_var = z_params
         # Re-parametrize
-        #q = distrib.Normal(torch.zeros(mu.shape[1]), torch.ones(log_var.shape[1]))
-        #eps = q.sample((n_batch, )).detach().to(x.device)
         eps = torch.randn_like(mu).detach().to(x.device)
         z = (log_var.exp().sqrt() * eps) + mu
         # Compute KL divergence

@@ -28,8 +28,6 @@ class VAEFlow(VAE):
         # Split the encoded values to retrieve flow parameters
         mu, log_var, flow_params = z_params
         # Re-parametrize a Normal distribution
-        #q = distrib.Normal(torch.zeros(mu.shape[1]), torch.ones(log_var.shape[1]))
-        #eps = q.sample((n_batch, )).detach().to(x.device)
         eps = torch.randn_like(mu).detach().to(x.device)
         # Obtain our first set of latent points
         z_0 = (log_var.exp().sqrt() * eps) + mu
@@ -43,13 +41,8 @@ class VAEFlow(VAE):
         log_q_z0 = torch.sum(-0.5 * (log_var + (z_0 - mu) * (z_0 - mu) * log_var.exp().reciprocal()), dim=1)
         # ln q(z_0) - ln p(z_k)
         logs = (log_q_z0 - log_p_zk).sum()
-        #print([p.mean() for p in list_ladj])
         # Add log determinants
         ladj = torch.cat(list_ladj, dim=1)
-        #print('Flow')
-        #print(torch.sum(log_q_z0))
-        #print(torch.sum(log_p_zk))
-        #print(torch.sum(ladj))
         # ln q(z_0) - ln p(z_k) - sum[log det]
         logs -= torch.sum(ladj)
         #print(logs)
