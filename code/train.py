@@ -99,6 +99,10 @@ print('Optimization will be on ' + str(args.device) + '.')
 Dataset import definitions
 ################### 
 """
+# Process FFT scales
+args.scales = []
+for s in range(args.fft_scales[1]):
+    args.scales.append(args.fft_scales[0] * (2 ** s))
 print('[Loading dataset]')
 ref_split = args.path + '/reference_split_' + args.dataset + '.th'
 if (args.train_type == 'random' or (not os.path.exists(ref_split))):
