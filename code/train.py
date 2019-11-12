@@ -11,6 +11,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from data import load_dataset
+from model import NeuralSynth
 
 # Default path on my computer
 default_path = '/Users/esling/Datasets/instruments_solo_recordings/'
@@ -53,7 +54,7 @@ parser.add_argument('--flow_length',    type=int,   default=8,              help
 parser.add_argument('--early_stop',     type=int,   default=60,             help='Early stopping')
 parser.add_argument('--train_type',     type=str,   default='fixed',        help='Fixed or random data split')
 parser.add_argument('--plot_interval',  type=int,   default=100,            help='Interval of plotting frequency')
-parser.add_argument('--batch_wsize',     type=int,   default=64,             help='Size of the batch')
+parser.add_argument('--batch_size',     type=int,   default=64,             help='Size of the batch')
 parser.add_argument('--epochs',         type=int,   default=200,            help='Number of epochs to train on')
 parser.add_argument('--lr',             type=float, default=2e-4,           help='Learning rate')
 # Evaluation parameters
@@ -128,7 +129,7 @@ Model definition section
 ###################
 """
 print('[Creating model]')
-if (model in ['ae', 'vae', 'wae']):
+if (args.model in ['ae', 'vae', 'wae']):
     model = NeuralSynth()
 else:
     raise Exception('Unknown model ' + args.model)

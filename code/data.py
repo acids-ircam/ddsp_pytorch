@@ -46,10 +46,10 @@ class AudioFeaturesDataset(Dataset):
         tmp_files = sorted(glob.glob(datadir + '/raw/*.wav'))
         self.data_files.extend(tmp_files)
         print(self.data_files)
-        if (not os.path.exists(datadir + '/data') or len(glob.glob(datadir + '/data/*.npz')) == 0):
+        if (not os.path.exists(datadir + '/data') or len(glob.glob(datadir + '/data/*.npy')) == 0):
             os.makedirs(datadir + '/data')
             self.preprocess_dataset(datadir)
-        feat_files = sorted(glob.glob(datadir + '/data/*.npz'))
+        feat_files = sorted(glob.glob(datadir + '/data/*.npy'))
         self.features_files.extend(feat_files)
         # Analyze dataset
         self.analyze_dataset()
@@ -62,10 +62,10 @@ class AudioFeaturesDataset(Dataset):
         # Otherwise create a basic normalization / augmentation transform
         if (transform is None):
             tr = []
-            tr.append(LogTransform(clip=1e-3))
+            # Normalize amplitude
             tr.append(NormalizeTensor(self.mean, self.var))
-            tr.append(transforms.RandomApply([NoiseGaussian(factor=1e-2)], p=0.333))
-            #tr.append(transforms.RandomApply([OutliersZeroRandom(factor=.1)], p=0.333))
+            # Augment with some random noise (p = .333)
+            tr.append(transforms.RandomApply([NoiseGaussian(factor=1e-3)], p=0.333))
             self.transform = transforms.Compose(tr)
     
     def construct_extractors(self, args):
@@ -96,7 +96,7 @@ class AudioFeaturesDataset(Dataset):
                 for k, v in self.extractors.items():
                     features[k] = v(y[i])
                 # Save to numpy compressed format
-                np.savez(datadir + '/data/seq_' + str(cur_id) + '.npz', features)
+                np.save(datadir + '/data/seq_' + str(cur_id) + '.npy', features)
                 cur_id += 1    
     
     def switch_set(self, name):
@@ -107,7 +107,6 @@ class AudioFeaturesDataset(Dataset):
             self.data_files = self.valid_files[0]
             self.features_files = self.valid_files[1]
         tr = []
-        tr.append(LogTransform(clip=1e-3))
         tr.append(NormalizeTensor(self.mean, self.var))
         self.transform = transforms.Compose(tr)
         self.test_files = None
@@ -116,14 +115,11 @@ class AudioFeaturesDataset(Dataset):
             
     def compute_normalization(self):
         self.mean = 0
-        self.var = 1
-        return
-        tr = LogTransform(clip=1e-3)
+        self.var = 0
         # Parse dataset to compute mean and norm
-        for n in range(len(self.spectral_files)):
-            data = np.load(self.spectral_files[n], allow_pickle=True)
+        for n in range(len(self.features_files)):
+            data = np.load(self.features_files[n], allow_pickle=True).item()['audio']
             data = torch.from_numpy(data).float()
-            data = tr(data)
             # Current file stats
             b_mean = data.mean()
             b_var = (data - self.mean)
@@ -131,30 +127,14 @@ class AudioFeaturesDataset(Dataset):
             self.mean = self.mean + ((b_mean - self.mean) / (n + 1))
             self.var = self.var + ((data - self.mean) * b_var).mean()
         self.mean = float(self.mean)
-        self.var = float(np.sqrt(self.var / len(self.spectral_files)))
+        self.var = float(np.sqrt(self.var / len(self.features_files)))
     
     def analyze_dataset(self):
         # Fill some properties based on the first file
-        loaded = np.load(self.features_files[0], allow_pickle=True)
-        self.input_size = data.shape
-        # Metadata indicators (character = 0, features = 1, categories = 2)
-        self.metadata = torch.zeros(len(self.data_files), 1)
-        # Check parameters
-        params_check = []
-        # Parse dataset to check parameters
-        for n in range(len(self.data_files)):
-            file = np.load(self.data_files[n], allow_pickle=True) 
-            loaded = file['param'].item()
-            params_check.append(torch.Tensor([loaded[p] for p in self.param_names]).unsqueeze(0))
-            meta_keys = file['chars']
-            self.metadata[n] = (np.sum(meta_keys[:, 2]) == meta_keys.shape[0]) * 1.0
-        full_params = torch.cat(params_check, dim=0)
-        self.params_std = torch.std(full_params, dim=0)
-        self.params_mean = torch.mean(full_params, dim=0)
-        self.params_idx = self.params_std.nonzero()
-        self.final_params = self.param_names#[self.param_names[i] for i in self.params_idx]
-        self.final_std = self.params_std#[self.params_std[i] for i in self.params_idx]
-        self.output_size = len(self.final_params)
+        loaded = np.load(self.features_files[0], allow_pickle=True).item()
+        # Here we simply get the input and output shapes
+        self.input_size = loaded['audio'].shape
+        self.output_size = self.input_size
             
     def create_splits(self, splits, shuffle_files):
             nb_files = len(self.data_files)
@@ -178,14 +158,14 @@ class AudioFeaturesDataset(Dataset):
             self.features_files = [self.features_files[i] for i in train_idx]
 
     def __getitem__(self, idx):
-        loaded = np.load(self.features_files[idx], allow_pickle=True)
+        loaded = np.load(self.features_files[idx], allow_pickle=True).item()
         audio = torch.from_numpy(loaded['audio'])
         loudness = torch.from_numpy(loaded['loudness'])
-        fft = torch.from_numpy(loaded['fft'])
+        fft = loaded['fft']
         f0 = torch.from_numpy(loaded['f0'])
-        # Eveentual pre-processing to apply
-        #data = self.transform(torch.from_numpy(data).float())
-        return fft, f0, loudness, audio
+        # Apply pre-processing
+        audio = self.transform(audio.float())
+        return audio, f0, loudness, fft
 
     def __len__(self):
         return len(self.data_files)
@@ -213,7 +193,7 @@ def load_dataset(args, **kwargs):
     return train_loader, valid_loader, test_loader, args
 
 def get_external_sounds(path, ref_loader, args, **kwargs):
-    dset = AudioDataset(path, data=args.data, mean=ref_loader.means, var=ref_loader.vars, **kwargs)
+    dset = AudioFeaturesDataset(path, data=args.data, mean=ref_loader.means, var=ref_loader.vars, **kwargs)
     loader = DataLoader(dset, batch_size=args.batch_size, shuffle=False, num_workers=args.nbworkers, pin_memory=True, **kwargs)
     dset.final_params = ref_loader.final_params
     return loader
@@ -230,7 +210,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
     train_loader, valid_loader, test_loader, args = load_dataset(args)
     # Take fixed batch (train)
-    data, params, meta, audio = next(iter(train_loader))
+    audio, f0, loudness, fft = next(iter(train_loader))
     plot_batch(data[:16].unsqueeze(1))
     plot_batch_detailed(data[:5], params[:5])
     # Take fixed batch (train)
