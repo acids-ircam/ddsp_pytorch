@@ -20,7 +20,8 @@ class DDSSynth(nn.Module, models.AE):
     
     The implementation proposed here is somewhat more abstract than 
     the architecture defined in the original paper as it
-        - Allows to implement various types of AEs (VAE, WAE, AAE) through duck typing 
+        - Allows to implement various types of AEs (VAE, WAE, AAE) through duck typing
+            (cf. models/ and models/vae/ toolbox)
         - Provides generic handling of conditionning signals
         - Allows to impose orthogonality and diagonalization constraints on latents
         - Maps generically to any modular type of synthesizer
@@ -38,36 +39,23 @@ class DDSSynth(nn.Module, models.AE):
         if (upsampler is None):
             self.upsampler = nn.Upsample(scale_factor=args.block_size, mode="linear")
         self.init_parameters()
-        self.k = nn.Parameter(torch.arange(1, args.n_partial + 1).reshape(1,1,-1).float(), requires_grad=False)
-        self.windows = nn.ParameterList(nn.Parameter(torch.from_numpy(np.hanning(scale)).float(), requires_grad=False)\
-            for scale in args.fft_scales)
-        self.filter_window = nn.Parameter(torch.hann_window(args.filter_size)\
-                                               .roll(args.filter_size//2,-1),
-                                               requires_grad=False)
+        
     def init_parameters(self, m):
         if type(m) == nn.Linear or type(m) == nn.Conv2d:
             torch.nn.init.xavier_uniform_(m.weight)
             m.bias.data.fill_(0.01)
-        
-    def encode(self, x):
-        x = self.encoder(x)
+    
+    def decode(self, z, c):
+        """
+        Decoding function of the DDSSynth.
+        This is the only function that differs from the classic *AE architectures
+        as we use a modular synthesizer after the decoding operation
+        """
+        # First run through decoder
+        y = self.decoder(torch.cat(z, c))
+        # Then go through the synthesizer modules
+        x = self.synth(y)
         return x
-    
-    def decode(self, z):
-        return self.decoder(z)
-    
-    def regularize(self, z):
-        z = self.map_latent(z)
-        return z, torch.zeros(z.shape[0]).to(z.device).mean()
-
-    def forward(self, x):
-        # Encode the inputs
-        z = self.encode(x)
-        # Potential regularization
-        z_tilde, z_loss = self.regularize(z)
-        # Decode the samples
-        x_tilde = self.decode(z_tilde)
-        return x_tilde, z_tilde, z_loss
 
 class DDSSynthVAE(nn.Module, models.VAE):
     """
@@ -147,7 +135,7 @@ class Encoder(nn.Module):
     """
     Raw waveform encoder, based on VQVAE
     """
-    def __init__(self):
+    def __init__(self, args):
         super().__init__()
         self.convs = nn.ModuleList(
             [nn.Conv1d(1,
