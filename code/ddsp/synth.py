@@ -5,11 +5,19 @@ from ddsp.effects import Reverb
 from ddsp.oscillators import HarmonicOscillators
 from ddsp.generators import FilteredNoise
 
+"""
+#######################
+
+High-level synthesizer modules classes
+
+#######################
+"""
+
 class SynthModule(nn.Module):
     """
     Generic class defining a synthesis module.
     """
-
+    
     def __init__(self, amortized='none'):
         """ Initialize as module """
         nn.Module.__init__(self)
@@ -35,7 +43,7 @@ class SynthModule(nn.Module):
 
 class Synth(nn.ModuleList, SynthModule):
     """
-    Generic class for defining a synthesizer (as a list of synthesis modules)
+    Generic class for defining a synthesizer (seen as a list of synthesis modules).
     """
 
     def __init__(self, modules=[]):
@@ -73,7 +81,15 @@ class Synth(nn.ModuleList, SynthModule):
     def n_parameters(self):
         """ Total number of parameters for all flows """
         return sum(self.n_params)
-    
+
+"""
+#######################
+
+Definition of specific synths
+
+#######################
+"""
+
 class HarmonicSynth(Synth):
     """
     Harmonic synthesizer with filtered noise and reverb as described in the
@@ -94,12 +110,18 @@ class HarmonicSynth(Synth):
         x, (f0, loud) = x
         amp, alpha, filter_coeff, h, reverb = x
         x_harmonic = self.harmonic((amp, alpha, f0))
-        print(filter_coeff.shape)
         x_noise = self.noise((x_harmonic, filter_coeff))
         x_full = x_harmonic + x_noise
         x = self.reverb(x_full)
         return x
 
+"""
+#######################
+
+Helper functions to construct synthesizers
+
+#######################
+"""
 def construct_synth(args):
     """ Construct normalizing flow """
     if (args.synth_type == 'basic'):

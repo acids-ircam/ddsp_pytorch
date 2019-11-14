@@ -171,14 +171,13 @@ print('[Starting training]')
 for i in range(args.epochs):
     # Set warm-up values
     args.beta = args.beta_factor * (float(i) / float(max(args.warm_latent, i)))
-    print('%.3f'%(args.beta))
+    print('Epoch. %d - beta = %.3f'%(i+1, args.beta))
     # Perform one epoch of train
     losses[i, 0] = model.train_epoch(train_loader, loss, optimizer, args)    
     # Perform validation
     losses[i, 1] = model.eval_epoch(valid_loader, loss, args)
     # Learning rate scheduling
-    if ((not args.model in ['ae', 'vae', 'wae', 'vae_flow']) or (i >= args.start_regress)):
-        scheduler.step(losses[i, 1])
+    scheduler.step(losses[i, 1])
     # Perform test evaluation
     losses[i, 2] = model.eval_epoch(test_loader, loss, args)
     # Model saving
@@ -188,7 +187,7 @@ for i in range(args.epochs):
         torch.save(model, args.output + '/models/' + model_name + '.model')
         early = 0
     # Check for early stopping
-    elif (args.early_stop > 0 and i >= args.start_regress):
+    elif (args.early_stop > 0):
         early += 1
         if (early > args.early_stop):
             print('[Model stopped early]')
@@ -198,7 +197,7 @@ for i in range(args.epochs):
         args.plot = 'train'
         with torch.no_grad():
             model.eval()
-            evaluate_model(model, fixed_batch, test_loader, args, train=True, name=base_img + '_batch_' + str(i))
+            #evaluate_model(model, fixed_batch, test_loader, args, train=True, name=base_img + '_batch_' + str(i))
     # Time limit for HPC grid eval
     if ((args.time_limit > 0) and (((time.time() - start_time) / 60.0) > args.time_limit)):
         print('[Hitting time limit after ' + str((time.time() - start_time) / 60.0) + ' minutes.]')

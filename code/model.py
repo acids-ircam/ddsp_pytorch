@@ -38,7 +38,7 @@ class DDSSynth(AE):
         super(DDSSynth, self).__init__(encoder, decoder, args.encoder_dims, args.encoder_dims)
         self.synth = synth
         if (upsampler is None):
-            self.upsampler = nn.Upsample(scale_factor=args.block_size, mode="linear")
+            self.upsampler = nn.Upsample(scale_factor=args.block_size, mode="linear", align_corners=False)
     
     def decode(self, z):
         """
@@ -72,9 +72,6 @@ class DDSSynth(AE):
             # Send to device
             x, f0, loud = [it.to(args.device, non_blocking=True) for it in [x, f0, loud]]
             f0, loud = f0.transpose(1, 2), loud.transpose(1, 2)
-            print(x.shape)
-            print(f0.shape)
-            print(loud.shape)
             # Auto-encode
             x_tilde, z_tilde, z_loss = self((x, (f0, loud)))
             # Reconstruction loss
@@ -94,12 +91,14 @@ class DDSSynth(AE):
         full_loss = 0
         with torch.no_grad():
             for (x, f0, loud, y) in loader:
-                x, y = x.to(args.device, non_blocking=True), y.to(args.device, non_blocking=True)
+                # Send to device
+                x, f0, loud = [it.to(args.device, non_blocking=True) for it in [x, f0, loud]]
+                f0, loud = f0.transpose(1, 2), loud.transpose(1, 2)
                 # Auto-encode
-                x_tilde, z_tilde, z_loss = self(x)
-                # Regression loss
-                reg_loss = loss(x_tilde, y)
-                full_loss += reg_loss
+                x_tilde, z_tilde, z_loss = self((x, (f0, loud)))
+                # Final loss
+                rec_loss = loss(x_tilde, y)
+                full_loss += rec_loss
             full_loss /= len(loader)
         return full_loss
 
@@ -115,8 +114,7 @@ class DDSSynthVAE(DDSSynth, VAE):
 
 class DDSSynthVAEFlow(DDSSynth, VAEFlow):
     """
-    Definition of the variational version of the DDSSynthesizer
-    seen as a variational auto-encoding architecture. 
+    Definition of the variational + normalizing flow version of the DDSSynthesizer
     """
 
     def __init__(self, encoder, decoder, synth, args, upsampler=None):
@@ -125,8 +123,7 @@ class DDSSynthVAEFlow(DDSSynth, VAEFlow):
 
 class DDSSynthWAE(DDSSynth, WAE):
     """
-    Definition of the variational version of the DDSSynthesizer
-    seen as a variational auto-encoding architecture. 
+    Definition of the Wasserstein version of the DDSSynthesizer
     """
 
     def __init__(self, encoder, decoder, synth, args, upsampler=None):
@@ -200,8 +197,6 @@ class EncoderWave(nn.Module):
             x = conv(x)
             if i != len(self.convs)-1:
                 x = torch.relu(x)
-        print('End encode')
-        print(x.shape)
         return x
 
 

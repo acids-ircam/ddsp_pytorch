@@ -21,7 +21,7 @@ class HarmonicOscillators(Oscillator):
     def __init__(self, n_partial, sample_rate, block_size):
         super(Oscillator, self).__init__()
         self.apply(self.init_parameters)
-        self.upsample = nn.Upsample(scale_factor = block_size, mode="linear")
+        self.upsample = nn.Upsample(scale_factor = block_size, mode="linear", align_corners=False)
         self.sample_rate = sample_rate
         self.k = nn.Parameter(torch.arange(1, n_partial + 1).reshape(1,1,-1).float(), requires_grad=False)
     
