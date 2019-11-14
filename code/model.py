@@ -3,7 +3,10 @@
 import torch
 import torch.nn as nn
 import numpy as np
-import models
+from models.vae.ae import AE
+from models.vae.vae import VAE
+from models.vae.vae_flow import VAEFlow
+from models.vae.wae import WAE
 
 """
 ###################
@@ -13,7 +16,7 @@ High-level models classes
 ###################
 """
 
-class DDSSynth(nn.Module, models.AE):
+class DDSSynth(AE):
     """
     Definition of a generic Differentiable Digital Signal Synthesizer globally
     seen as an auto-encoding architecture. 
@@ -32,57 +35,103 @@ class DDSSynth(nn.Module, models.AE):
         - Parameters of the synth controlled by a given decoder.
     """
     def __init__(self, encoder, decoder, synth, args, upsampler=None):
-        super().__init__()
-        self.encoder = encoder
-        self.decoder = decoder
+        super(DDSSynth, self).__init__(encoder, decoder, args.encoder_dims, args.encoder_dims)
         self.synth = synth
         if (upsampler is None):
             self.upsampler = nn.Upsample(scale_factor=args.block_size, mode="linear")
-        self.init_parameters()
-        
-    def init_parameters(self, m):
-        if type(m) == nn.Linear or type(m) == nn.Conv2d:
-            torch.nn.init.xavier_uniform_(m.weight)
-            m.bias.data.fill_(0.01)
     
-    def decode(self, z, c):
+    def decode(self, z):
         """
         Decoding function of the DDSSynth.
         This is the only function that differs from the classic *AE architectures
         as we use a modular synthesizer after the decoding operation
         """
         # First run through decoder
-        y = self.decoder(torch.cat(z, c))
+        y = self.decoder(z)
+        # Separate conditions
+        z, cond = z
         # Then go through the synthesizer modules
-        x = self.synth(y)
+        x = self.synth((y, cond))
         return x
 
-class DDSSynthVAE(nn.Module, models.VAE):
+    def forward(self, x):
+        if (type(x) == tuple):
+            x, condition = x
+        # Encode the inputs
+        z = self.encode(x)
+        # Potential regularization
+        z_tilde, z_loss = self.regularize(z)
+        # Decode the samples
+        x_tilde = self.decode((z_tilde, condition))
+        return x_tilde, z_tilde, z_loss
+    
+    def train_epoch(self, loader, loss, optimizer, args):
+        self.train()
+        full_loss = 0
+        for (x, f0, loud, y) in loader:
+            # Send to device
+            x, f0, loud = [it.to(args.device, non_blocking=True) for it in [x, f0, loud]]
+            f0, loud = f0.transpose(1, 2), loud.transpose(1, 2)
+            print(x.shape)
+            print(f0.shape)
+            print(loud.shape)
+            # Auto-encode
+            x_tilde, z_tilde, z_loss = self((x, (f0, loud)))
+            # Reconstruction loss
+            rec_loss = loss(x_tilde, y) / float(x.shape[1] * x.shape[2])
+            # Final loss
+            b_loss = (rec_loss + (args.beta * z_loss)).mean(dim=0)
+            # Perform backward
+            optimizer.zero_grad()
+            b_loss.backward()
+            optimizer.step()
+            full_loss += b_loss
+        full_loss /= len(loader)
+        return full_loss
+    
+    def eval_epoch(self, loader, loss, args):
+        self.eval()
+        full_loss = 0
+        with torch.no_grad():
+            for (x, f0, loud, y) in loader:
+                x, y = x.to(args.device, non_blocking=True), y.to(args.device, non_blocking=True)
+                # Auto-encode
+                x_tilde, z_tilde, z_loss = self(x)
+                # Regression loss
+                reg_loss = loss(x_tilde, y)
+                full_loss += reg_loss
+            full_loss /= len(loader)
+        return full_loss
+
+class DDSSynthVAE(DDSSynth, VAE):
     """
     Definition of the variational version of the DDSSynthesizer
     seen as a variational auto-encoding architecture. 
     """
 
     def __init__(self, encoder, decoder, synth, args, upsampler=None):
-        super().__init__(encoder, decoder, synth, args, upsampler)
+        DDSSynth.__init__(self, encoder, decoder, synth, args, upsampler)
+        VAE.__init__(self)
 
-class DDSSynthVAEFlow(nn.Module, models.VAEFlow):
+class DDSSynthVAEFlow(DDSSynth, VAEFlow):
     """
     Definition of the variational version of the DDSSynthesizer
     seen as a variational auto-encoding architecture. 
     """
 
     def __init__(self, encoder, decoder, synth, args, upsampler=None):
-        super().__init__(encoder, decoder, synth, args, upsampler)
+        DDSSynth.__init__(self, encoder, decoder, synth, args, upsampler)
+        VAEFlow.__init__(self)
 
-class DDSSynthWAE(nn.Module, models.WAE):
+class DDSSynthWAE(DDSSynth, WAE):
     """
     Definition of the variational version of the DDSSynthesizer
     seen as a variational auto-encoding architecture. 
     """
 
     def __init__(self, encoder, decoder, synth, args, upsampler=None):
-        super().__init__(encoder, decoder, synth, args, upsampler)
+        DDSSynth.__init__(self, encoder, decoder, synth, args, upsampler)
+        WAE.__init__(self)
         
 """
 ###################
@@ -105,8 +154,7 @@ def mod_sigmoid(x):
 
 class MLP(nn.Module):
     """
-    Implementation of a Multi Layer Perceptron, as described in the
-    original article (see README)
+    Implementation of the MLP, as described in the original paper
 
     Parameters :
         in_size (int)   : input size of the MLP
@@ -116,12 +164,10 @@ class MLP(nn.Module):
     def __init__(self, in_size=512, out_size=512, loop=3):
         super().__init__()
         self.linear = nn.ModuleList(
-            [nn.Sequential(
-                nn.Linear(in_size, out_size),
+            [nn.Sequential(nn.Linear(in_size, out_size),
                 nn.modules.normalization.LayerNorm(out_size),
                 nn.ReLU()
-            )] + [nn.Sequential(
-                nn.Linear(out_size, out_size),
+            )] + [nn.Sequential(nn.Linear(out_size, out_size),
                 nn.modules.normalization.LayerNorm(out_size),
                 nn.ReLU()
             ) for i in range(loop - 1)])
@@ -131,40 +177,32 @@ class MLP(nn.Module):
             x = lin(x)
         return x
 
-class Encoder(nn.Module):
+class EncoderWave(nn.Module):
     """
     Raw waveform encoder, based on VQVAE
     """
     def __init__(self, args):
         super().__init__()
+        self.out_size = args.encoder_dims
         self.convs = nn.ModuleList(
-            [nn.Conv1d(1,
-                        ddsp.conv_hidden_size,
-                        ddsp.conv_kernel_size,
-                        padding=ddsp.conv_kernel_size//2,
-                        stride=ddsp.strides[0])]+\
-            [
-                nn.Conv1d(ddsp.conv_hidden_size,
-                          ddsp.conv_hidden_size,
-                          ddsp.conv_kernel_size,
-                          padding=ddsp.conv_kernel_size//2,
-                          stride=ddsp.strides[i]) for i in range(1, len(ddsp.strides)-1)
-            ]+\
-            [nn.Conv1d(ddsp.conv_hidden_size,
-                       2 * ddsp.conv_out_size,
-                       ddsp.conv_kernel_size,
-                       padding=ddsp.conv_kernel_size//2,
-                       stride=ddsp.strides[-1])]
-        )
-
+            [nn.Conv1d(1, args.channels, args.kernel_size,
+                        padding=args.kernel_size // 2,
+                        stride=args.strides[0])]
+            + [nn.Conv1d(args.channels, args.channels, args.kernel_size,
+                         padding=args.kernel_size // 2,
+                         stride=args.strides[i]) for i in range(1, len(args.strides) - 1)]
+            + [nn.Conv1d(args.channels, args.encoder_dims, args.kernel_size,
+                         padding=args.kernel_size // 2,
+                         stride=args.strides[-1])])
 
     def forward(self, x):
         for i,conv in enumerate(self.convs):
             x = conv(x)
             if i != len(self.convs)-1:
                 x = torch.relu(x)
-        z_mean, z_var = torch.split(x.transpose(1,2), ddsp.conv_out_size,-1)
-        return z_mean.contiguous(), z_var.contiguous()
+        print('End encode')
+        print(x.shape)
+        return x
 
 
 class Decoder(nn.Module):
@@ -173,31 +211,33 @@ class Decoder(nn.Module):
 
     Parameters:
         hidden_size (int)       : Size of vectors inside every MLP + GRU + Dense
-        n_partial (int
-        Number of partial involved in the harmonic generation. (>1)
-    filter_size: int
-        Size of the filter used to shape noise.
+        n_partial (int)         : Number of partial involved in the harmonic generation. (>1)
+        filter_size (int)       : Size of the filter used to shape noise.
     """
-    def __init__(self, hidden_size, n_partial, filter_size):
+    def __init__(self, args):
         super().__init__()
         # Map the different conditions
-        self.f0_MLP = MLP(1,hidden_size)
-        self.lo_MLP = MLP(1,hidden_size)
+        self.f0_MLP = MLP(1,args.n_hidden)
+        self.lo_MLP = MLP(1,args.n_hidden)
         # Map the latent vector
-        self.z_MLP  = MLP(ddsp.conv_out_size, hidden_size)
+        self.z_MLP  = MLP(args.latent_dims, args.n_hidden)
         # Recurrent model to handle temporality
-        self.gru    = nn.GRU(3 * hidden_size, hidden_size, batch_first=True)
+        self.gru    = nn.GRU(3 * args.n_hidden, args.n_hidden, batch_first=True)
         # Mixing MLP after the GRU
-        self.fi_MLP = MLP(hidden_size, hidden_size)
+        self.fi_MLP = MLP(args.n_hidden, args.n_hidden)
         # Outputs to different parameters of the synth
-        self.dense_amp    = nn.Linear(hidden_size, 1)
-        self.dense_alpha  = nn.Linear(hidden_size, n_partial)
-        self.dense_filter = nn.Linear(hidden_size, filter_size // 2 + 1)
-        self.dense_reverb = nn.Linear(hidden_size, 2)
-        self.n_partial = n_partial
+        self.dense_amp    = nn.Linear(args.n_hidden, 1)
+        self.dense_alpha  = nn.Linear(args.n_hidden, args.n_partial)
+        self.dense_filter = nn.Linear(args.n_hidden, args.filter_size // 2 + 1)
+        self.dense_reverb = nn.Linear(args.n_hidden, 2)
+        self.n_partial = args.n_partial
 
-    def forward(self, z, f0, lo, hx=None):
-        # 
+    def forward(self, z, hx=None):
+        if (type(z) == tuple):
+            z, condition = z
+            f0, lo = condition
+        # Forward pass for the encoding
+        z = z.transpose(1, 2)
         f0 = self.f0_MLP(f0)
         lo = self.lo_MLP(lo)
         z  = self.z_MLP(z)
@@ -210,7 +250,22 @@ class Decoder(nn.Module):
         alpha        = mod_sigmoid(self.dense_alpha(x))
         filter_coeff = mod_sigmoid(self.dense_filter(x))
         reverb       = self.dense_reverb(x)
-
+        # Compute the final alpha
         alpha        = alpha / torch.sum(alpha,-1).unsqueeze(-1)
-
+        # Return the set of parameters
         return amp, alpha, filter_coeff, h, reverb
+
+"""
+###################
+
+Helper functions to construct the encoders and decoders
+
+###################
+"""
+
+def construct_architecture(args):
+    """ Construct encoder and decoder layers for AE models """
+    # For starters, construct basic encoder and decoder
+    encoder = EncoderWave(args)
+    decoder = Decoder(args)
+    return encoder, decoder

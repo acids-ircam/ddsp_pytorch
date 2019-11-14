@@ -45,7 +45,6 @@ class AudioFeaturesDataset(Dataset):
         # Retrieve list of files
         tmp_files = sorted(glob.glob(datadir + '/raw/*.wav'))
         self.data_files.extend(tmp_files)
-        print(self.data_files)
         if (not os.path.exists(datadir + '/data') or len(glob.glob(datadir + '/data/*.npy')) == 0):
             os.makedirs(datadir + '/data')
             self.preprocess_dataset(datadir)
@@ -70,8 +69,8 @@ class AudioFeaturesDataset(Dataset):
     
     def construct_extractors(self, args):
         self.extractors = {}
-        self.extractors['f0'] = FundamentalFrequency(args.sr, args.block_size, args.sequence_size)
-        self.extractors['loudness'] = Loudness(args.block_size, args.kernel_size)
+        self.extractors['f0'] = FundamentalFrequency(args.sr, args.block_size, args.sequence_size).float()
+        self.extractors['loudness'] = Loudness(args.block_size, args.kernel_size).float()
     
     def preprocess_dataset(self, datadir):
         cur_id = 0
@@ -94,18 +93,16 @@ class AudioFeaturesDataset(Dataset):
                 features['fft'] = cur_fft[i]
                 # Compute features in dataset
                 for k, v in self.extractors.items():
-                    features[k] = v(y[i])
+                    features[k] = v(y[i])[:self.args.sequence_size]
                 # Save to numpy compressed format
                 np.save(datadir + '/data/seq_' + str(cur_id) + '.npy', features)
                 cur_id += 1    
     
     def switch_set(self, name):
         if (name == 'test'):
-            self.data_files = self.test_files[0]
-            self.features_files = self.test_files[1]
+            self.features_files = self.test_files[0]
         if (name == 'valid'):
-            self.data_files = self.valid_files[0]
-            self.features_files = self.valid_files[1]
+            self.features_files = self.valid_files[0]
         tr = []
         tr.append(NormalizeTensor(self.mean, self.var))
         self.transform = transforms.Compose(tr)
@@ -137,10 +134,9 @@ class AudioFeaturesDataset(Dataset):
         self.output_size = self.input_size
             
     def create_splits(self, splits, shuffle_files):
-            nb_files = len(self.data_files)
+            nb_files = len(self.features_files)
             if (shuffle_files):
                 idx = np.random.permutation(nb_files).astype('int')
-                self.data_files = [self.data_files[i] for i in idx]
                 self.features_files = [self.features_files[i] for i in idx]
             idx = np.linspace(0, nb_files-1, nb_files).astype('int')
             train_idx = idx[:int(splits[0]*nb_files)]
@@ -148,27 +144,26 @@ class AudioFeaturesDataset(Dataset):
             test_idx = idx[int((splits[0]+splits[1])*nb_files):]
             # Validation split
             self.valid_files = (
-                    [self.data_files[i] for i in valid_idx], 
-                    [self.features_files[i] for i in valid_idx])
+                    [self.features_files[i] for i in valid_idx],
+                    None)
             # Test split
             self.test_files = (
-                    [self.data_files[i] for i in test_idx], 
-                    [self.features_files[i] for i in test_idx])
-            self.data_files = [self.data_files[i] for i in train_idx]
+                    [self.features_files[i] for i in test_idx],
+                    None)
             self.features_files = [self.features_files[i] for i in train_idx]
 
     def __getitem__(self, idx):
         loaded = np.load(self.features_files[idx], allow_pickle=True).item()
-        audio = torch.from_numpy(loaded['audio'])
-        loudness = torch.from_numpy(loaded['loudness'])
+        audio = torch.from_numpy(loaded['audio']).unsqueeze(0)
+        loudness = torch.from_numpy(loaded['loudness']).float().unsqueeze(0)
         fft = loaded['fft']
-        f0 = torch.from_numpy(loaded['f0'])
+        f0 = torch.from_numpy(loaded['f0']).float().unsqueeze(0)
         # Apply pre-processing
         audio = self.transform(audio.float())
         return audio, f0, loudness, fft
 
     def __len__(self):
-        return len(self.data_files)
+        return len(self.features_files)
     
 """
 ###################

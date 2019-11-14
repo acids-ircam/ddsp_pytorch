@@ -84,7 +84,7 @@ class AE(nn.Module):
         self.encoder = encoder
         self.decoder = decoder
         self.latent_dims = latent_dims
-        self.map_latent = nn.Linear(encoder_dims, latent_dims)
+        self.map_latent = nn.Identity()
         self.apply(self.init_parameters)
     
     def init_parameters(self, m):
