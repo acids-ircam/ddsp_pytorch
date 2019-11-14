@@ -43,22 +43,36 @@ class Synth(nn.ModuleList, SynthModule):
         nn.ModuleList.__init__(self, modules)
 
     def _call(self, z):
-        for flow in self:
-            z = flow(z)
+        for modules in self:
+            z = modules(z)
         return z
 
     def append(self, synth):
+        """ Append a new module to the synth """
         nn.ModuleList.append(self, synth)
+        self.n_params.append(synth.n_parameters())
+
+    def amortization(self, z):
+        """ Handles the amortization of the modules """
+        if self.amortized in ['none', 'ext']:
+            return
+        elif self.amortized == 'self':
+            if self.amortized_seed.device != z.device:
+                self.amortized_seed = self.amortized_seed.to(z.device)
+            params = self.amortized_params(self.amortized_seed)
+        elif self.amortized == 'input':
+            params = self.amortized_params(z)
+        self.set_parameters(params, z.shape[0])
+        
+    def set_parameters(self, params, batch_dim=64):
+        """ Set the flows parameters """
+        param_list = params.split(self.n_params, dim=1)
+        for params, bijector in zip(param_list, self.bijectors):
+            bijector.set_parameters(params, batch_dim)
 
     def n_parameters(self):
-        return sum(flow.n_parameters() for flow in self)
-
-    def set_parameters(self, params, batch_dim=1):
-        i = 0
-        for flow in self:
-            j = i + flow.n_parameters()
-            flow.set_parameters(params[:, i:j], batch_dim)
-            i = j
+        """ Total number of parameters for all flows """
+        return sum(self.n_params)
     
 class HarmonicSynth(Synth):
     """
