@@ -3,8 +3,9 @@
 import torch
 import torch.nn as nn
 from modules import ResConv1d
+from ddsp.synth import SynthModule
     
-class Filter(nn.Module):
+class Filter(nn.Module, SynthModule):
     """
     Generic class for trainable signal filters.
     """

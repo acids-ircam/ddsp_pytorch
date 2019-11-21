@@ -2,9 +2,9 @@
 
 import torch
 import torch.nn as nn
-import numpy as np
+from ddsp.synth import SynthModule
     
-class Generator(nn.Module):
+class Generator(nn.Module, SynthModule):
     """
     Generic class for trainable signal generators.
     """

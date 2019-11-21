@@ -44,6 +44,7 @@ class MSSTFTLoss(Loss):
         # First compute multiple STFT for x
         for i, scale in enumerate(self.scales):
             cur_fft = torch.stft(x, n_fft=scale, window=self.windows[i], hop_length=int((1-self.overlap)*scale), center=False)
+            print(cur_fft.shape)
             stfts.append(amp(cur_fft))
         # Compute loss 
         lin_loss = sum([torch.mean(abs(stfts_orig[i][j] - stfts[i][j])) for j in range(len(stfts[i])) for i in range(len(stfts))])

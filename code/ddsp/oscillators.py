@@ -3,8 +3,9 @@
 import torch
 import torch.nn as nn
 import numpy as np
+from ddsp.synth import SynthModule
     
-class Oscillator(nn.Module):
+class Oscillator(nn.Module, SynthModule):
     
     def __init__(self):
         super(Oscillator, self).__init__()

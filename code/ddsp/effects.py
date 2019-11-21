@@ -2,8 +2,9 @@
 
 import torch
 import torch.nn as nn
+from ddsp.synth import SynthModule
     
-class Effects(nn.Module):
+class Effects(nn.Module, SynthModule):
     """
     Generic class for effects
     """
