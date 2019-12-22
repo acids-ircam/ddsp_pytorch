@@ -17,8 +17,9 @@ class Filter(nn.Module, SynthModule):
     def init_parameters(self, m):
         pass
 
-    def forward(self, x):
-        pass
+    def forward(self, z):
+        z, conditions = z
+        return z
 
 """
 #######################
@@ -51,19 +52,25 @@ class FIRFilter(Filter):
         """ Initialize internal parameters (sub-modules) """
         m.data.uniform_(-0.01, 0.01)
 
+    def n_parameters(self):
+        """ Return number of parameters in the module """
+        return self.filter_size
+    
+    def set_paramters(self, z):
+        # Obtain filter coefficients through network (amortization)
+        self.fiter_coef = z
+    
     def forward(self, z):
-        signal, cond = z
-        # Obtain filter coefficients through network
-        filter_coef = self.transform(cond)
+        z, cond = z
         # Reshape filter coefficients to complex form
-        filter_coef = filter_coef.reshape([-1, self.filter_size // 2 + 1, 1]).expand([-1, self.filter_size // 2 + 1, 2]).contiguous()
+        filter_coef = self.filter_coef.reshape([-1, self.filter_size // 2 + 1, 1]).expand([-1, self.filter_size // 2 + 1, 2]).contiguous()
         filter_coef[:,:,1] = 0
         # Compute filter windowed impulse response
         h = torch.irfft(filter_coef, 1, signal_sizes=(self.filter_size,))
         h_w = self.filter_window.unsqueeze(0) * h
         h_w = nn.functional.pad(h_w, (0, self.block_size - self.filter_size), "constant", 0)
         # Compute the spectral transform 
-        S_sig = torch.rfft(signal, 1).reshape(z.shape[0], -1, self.block_size // 2 + 1, 2)
+        S_sig = torch.rfft(z, 1).reshape(z.shape[0], -1, self.block_size // 2 + 1, 2)
         # Compute the spectral mask
         H = torch.rfft(h_w, 1).reshape(z.shape[0], -1, self.block_size // 2 + 1, 2)
         # Filter the original noise
@@ -125,3 +132,8 @@ class NeuralSourceFilter(Filter):
         for m in range(len(self.net)):
             out = self.net[m](out)
         return out + x
+    
+    def n_parameters(self):
+        """ Total number of parameters for all flows """
+        return 0
+    

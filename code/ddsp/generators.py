@@ -4,7 +4,7 @@ import torch
 import torch.nn as nn
 from ddsp.synth import SynthModule
     
-class Generator(nn.Module, SynthModule):
+class Generator(SynthModule):
     """
     Generic class for trainable signal generators.
     """
@@ -16,8 +16,9 @@ class Generator(nn.Module, SynthModule):
     def init_parameters(self, m):
         pass
 
-    def forward(self, x):
-        pass
+    def forward(self, z):
+        z, conditions = z
+        return z
 
 class FilteredNoise(Generator):
     """
@@ -37,17 +38,24 @@ class FilteredNoise(Generator):
         self.filter_size = filter_size
         self.noise_att = 1e-4
         self.filter_window = nn.Parameter(torch.hann_window(filter_size).roll(filter_size//2,-1),requires_grad=False)
+        self.filter_coef = None
+    
+    def n_parameters(self):
+        return self.filter_size // 2 + 1
     
     def init_parameters(self, m):
         pass
+    
+    def set_parameters(self, params, batch_dim=64):
+        self.filter_coef = params
 
     def forward(self, z):
-        sig, filter_coef = z
+        sig, conditions = z
         # Create noise source
-        noise = torch.randn(sig.shape).detach().to(sig.device).reshape(-1, self.block_size) * self.noise_att
+        noise = torch.randn([sig.shape[0], sig.shape[1], self.block_size]).detach().to(sig.device).reshape(-1, self.block_size) * self.noise_att
         S_noise = torch.rfft(noise, 1).reshape(sig.shape[0], -1, self.block_size // 2 + 1, 2)
         # Reshape filter coefficients to complex form
-        filter_coef = filter_coef.reshape([-1, self.filter_size // 2 + 1, 1]).expand([-1, self.filter_size // 2 + 1, 2]).contiguous()
+        filter_coef = self.filter_coef.reshape([-1, self.filter_size // 2 + 1, 1]).expand([-1, self.filter_size // 2 + 1, 2]).contiguous()
         filter_coef[:,:,1] = 0
         # Compute filter windowed impulse response
         h = torch.irfft(filter_coef, 1, signal_sizes=(self.filter_size,))

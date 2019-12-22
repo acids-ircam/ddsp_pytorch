@@ -4,7 +4,7 @@ import torch
 import torch.nn as nn
 from ddsp.synth import SynthModule
     
-class Effects(nn.Module, SynthModule):
+class Effects(SynthModule):
     """
     Generic class for effects
     """
@@ -13,11 +13,13 @@ class Effects(nn.Module, SynthModule):
         super(Effects, self).__init__()
         self.apply(self.init_parameters)
     
-    def init_parameters(self, m):
-        pass
+    def n_parameters(self):
+        """ Return number of parameters in the module """
+        return 0
 
-    def forward(self, x):
-        pass
+    def forward(self, z):
+        z, conditions = z
+        return z
     
 class ReverbSimple(Effects):
     """
@@ -43,13 +45,18 @@ class ReverbSimple(Effects):
         self.wetdry = nn.Parameter(torch.Tensor([2]), requires_grad=False)
         self.decay  = nn.Parameter(torch.Tensor([4]), requires_grad=False)
 
-    def forward(self, x, conv_pass):
+    def forward(self, z):
+        z, _ = z
         wetdry = self.wetdry
         decay  = self.decay
         idx = torch.sigmoid(wetdry) * self.identity
         imp = torch.sigmoid(1 - wetdry) * self.impulse
-        dcy = torch.exp(-(torch.exp(decay)+2) * torch.linspace(0,1, self.size).to(x.device))
+        dcy = torch.exp(-(torch.exp(decay)+2) * torch.linspace(0,1, self.size).to(z.device))
         return idx + imp * dcy
+
+    def n_parameters(self):
+        """ Return number of parameters in the module """
+        return 0
 
 
     
@@ -71,24 +78,34 @@ class Reverb(Effects):
         self.sequence_size = args.sequence_size
         self.size = self.block_size * self.sequence_size
         # Decay parameter
-        self.decay   = nn.Parameter(torch.Tensor([2]), requires_grad=True)
+        # self.decay   = nn.Parameter(torch.Tensor([2]), requires_grad=True)
         # Amount of reverb
-        self.wetdry  = nn.Parameter(torch.Tensor([4]), requires_grad=True)
+        # self.wetdry  = nn.Parameter(torch.Tensor([4]), requires_grad=True)
         self.apply(self.init_parameters)
         # Impulse response of the reverb
         self.impulse  = nn.Parameter(torch.rand(1, self.size) * 2 - 1, requires_grad=False)
         self.identity = nn.Parameter(torch.zeros(1, self.size), requires_grad=False)
         self.identity[:,0] = 1
 
-    def forward(self, x):
+    def n_parameters(self):
+        """ Return number of parameters in the module """
+        return 2
+    
+    def set_parameters(self, params, batch_dim=64):
+        params = torch.mean(params, 1)
+        self.decay = params[:, 0].unsqueeze(-1)
+        self.wetdry = params[:, 1].unsqueeze(-1)
+
+    def forward(self, z):
+        z, conditions = z
         # Pad the input sequence
-        y = nn.functional.pad(x, (0, self.size), "constant", 0)
+        y = nn.functional.pad(z, (0, self.size), "constant", 0)
         # Compute STFT
-        Y_S = torch.rfft(y,1)
+        Y_S = torch.rfft(y, 1)
         # Compute the current impulse response
         idx = torch.sigmoid(self.wetdry) * self.identity
         imp = torch.sigmoid(1 - self.wetdry) * self.impulse
-        dcy = torch.exp(-(torch.exp(self.decay) + 2) * torch.linspace(0,1, self.size).to(x.device))
+        dcy = torch.exp(-(torch.exp(self.decay) + 2) * torch.linspace(0,1, self.size).to(z.device))
         final_impulse = idx + imp * dcy
         # Pad the impulse response
         impulse = nn.functional.pad(final_impulse, (0, self.size), "constant", 0)

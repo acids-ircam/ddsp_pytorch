@@ -46,12 +46,12 @@ class DDSSynth(AE):
         This is the only function that differs from the classic *AE architectures
         as we use a modular synthesizer after the decoding operation
         """
-        # First run through decoder
-        y = self.decoder(z)
         # Separate conditions
-        z, cond = z
+        _, cond = z
+        # First run through decoder
+        z = self.decoder(z)
         # Then go through the synthesizer modules
-        x = self.synth((y, cond))
+        x = self.synth((z, cond))
         return x
 
     def forward(self, x):
@@ -237,7 +237,7 @@ class Decoder(nn.Module):
         lo = self.lo_MLP(lo)
         z  = self.z_MLP(z)
         # Recurrent model
-        x,h = self.gru(torch.cat([z, f0, lo], -1), hx)
+        x, h = self.gru(torch.cat([z, f0, lo], -1), hx)
         # Mixing parameters
         x = self.fi_MLP(x)
         # Retrieve various parameters
@@ -248,7 +248,7 @@ class Decoder(nn.Module):
         # Compute the final alpha
         alpha        = alpha / torch.sum(alpha,-1).unsqueeze(-1)
         # Return the set of parameters
-        return amp, alpha, filter_coeff, h, reverb
+        return torch.cat([amp, alpha, filter_coeff, reverb], dim=2)
 
 """
 ###################

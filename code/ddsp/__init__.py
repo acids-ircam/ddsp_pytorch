@@ -1,9 +1,9 @@
 # -*-coding:utf-8 -*-
  
 """
-    The ``models`` module
+    The ``ddsp`` module
     ========================
-    This package contains all normalizing and generative flow classes
+    This package contains all classes for synthesis purposes
  
     
     Contributors

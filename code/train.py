@@ -12,8 +12,9 @@ import torch.nn as nn
 import torch.optim as optim
 from data import load_dataset
 from model import DDSSynth, construct_architecture
-from ddsp.synth import construct_synth
+from ddsp.archis import construct_synth
 from ddsp.loss import MSSTFTLoss
+from utils.plot import plot_batch_detailed
 
 # Default path on my computer
 default_path = '/Users/esling/Datasets/instruments_solo_recordings/'
@@ -117,10 +118,11 @@ else:
     train_loader, valid_loader, test_loader = data[0], data[1], data[2]
     args.output_size = train_loader.dataset.output_size
     args.input_size = train_loader.dataset.input_size
-# Take fixed batch for plot purposes
-fixed_data, fixed_params, fixed_meta, fixed_audio = next(iter(test_loader))
-fixed_data, fixed_params, fixed_meta, fixed_audio = fixed_data.to(args.device), fixed_params.to(args.device), fixed_meta, fixed_audio
-fixed_batch = (fixed_data, fixed_params, fixed_meta, fixed_audio)
+#%% Take fixed batch for plot purposes
+fixed_audio, fixed_f0, fixed_loudness, fixed_fft = next(iter(test_loader))
+fixed_audio, fixed_f0, fixed_loudness, fixed_fft = fixed_audio.to(args.device), fixed_f0.to(args.device), fixed_loudness.to(args.device), fixed_fft
+fixed_batch = (fixed_audio, fixed_f0, fixed_loudness, fixed_fft)
+plot_batch_detailed(fixed_batch)
 # Set latent dims to output dims
 if (args.latent_dims == 0):
     args.latent_dims = args.output_size
