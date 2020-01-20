@@ -7,7 +7,7 @@ import numpy as np
 import crepe
 
 # Lambda for computing squared amplitude
-amp = lambda x: x[:,:,0]**2 + x[:,:,1]**2
+amp = lambda x: x[...,0]**2 + x[...,1]**2
     
 class Analysis(nn.Module):
     """
