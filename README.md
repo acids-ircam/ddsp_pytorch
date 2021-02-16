@@ -39,8 +39,15 @@ audio = model(pitch, loudness)
 
 ## Realtime usage
 
-If you want to use DDSP in realtime (yeah), we provide a pure data external wrapping the all thing. Simply pass the `--realtime true` option when exporting. This will disable the reverb and enable the use of the model in realtime. For now the external works on CPU, but you can enable GPU accelerated inference by changing `realtime/ddsp_tilde/ddsp_model.h` `DEVICE` to `torch::kCUDA`.
-Inside Pd, simply send `load your_model.ts` to the `ddsp~` object. The first inlet must be a pitch signal, the second a loudness signal. It can be directly plugged to the `sigmund~` object for real-time timbre transfer ;)
+If you want to use DDSP in realtime (yeah), we provide a pure data external wrapping everything. Export your trained model using
+
+```bash
+python export.py --run runs/mytraining/ --realtime true
+```
+
+This will disable the reverb and enable the use of the model in realtime. For now the external works on CPU, but you can enable GPU accelerated inference by changing `realtime/ddsp_tilde/ddsp_model.h` `DEVICE` to `torch::kCUDA`. Inside Pd, simply send `load your_model.ts` to the `ddsp~` object. The first inlet must be a pitch signal, the second a loudness signal. It can be directly plugged to the `sigmund~` object for real-time timbre transfer.
+
+You can then apply the exported impulse response using a convolution reverb (such as `partconv~` from the `bsaylor` library).
 
 ## Compilation
 
@@ -53,5 +60,3 @@ cd build
 cmake ../ -DCMAKE_PREFIX_PATH=/path/to/libtorch -DCMAKE_BUILD_TYPE=Release
 make
 ```
-
-The Pd external still need some optimization, it will receive some updates very soon.
