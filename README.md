@@ -2,6 +2,8 @@
 
 Implementation of the [DDSP model](https://github.com/magenta/ddsp) using PyTorch. This implementation can be exported to a torchscript model, ready to be used inside a realtime environment (see [this video](https://www.youtube.com/watch?v=_U6Bn-1FDHc)).
 
+A pretrained exported model can [be downloaded here](https://nubo.ircam.fr/index.php/s/7AenL27BEaxLkKi/download).
+
 ## Usage
 
 Edit the `config.yaml` file to fit your needs (audio location, preprocess folder, sampling rate, model parameters...), then preprocess your data using 
