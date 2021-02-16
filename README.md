@@ -1,24 +1,55 @@
-# Differentiable Digital Signal Processing (DDSP) in Pytorch
+# Differentiable Digital Signal Processing
 
-Implementation of [Differentiable Digital Signal Processing (DDSP)](https://storage.googleapis.com/ddsp/index.html) in Pytorch.
-The original paper is available at [https://openreview.net/pdf?id=B1x1ma4tDr](https://openreview.net/pdf?id=B1x1ma4tDr).
+Implementation of the [DDSP model](https://github.com/magenta/ddsp) using PyTorch. This implementation can be exported to a torchscript model, ready to be used inside a realtime environment (see [this video](https://www.youtube.com/watch?v=_U6Bn-1FDHc)).
 
-This reimplementation was done by [Antoine Caillon](http://github.com/caillonantoine) and [Philippe Esling](http://esling.github.io) at the [IRCAM - ACIDS team](http://acids.ircam.fr)
+## Usage
 
-## Real-time implementation
+Edit the `config.yaml` file to fit your needs (audio location, preprocess folder, sampling rate, model parameters...), then preprocess your data using 
 
-You can see the real-time PureData + TouchOSC bow made by [Antoine](http://github.com/caillonantoine) in action on [Youtube](https://www.youtube.com/watch?v=U2ZXANU9EQg)
+```bash
+python preprocess.py
+```
 
-[![Click to see on youtube](https://img.youtube.com/vi/U2ZXANU9EQg/0.jpg)](https://www.youtube.com/watch?v=U2ZXANU9EQg)
+You can then train your model using 
 
-## Examples
+```bash
+python train.py --name mytraining --epochs 10000000 --batch 16 --lr .001
+```
 
-Audio examples are available at this repo's page: [https://caillonantoine.github.io/ddsp-recode/](https://caillonantoine.github.io/ddsp-recode/).
+Once trained, export it using
 
-![infered parameters](docs/images/infered_parameters.png)
+```bash
+python export.py --run runs/mytraining/
+```
 
-![reconstruction](docs/images/reconstruction.png)
+It will produce a file named `ddsp_pretrained_mytraining.ts`, that you can use inside a python environment like that
 
-## Note
+```python
+import torch
 
-**Note** - This repository is a very in-progress work. Please come back later for more fun.
+model = torch.jit.load("ddsp_pretrained_mytraining.ts")
+
+pitch = torch.randn(1, 200, 1)
+loudness = torch.randn(1, 200, 1)
+
+audio = model(pitch, loudness)
+```
+
+## Realtime usage
+
+If you want to use DDSP in realtime (yeah), we provide a pure data external wrapping the all thing. Simply pass the `--realtime true` option when exporting. This will disable the reverb and enable the use of the model in realtime. For now the external works on CPU, but you can enable GPU accelerated inference by changing `realtime/ddsp_tilde/ddsp_model.h` `DEVICE` to `torch::kCUDA`.
+Inside Pd, simply send `load your_model.ts` to the `ddsp~` object. The first inlet must be a pitch signal, the second a loudness signal. It can be directly plugged to the `sigmund~` object for real-time timbre transfer ;)
+
+## Compilation
+
+You will need `cmake`, a C++ compiler, and `libtorch` somewhere on your computer. Then, run
+
+```bash
+cd realtime
+mkdir build
+cd build
+cmake ../ -DCMAKE_PREFIX_PATH=/path/to/libtorch -DCMAKE_BUILD_TYPE=Release
+make
+```
+
+The Pd external still need some optimization, it will receive some updates very soon.
