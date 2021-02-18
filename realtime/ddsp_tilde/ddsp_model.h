@@ -1,10 +1,7 @@
 #pragma once
-#include <iostream>
 #include <torch/script.h>
 #include <torch/torch.h>
 #include <string>
-#include <vector>
-#include <stdlib.h>
 
 #define DEVICE torch::kCPU
 #define CPU torch::kCPU

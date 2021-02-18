@@ -1,4 +1,9 @@
 #include "ddsp_model.h"
+#include <iostream>
+#include <vector>
+#include <stdlib.h>
+#include "m_pd.h"
+
 
 DDSPModel::DDSPModel() : m_loaded(0)
 {
@@ -18,6 +23,7 @@ int DDSPModel::load(std::string path)
     catch (const std::exception &e)
     {
         std::cerr << e.what() << '\n';
+        post(e.what());
         m_loaded = 0;
         return 1;
     }
