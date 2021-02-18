@@ -58,11 +58,14 @@ cd realtime
 mkdir build
 cd build
 cmake ../ -DCMAKE_PREFIX_PATH=/path/to/libtorch -DCMAKE_BUILD_TYPE=Release
-make
+make install
 ```
 
 If you already have `pytorch` installed via pip inside a virtual environment, you can use the following `PREFIX_PATH`:
 
 ```bash
 cmake ../ -DCMAKE_PREFIX_PATH=~/miniconda3/lib/python3.X/site-packages/torch -DCMAKE_BUILD_TYPE=Release
+make install
 ```
+
+By default, it will install the external in `~/Documents/Pd/externals`. 
