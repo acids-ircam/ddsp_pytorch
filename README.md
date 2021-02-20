@@ -1,5 +1,7 @@
 # Differentiable Digital Signal Processing
 
+![ddsp_tilde_screenshot](patchs/Screenshot_2021-02-20-16-05-33.png)
+
 Implementation of the [DDSP model](https://github.com/magenta/ddsp) using PyTorch. This implementation can be exported to a torchscript model, ready to be used inside a realtime environment (see [this video](https://www.youtube.com/watch?v=_U6Bn-1FDHc)).
 
 A pretrained exported model can [be downloaded here](https://nubo.ircam.fr/index.php/s/7AenL27BEaxLkKi/download).
