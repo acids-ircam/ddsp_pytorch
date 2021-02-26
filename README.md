@@ -6,10 +6,10 @@ Implementation of the [DDSP model](https://github.com/magenta/ddsp) using PyTorc
 
 ## Pretrained models
 
-| instrument | realtime | preprocessing | sampling rate |                                link                                |
-| :--------: | :------: | :-----------: | :-----------: | :----------------------------------------------------------------: |
-| saxophone  |   true   |   sigmund~    |     48kHz     | [link](https://nubo.ircam.fr/index.php/s/7AenL27BEaxLkKi/download) |
-|   violin   |   true   |   sigmund~    |     48kHz     | [link](https://nubo.ircam.fr/index.php/s/f6XB4Kp9onxiNwZ/download) |
+| instrument | realtime | preprocessing | sampling rate |                                  link                                  |
+| :--------: | :------: | :-----------: | :-----------: | :--------------------------------------------------------------------: |
+| saxophone  |   true   |   sigmund~    |     48kHz     | [download](https://nubo.ircam.fr/index.php/s/7AenL27BEaxLkKi/download) |
+|   violin   |   true   |   sigmund~    |     48kHz     | [download](https://nubo.ircam.fr/index.php/s/f6XB4Kp9onxiNwZ/download) |
 
 
 
