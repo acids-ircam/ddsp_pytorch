@@ -41,6 +41,8 @@ audio = model(pitch, loudness)
 
 ## Realtime usage
 
+**Be sure that the `block_size` defined in `config.yaml` is a power of 2 if you want to use the model in realtime!**
+
 If you want to use DDSP in realtime (yeah), we provide a pure data external wrapping everything. Export your trained model using
 
 ```bash
