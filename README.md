@@ -4,7 +4,14 @@
 
 Implementation of the [DDSP model](https://github.com/magenta/ddsp) using PyTorch. This implementation can be exported to a torchscript model, ready to be used inside a realtime environment (see [this video](https://www.youtube.com/watch?v=_U6Bn-1FDHc)).
 
-A pretrained exported model can [be downloaded here](https://nubo.ircam.fr/index.php/s/7AenL27BEaxLkKi/download) (Saxophone, 48kHz, audio preprocessed using `patchs/example.pd`).
+## Pretrained models
+
+| instrument | preprocessing | sampling rate |                                link                                |
+| :--------: | :-----------: | :-----------: | :----------------------------------------------------------------: |
+| saxophone  |   sigmund~    |     48kHz     | [link](https://nubo.ircam.fr/index.php/s/7AenL27BEaxLkKi/download) |
+|   violin   |   sigmund~    |     48kHz     |                          *available soon*                          |
+
+
 
 ## Usage
 
