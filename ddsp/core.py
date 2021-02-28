@@ -111,7 +111,7 @@ def extract_pitch(signal, sampling_rate, block_size):
     if f0.shape[-1] != length:
         f0 = np.interp(
             np.linspace(0, 1, length, endpoint=False),
-            np.linspace(0,1,f0.shape[-1], endpoint=False),
+            np.linspace(0, 1, f0.shape[-1], endpoint=False),
             f0,
         )
 
