@@ -8,9 +8,10 @@ Implementation of the [DDSP model](https://github.com/magenta/ddsp) using PyTorc
 
 | instrument | realtime | preprocessing | sampling rate |                                  link                                  |
 | :--------: | :------: | :-----------: | :-----------: | :--------------------------------------------------------------------: |
-| saxophone  |   true   |   sigmund~    |     48kHz     | [download](https://nubo.ircam.fr/index.php/s/7AenL27BEaxLkKi/download) |
-|   violin   |   true   |   sigmund~    |     48kHz     | [download](https://nubo.ircam.fr/index.php/s/f6XB4Kp9onxiNwZ/download) |
-
+| saxophone  |   true   |  `sigmund~`   |     48kHz     | [download](https://nubo.ircam.fr/index.php/s/7AenL27BEaxLkKi/download) |
+|   violin   |   true   |  `sigmund~`   |     48kHz     | [download](https://nubo.ircam.fr/index.php/s/f6XB4Kp9onxiNwZ/download) |
+|   violin   |   true   |    `crepe`    |     48kHz     | [download](https://nubo.ircam.fr/index.php/s/LzTsYr8zdqHYdMy/download) |
+|   violin   |  false   |    `crepe`    |     48kHz     | [download](https://nubo.ircam.fr/index.php/s/LMFo3eAb3C5by23/download) |
 
 
 ## Usage
