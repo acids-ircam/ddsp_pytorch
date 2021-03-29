@@ -1,0 +1,12 @@
+
+  function(fallback_data_get dirs id)
+    set(res)
+    foreach(dir ${dirs})
+      file_data_get("${dir}" "${id}" ${ARGN})
+      ans(res)
+      if(res)
+        break()
+      endif()
+    endforeach()
+    return_ref(res)
+  endfunction()

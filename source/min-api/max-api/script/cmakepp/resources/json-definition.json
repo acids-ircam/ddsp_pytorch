@@ -1,0 +1,116 @@
+{
+   "name":"json2",
+  "phases":[
+    {
+      "name":"parse",
+      "function":"parse_string(/0 /1 /2 /3 /4)",
+      "input":["input_ref", "def" ,"definitions","parsers","global"],
+      "output":["output"]
+    },
+    {
+      "name":"create input ref",
+      "function":"address_set_new(/0)",
+      "input":["input"],
+      "output":["input_ref"]
+    }
+  ],
+  "parsers":{
+    "regex":"parse_regex",
+    "match":"parse_match",
+    "sequence":"parse_sequence",
+    "any":"parse_any",
+    "many":"parse_many",
+    "object":"parse_object"
+  },
+  "definitions":{
+    "json":{
+      "parser":"any",
+      "any":[
+        "value"
+      ]
+    },
+    "value":{
+      "parser":"any",
+      "any":[  
+        "string",
+        "number",
+        "boolean",
+        "object",  
+        "array"
+      ]
+    },
+    "object":{
+      "parser":"object",
+      "begin":"brace_open",
+      "keyvalue":"keyvalue",
+      "end":"brace_close",
+      "separator":"comma"
+    },
+    "keyvalue":{
+      "parser":"sequence",
+      "sequence":{
+        "key":"string",
+        "colon":"/colon",
+        "value":"value"
+      }
+    },
+    "array":{
+      "parser":"many",
+      "begin":"bracket_open",
+      "element":"value",
+      "separator":"comma",
+      "end":"bracket_close"
+    },
+
+    "string":{
+      "parser":"regex",
+      "regex":"\"(([^\"]|\\\\|(\\([\"tnr])))*)\"",
+      "replace":"\\1",
+      "ignore_regex":"[ \n\r\t]+"
+    },
+    "number":{
+      "parser":"regex",
+      "regex":"0|[1-9][0-9]*",
+      "ignore_regex":"[ \n\r\t]+"
+    },
+    "boolean":{
+      "parser":"regex",
+      "regex":"true|false", 
+      "ignore_regex":"[ \n\r\t]+"
+    }, 
+    "whitespace":{
+      "parser":"regex",
+      "regex":"[ \n\r\t]+"
+    },
+    "colon":{
+      "parser":"match",
+      "search":":",
+      "ignore_regex":"[ \n\r\t]+"
+    },
+    "comma":{
+      "parser":"match",
+      "search":",",
+      "ignore_regex":"[ \n\r\t]+"
+    },
+    "brace_open":{
+      "parser":"match",
+      "search":"{",
+      "ignore_regex":"[ \n\r\t]+"
+    },
+    "brace_close":{
+      "parser":"match",
+      "search":"}",
+      "ignore_regex":"[ \n\r\t]+"
+    },
+    "bracket_open":{
+      "parser":"match",
+      "search":"[",
+      "ignore_regex":"[ \n\r\t]+"
+    },
+    "bracket_close":{
+      "parser":"match",
+      "search":"]",
+      "ignore_regex":"[ \n\r\t]+"
+    }
+  }
+}

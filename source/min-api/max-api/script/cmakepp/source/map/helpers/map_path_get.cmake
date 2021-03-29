@@ -1,0 +1,17 @@
+# returns the value at the specified path (path is specified as path fragment list)
+# e.g. map = {a:{b:{c:{d:{e:3}}}}}
+# map_path_get(${map} a b c d e)
+# returns 3
+# this function is somewhat faster than map_navigate()
+function(map_path_get map)
+  set(args ${ARGN})
+  set(current "${map}")
+  foreach(arg ${args}) 
+    if(NOT current)
+      return()
+   endif()
+   map_tryget("${current}" "${arg}")
+   ans(current)
+  endforeach()
+  return_ref(current)
+endfunction()

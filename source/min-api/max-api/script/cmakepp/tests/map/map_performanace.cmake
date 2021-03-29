@@ -1,0 +1,10 @@
+function(test)
+
+    foreach (i RANGE 1000)
+        map_new()
+        ans(map)
+        map_set(${map} key "value1")
+        map_get(${map} key)
+        ans(res)
+    endforeach ()
+endfunction()

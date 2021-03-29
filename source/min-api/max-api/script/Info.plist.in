@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>${MACOSX_BUNDLE_EXECUTABLE_NAME}</string>
+	<key>CFBundleIconFile</key>
+	<string></string>
+	<key>CFBundleIdentifier</key>
+	<string>@AUTHOR_DOMAIN@.@BUNDLE_IDENTIFIER@</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	
+	<key>CFBundlePackageType</key>
+	<string>iLaX</string>
+	<key>CFBundleSignature</key>
+	<string>max2</string>
+
+	<key>C74ObjectProperties</key>
+	<dict>
+		<key>c74excludefromcollectives</key>
+		<string>@EXCLUDE_FROM_COLLECTIVES@</string>
+	</dict>
+	
+	<key>CFBundleVersion</key>
+	<string>@GIT_VERSION_MAJ@.@GIT_VERSION_MIN@.@GIT_VERSION_SUB@</string>
+	<key>CFBundleShortVersionString</key>
+	<string>@GIT_VERSION_MAJ@.@GIT_VERSION_MIN@.@GIT_VERSION_SUB@</string>
+	<key>CFBundleLongVersionString</key>
+	<string>${MACOSX_BUNDLE_EXECUTABLE_NAME} @GIT_VERSION_MAJ@.@GIT_VERSION_MIN@.@GIT_VERSION_SUB@ - @COPYRIGHT_STRING@</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>@COPYRIGHT_STRING@</string>
+	
+	<key>CSResourcesFileMapped</key>
+	<true/>
+	<key>LSRequiresCarbon</key>
+	<true/>
+</dict>
+</plist>

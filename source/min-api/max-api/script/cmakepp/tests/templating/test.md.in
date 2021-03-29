@@ -1,0 +1,1 @@
+@execute(""cmake", "-E", "echo_append", "hello"")

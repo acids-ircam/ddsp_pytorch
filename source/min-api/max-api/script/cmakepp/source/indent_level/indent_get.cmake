@@ -1,0 +1,12 @@
+
+  function(indent_get)
+    list(LENGTH ARGN len)
+    set(indent "  ")
+    if(len)
+      set(indent "${ARGN}")
+    endif()
+    indent_level()
+    ans(lvl)
+    string_repeat("${indent}" "${lvl}")
+    return_ans()
+  endfunction()

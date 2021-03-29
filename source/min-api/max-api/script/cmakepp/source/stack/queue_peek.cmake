@@ -1,0 +1,12 @@
+
+  function(queue_peek queue)
+    map_tryget("${queue}" front)
+    ans(front)
+    map_tryget("${queue}" back)
+    ans(back)
+    if(${front} LESS ${back} )
+      map_tryget("${queue}" "${front}")
+      return_ans()
+    endif()
+    return()
+  endfunction()

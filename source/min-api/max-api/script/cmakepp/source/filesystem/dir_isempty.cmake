@@ -1,0 +1,10 @@
+## returns true iff specified path does not contain any files
+function(dir_isempty path)
+  ls("${path}")
+  ans(files)
+  list(LENGTH files len)
+  if(len)
+    return(false)
+  endif()
+  return(true)
+endfunction()

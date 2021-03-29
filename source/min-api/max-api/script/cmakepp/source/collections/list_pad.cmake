@@ -1,0 +1,32 @@
+  
+  function(list_pad ref n)
+    # contains alot of workaroudn for empty list elements
+    set(list ${${ref}})
+    list(LENGTH list len)
+    string(REPLACE ";" "" list "${list}")
+
+
+    set(pad_value ${ARGN})
+    if("${pad_value}_" STREQUAL "_")
+      if(${len} EQUAL 0 AND ${n} EQUAL 1)
+        # special case...
+        return(false)
+      endif()
+    endif()
+    if(${len} LESS "${n}")
+      math(EXPR n "${n} - 1")
+      foreach(i RANGE ${len} ${n})
+        if(${i} EQUAL 0)
+          set(list "${pad_value}")
+        else()
+          set(list  "${list}${pad_value}")
+        endif()
+        list(LENGTH list thelen)
+      endforeach()
+    else()
+      return(false)
+    endif()
+    string(REPLACE "" ";" list "${list}")
+    set(${ref} "${list}" PARENT_SCOPE)
+    return(true)
+  endfunction()

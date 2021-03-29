@@ -1,0 +1,47 @@
+# `CMake` Script Parsing, Token Manipulation, Reflection
+
+CMake's language lends itself to be parsed and tokenized easily. The [specification](http://www.cmake.org/cmake/help/v3.0/manual/cmake-language.7.html#syntax) shows which tokens are available.  Since the functional blocks of CMake only are `command_invocations`s the language's structure very simple.  
+
+My parser takes any cmake code (the version of code supported is still to be determined as for example bracket arguments are not supported but bracket comments are) and creates a list of tokens.  These tokens are also part of a linked list.  This linked list can be used to modify token values or add new tokens which in essence allows reflection and manipulation of the source code.
+
+```
+<cmake token>: {
+    type:<token type>
+    value: <string>
+    literal_value: <string>
+    line: <uint>
+    column: <uint>
+    length: <uint>
+    *next :<cmake token>
+    *previous: <cmake token>
+}
+<nesting token> ::= <cmake token> v {
+    type: "nesting",
+    value: "(",
+    literal_value: "(",
+    end: <nesting end token>
+}
+<nesting end token> ::= <cmake token> v {
+    type: "nesting_end",
+    value: ")",
+    literal_value: ")",
+    begin: <nesting begin token>
+}
+```
+
+
+
+<%
+    assign(function_files = glob("parsing/**.cmake" "token_manipulation/**.cmake" "serialization/**.cmake" "utilities/invocation/**.cmake" --relative --recurse))
+%>
+
+
+## Function List
+
+@markdown_template_function_list('${function_files}')
+
+## Function Descriptions
+
+@markdown_template_function_descriptions('${function_files}')
+
+

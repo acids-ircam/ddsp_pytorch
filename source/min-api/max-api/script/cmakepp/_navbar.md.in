@@ -1,0 +1,8 @@
+<%
+# this reads all files cmake
+assign(readmes = glob("source/*/README.md" --relative))
+string(REPLACE "//" "/" readmes "${readmes}")
+%>
+* Modules
+<% foreach(readme ${readmes})%>     * <%=markdown_template_link('${readme}')%>
+<% endforeach() %>

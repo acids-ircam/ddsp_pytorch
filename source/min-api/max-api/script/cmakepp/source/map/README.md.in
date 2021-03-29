@@ -1,0 +1,21 @@
+## Maps - Structured Data in CMake
+
+<%
+    assign(function_files = glob("**.cmake" --relative --recurse))
+%>
+
+Maps are very versatile and are missing dearly from CMake in my opinion. Maps are references as is standard in many languages. They are signified by having properties which are adressed by keys and can take any value.
+
+Due to the "variable variable" system (ie names of variables are string which can be generated from other variables) it is very easy to implement the map system. Under the hood a value is mapped by calling `address_set(${map}.${key})`.  
+
+
+
+### Function List
+
+<%= markdown_template_function_list('${function_files}') %>
+
+### Function Descriptions
+
+<%= markdown_template_function_descriptions('${function_files}') %>
+
+

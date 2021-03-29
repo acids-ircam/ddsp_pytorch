@@ -1,0 +1,19 @@
+# Collections
+
+`CMake` is missing a lot of helper functions when it comes to collections. 
+However using the `list` function that `CMake` provides it is possible to add alot of functions that help the developer.
+
+<%
+    assign(function_files = glob("**.cmake" --relative --recurse))
+%>
+
+
+### Function List
+
+@markdown_template_function_list('${function_files}')
+
+### Function Descriptions
+
+@markdown_template_function_descriptions('${function_files}')
+
+

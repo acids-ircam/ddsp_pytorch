@@ -1,0 +1,12 @@
+# converts a map to a key value list 
+function(map_to_keyvaluelist map)
+  map_keys(${map})
+  ans(keys)
+  set(kvl)
+  foreach(key ${keys})
+    map_get("${map}" "${key}")
+    ans(val)
+    list(APPEND kvl "${key}" "${val}")
+  endforeach()
+  return_ref(kvl)
+endfunction()

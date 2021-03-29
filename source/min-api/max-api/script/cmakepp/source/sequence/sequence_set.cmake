@@ -1,0 +1,12 @@
+
+    function(sequence_set map idx)
+      sequence_count(${map})
+      ans(count)
+      sequence_isvalid("${map}" "${idx}")
+      ans(isvalid)
+      if(NOT isvalid)
+        return(false)
+      endif()
+      map_set("${map}" "${idx}" ${ARGN})
+      return(true)
+    endfunction()

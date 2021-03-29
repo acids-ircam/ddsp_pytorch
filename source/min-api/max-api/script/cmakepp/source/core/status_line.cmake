@@ -1,0 +1,6 @@
+function(status_line)
+  map_set(global status "${ARGN}")
+  string_pad("${ARGN}" 100)
+  ans(str)  
+  echo_append("\r${str}\r")
+endfunction()  

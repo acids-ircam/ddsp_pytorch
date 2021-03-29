@@ -1,0 +1,498 @@
+The system is: Darwin - 18.7.0 - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler:  
+Build flags: 
+Id flags:  
+
+The output was:
+0
+note: Using new build system
+note: Planning build
+note: Constructing build description
+warning: Traditional headermap style is no longer supported; please migrate to using separate headermaps and set 'ALWAYS_SEARCH_USER_PATHS' to NO. (in target 'CompilerIdC' from project 'CompilerIdC')
+CreateBuildDirectory /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC (in target 'CompilerIdC' from project 'CompilerIdC')
+    cd /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC
+    builtin-create-build-directory /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC
+
+WriteAuxiliaryFile /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/CompilerIdC-project-headers.hmap (in target 'CompilerIdC' from project 'CompilerIdC')
+    cd /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC
+    write-file /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/CompilerIdC-project-headers.hmap
+
+WriteAuxiliaryFile /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/CompilerIdC.hmap (in target 'CompilerIdC' from project 'CompilerIdC')
+    cd /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC
+    write-file /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/CompilerIdC.hmap
+
+WriteAuxiliaryFile /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/all-product-headers.yaml (in target 'CompilerIdC' from project 'CompilerIdC')
+    cd /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC
+    write-file /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/all-product-headers.yaml
+
+WriteAuxiliaryFile /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/CompilerIdC-all-target-headers.hmap (in target 'CompilerIdC' from project 'CompilerIdC')
+    cd /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC
+    write-file /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/CompilerIdC-all-target-headers.hmap
+
+WriteAuxiliaryFile /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/CompilerIdC-all-non-framework-target-headers.hmap (in target 'CompilerIdC' from project 'CompilerIdC')
+    cd /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC
+    write-file /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/CompilerIdC-all-non-framework-target-headers.hmap
+
+WriteAuxiliaryFile /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/CompilerIdC-generated-files.hmap (in target 'CompilerIdC' from project 'CompilerIdC')
+    cd /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC
+    write-file /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/CompilerIdC-generated-files.hmap
+
+WriteAuxiliaryFile /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/CompilerIdC-own-target-headers.hmap (in target 'CompilerIdC' from project 'CompilerIdC')
+    cd /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC
+    write-file /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/CompilerIdC-own-target-headers.hmap
+
+CompileC /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/Objects-normal/x86_64/CMakeCCompilerId.o /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CMakeCCompilerId.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler (in target 'CompilerIdC' from project 'CompilerIdC')
+    cd /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC
+    export LANG=en_US.US-ASCII
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -target x86_64-apple-macos10.14 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-float-conversion -Wno-non-literal-null-conversion -Wno-objc-literal-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -g -fvisibility=hidden -Wno-sign-conversion -Wno-infinite-recursion -Wno-comma -Wno-block-capture-autoreleasing -Wno-strict-prototypes -Wno-semicolon-before-method-body -iquote /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/CompilerIdC-generated-files.hmap -I/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/CompilerIdC-own-target-headers.hmap -I/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/CompilerIdC-all-target-headers.hmap -iquote /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/CompilerIdC-project-headers.hmap -I/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/include -I/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/DerivedSources-normal/x86_64 -I/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/DerivedSources/x86_64 -I/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/DerivedSources -F/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC -MMD -MT dependencies -MF /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/Objects-normal/x86_64/CMakeCCompilerId.d --serialize-diagnostics /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/Objects-normal/x86_64/CMakeCCompilerId.dia -c /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CMakeCCompilerId.c -o /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/Objects-normal/x86_64/CMakeCCompilerId.o
+
+WriteAuxiliaryFile /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/Objects-normal/x86_64/CompilerIdC.LinkFileList (in target 'CompilerIdC' from project 'CompilerIdC')
+    cd /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC
+    write-file /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/Objects-normal/x86_64/CompilerIdC.LinkFileList
+
+Ld /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CompilerIdC normal x86_64 (in target 'CompilerIdC' from project 'CompilerIdC')
+    cd /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -target x86_64-apple-macos10.14 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -L/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC -F/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC -filelist /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/Objects-normal/x86_64/CompilerIdC.LinkFileList -Xlinker -object_path_lto -Xlinker /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/Objects-normal/x86_64/CompilerIdC_lto.o -Xlinker -dependency_info -Xlinker /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/Objects-normal/x86_64/CompilerIdC_dependency_info.dat -o /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CompilerIdC
+
+WriteAuxiliaryFile /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/Script-2C8FEB8E15DC1A1A00E56A5D.sh (in target 'CompilerIdC' from project 'CompilerIdC')
+    cd /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC
+    write-file /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/Script-2C8FEB8E15DC1A1A00E56A5D.sh
+
+PhaseScriptExecution Run\ Script /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/Script-2C8FEB8E15DC1A1A00E56A5D.sh (in target 'CompilerIdC' from project 'CompilerIdC')
+    cd /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC
+    /bin/sh -c /Users/animation/Documents/Max\\\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CompilerIdC.build/Debug/CompilerIdC.build/Script-2C8FEB8E15DC1A1A00E56A5D.sh
+GCC_VERSION=com.apple.compilers.llvm.clang.1_0
+ARCHS=x86_64
+
+** BUILD SUCCEEDED **
+
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC"
+
+The C compiler identification is AppleClang, found in "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdC/CompilerIdC"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler:  
+Build flags: 
+Id flags:  
+
+The output was:
+0
+note: Using new build system
+note: Planning build
+note: Constructing build description
+warning: Traditional headermap style is no longer supported; please migrate to using separate headermaps and set 'ALWAYS_SEARCH_USER_PATHS' to NO. (in target 'CompilerIdCXX' from project 'CompilerIdCXX')
+CreateBuildDirectory /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX (in target 'CompilerIdCXX' from project 'CompilerIdCXX')
+    cd /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX
+    builtin-create-build-directory /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX
+
+WriteAuxiliaryFile /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CompilerIdCXX.build/Debug/CompilerIdCXX.build/CompilerIdCXX-all-target-headers.hmap (in target 'CompilerIdCXX' from project 'CompilerIdCXX')
+    cd /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX
+    write-file /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CompilerIdCXX.build/Debug/CompilerIdCXX.build/CompilerIdCXX-all-target-headers.hmap
+
+WriteAuxiliaryFile /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CompilerIdCXX.build/Debug/CompilerIdCXX.build/CompilerIdCXX-project-headers.hmap (in target 'CompilerIdCXX' from project 'CompilerIdCXX')
+    cd /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX
+    write-file /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CompilerIdCXX.build/Debug/CompilerIdCXX.build/CompilerIdCXX-project-headers.hmap
+
+WriteAuxiliaryFile /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CompilerIdCXX.build/Debug/CompilerIdCXX.build/CompilerIdCXX.hmap (in target 'CompilerIdCXX' from project 'CompilerIdCXX')
+    cd /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX
+    write-file /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CompilerIdCXX.build/Debug/CompilerIdCXX.build/CompilerIdCXX.hmap
+
+WriteAuxiliaryFile /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CompilerIdCXX.build/Debug/CompilerIdCXX.build/CompilerIdCXX-all-non-framework-target-headers.hmap (in target 'CompilerIdCXX' from project 'CompilerIdCXX')
+    cd /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX
+    write-file /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CompilerIdCXX.build/Debug/CompilerIdCXX.build/CompilerIdCXX-all-non-framework-target-headers.hmap
+
+WriteAuxiliaryFile /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CompilerIdCXX.build/Debug/CompilerIdCXX.build/all-product-headers.yaml (in target 'CompilerIdCXX' from project 'CompilerIdCXX')
+    cd /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX
+    write-file /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CompilerIdCXX.build/Debug/CompilerIdCXX.build/all-product-headers.yaml
+
+WriteAuxiliaryFile /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CompilerIdCXX.build/Debug/CompilerIdCXX.build/CompilerIdCXX-generated-files.hmap (in target 'CompilerIdCXX' from project 'CompilerIdCXX')
+    cd /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX
+    write-file /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CompilerIdCXX.build/Debug/CompilerIdCXX.build/CompilerIdCXX-generated-files.hmap
+
+WriteAuxiliaryFile /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CompilerIdCXX.build/Debug/CompilerIdCXX.build/CompilerIdCXX-own-target-headers.hmap (in target 'CompilerIdCXX' from project 'CompilerIdCXX')
+    cd /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX
+    write-file /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CompilerIdCXX.build/Debug/CompilerIdCXX.build/CompilerIdCXX-own-target-headers.hmap
+
+CompileC /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CompilerIdCXX.build/Debug/CompilerIdCXX.build/Objects-normal/x86_64/CMakeCXXCompilerId.o /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CMakeCXXCompilerId.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler (in target 'CompilerIdCXX' from project 'CompilerIdCXX')
+    cd /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX
+    export LANG=en_US.US-ASCII
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -target x86_64-apple-macos10.14 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-float-conversion -Wno-non-literal-null-conversion -Wno-objc-literal-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -Wno-infinite-recursion -Wno-move -Wno-comma -Wno-block-capture-autoreleasing -Wno-strict-prototypes -Wno-range-loop-analysis -Wno-semicolon-before-method-body -iquote /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CompilerIdCXX.build/Debug/CompilerIdCXX.build/CompilerIdCXX-generated-files.hmap -I/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CompilerIdCXX.build/Debug/CompilerIdCXX.build/CompilerIdCXX-own-target-headers.hmap -I/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CompilerIdCXX.build/Debug/CompilerIdCXX.build/CompilerIdCXX-all-target-headers.hmap -iquote /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CompilerIdCXX.build/Debug/CompilerIdCXX.build/CompilerIdCXX-project-headers.hmap -I/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/include -I/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CompilerIdCXX.build/Debug/CompilerIdCXX.build/DerivedSources-normal/x86_64 -I/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CompilerIdCXX.build/Debug/CompilerIdCXX.build/DerivedSources/x86_64 -I/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CompilerIdCXX.build/Debug/CompilerIdCXX.build/DerivedSources -F/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX -MMD -MT dependencies -MF /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CompilerIdCXX.build/Debug/CompilerIdCXX.build/Objects-normal/x86_64/CMakeCXXCompilerId.d --serialize-diagnostics /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CompilerIdCXX.build/Debug/CompilerIdCXX.build/Objects-normal/x86_64/CMakeCXXCompilerId.dia -c /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CMakeCXXCompilerId.cpp -o /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CompilerIdCXX.build/Debug/CompilerIdCXX.build/Objects-normal/x86_64/CMakeCXXCompilerId.o
+
+WriteAuxiliaryFile /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CompilerIdCXX.build/Debug/CompilerIdCXX.build/Objects-normal/x86_64/CompilerIdCXX.LinkFileList (in target 'CompilerIdCXX' from project 'CompilerIdCXX')
+    cd /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX
+    write-file /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CompilerIdCXX.build/Debug/CompilerIdCXX.build/Objects-normal/x86_64/CompilerIdCXX.LinkFileList
+
+Ld /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CompilerIdCXX normal x86_64 (in target 'CompilerIdCXX' from project 'CompilerIdCXX')
+    cd /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -target x86_64-apple-macos10.14 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -L/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX -F/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX -filelist /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CompilerIdCXX.build/Debug/CompilerIdCXX.build/Objects-normal/x86_64/CompilerIdCXX.LinkFileList -Xlinker -object_path_lto -Xlinker /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CompilerIdCXX.build/Debug/CompilerIdCXX.build/Objects-normal/x86_64/CompilerIdCXX_lto.o -Xlinker -dependency_info -Xlinker /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CompilerIdCXX.build/Debug/CompilerIdCXX.build/Objects-normal/x86_64/CompilerIdCXX_dependency_info.dat -o /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CompilerIdCXX
+
+WriteAuxiliaryFile /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CompilerIdCXX.build/Debug/CompilerIdCXX.build/Script-2C8FEB8E15DC1A1A00E56A5D.sh (in target 'CompilerIdCXX' from project 'CompilerIdCXX')
+    cd /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX
+    write-file /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CompilerIdCXX.build/Debug/CompilerIdCXX.build/Script-2C8FEB8E15DC1A1A00E56A5D.sh
+
+PhaseScriptExecution Run\ Script /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CompilerIdCXX.build/Debug/CompilerIdCXX.build/Script-2C8FEB8E15DC1A1A00E56A5D.sh (in target 'CompilerIdCXX' from project 'CompilerIdCXX')
+    cd /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX
+    /bin/sh -c /Users/animation/Documents/Max\\\ 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CompilerIdCXX.build/Debug/CompilerIdCXX.build/Script-2C8FEB8E15DC1A1A00E56A5D.sh
+GCC_VERSION=com.apple.compilers.llvm.clang.1_0
+ARCHS=x86_64
+
+** BUILD SUCCEEDED **
+
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX"
+
+The CXX compiler identification is AppleClang, found in "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/3.19.3/CompilerIdCXX/CompilerIdCXX"
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/xcodebuild -project CMAKE_TRY_COMPILE.xcodeproj build -target cmTC_3fffc -configuration Debug -hideShellScriptEnvironment && User defaults from command line:
+    HideShellScriptEnvironment = YES
+
+Prepare build
+note: Using legacy build system
+=== BUILD TARGET cmTC_3fffc OF PROJECT CMAKE_TRY_COMPILE WITH CONFIGURATION Debug ===
+
+Check dependencies
+
+Write auxiliary files
+/bin/mkdir -p /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64
+write-file /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/cmTC_3fffc.LinkFileList
+
+CompileC CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/CMakeCCompilerABI.o /Users/animation/Documents/Max\ 8/Packages/min-devkit/script/cmake-mac/share/cmake-3.19/Modules/CMakeCCompilerABI.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+    cd "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp"
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -target x86_64-apple-macos10.14 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-float-conversion -Wno-non-literal-null-conversion -Wno-objc-literal-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -DCMAKE_INTDIR=\"Debug\" -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -Wno-infinite-recursion -Wno-comma -Wno-block-capture-autoreleasing -Wno-strict-prototypes -Wno-semicolon-before-method-body -I/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug/include -I/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/DerivedSources-normal/x86_64 -I/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/DerivedSources/x86_64 -I/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/DerivedSources -F/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug -v -Wl,-v -MMD -MT dependencies -MF /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/CMakeCCompilerABI.d --serialize-diagnostics /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/CMakeCCompilerABI.dia -c /Users/animation/Documents/Max\ 8/Packages/min-devkit/script/cmake-mac/share/cmake-3.19/Modules/CMakeCCompilerABI.c -o /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/CMakeCCompilerABI.o
+Apple clang version 11.0.0 (clang-1100.0.33.17)
+Target: x86_64-apple-macos10.14
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+clang: warning: -Wl,-v: 'linker' input unused [-Wunused-command-line-argument]
+ "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang" -cc1 -triple x86_64-apple-macosx10.14.0 -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -mthread-model posix -mdisable-fp-elim -fno-strict-return -masm-verbose -munwind-tables -target-sdk-version=10.15 -target-cpu penryn -dwarf-column-info -debug-info-kind=standalone -dwarf-version=4 -debugger-tuning=lldb -ggnu-pubnames -target-linker-version 530 -v -coverage-notes-file /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/CMakeCCompilerABI.gcno -resource-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0 -dependency-file /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/CMakeCCompilerABI.d -skip-unused-modulemap-deps -MT dependencies -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -D "CMAKE_INTDIR=\"Debug\"" -I /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug/include -I /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/DerivedSources-normal/x86_64 -I /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/DerivedSources/x86_64 -I /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/DerivedSources -F/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug -O0 -Wno-trigraphs -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-float-conversion -Wno-non-literal-null-conversion -Wno-objc-literal-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wdeprecated-declarations -Wno-sign-conversion -Wno-infinite-recursion -Wno-comma -Wno-block-capture-autoreleasing -Wno-strict-prototypes -Wno-semicolon-before-method-body -Wno-framework-include-private-from-public -Wno-atimport-in-framework-header -Wno-extra-semi-stmt -Wno-quoted-include-in-framework-header -fdebug-compilation-dir /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp -ferror-limit 19 -fmacro-backtrace-limit 0 -fmessage-length 0 -stack-protector 1 -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fobjc-runtime=macosx-10.14.0 -fpascal-strings -fmax-type-align=16 -fdiagnostics-show-option -fdiagnostics-show-note-include-stack -fasm-blocks -serialize-diagnostic-file /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/CMakeCCompilerABI.dia -o /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/CMakeCCompilerABI.o -x c /Users/animation/Documents/Max 8/Packages/min-devkit/script/cmake-mac/share/cmake-3.19/Modules/CMakeCCompilerABI.c
+clang -cc1 version 11.0.0 (clang-1100.0.33.17) default target x86_64-apple-darwin18.7.0
+ignoring nonexistent directory "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug/include"
+ignoring nonexistent directory "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/DerivedSources-normal/x86_64"
+ignoring nonexistent directory "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/DerivedSources/x86_64"
+ignoring nonexistent directory "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/DerivedSources"
+ignoring nonexistent directory "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug"
+ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/local/include"
+ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/Library/Frameworks"
+#include "..." search starts here:
+#include <...> search starts here:
+ /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include
+ /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include
+ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include
+ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks (framework directory)
+End of search list.
+
+Ld Debug/cmTC_3fffc normal x86_64
+    cd "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp"
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -target x86_64-apple-macos10.14 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -L/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug -F/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug -filelist /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/cmTC_3fffc.LinkFileList -Xlinker -object_path_lto -Xlinker /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/cmTC_3fffc_lto.o -Xlinker -no_deduplicate -v -Wl,-v -Wl,-search_paths_first -Wl,-headerpad_max_install_names -Xlinker -dependency_info -Xlinker /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/cmTC_3fffc_dependency_info.dat -o /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug/cmTC_3fffc
+Apple clang version 11.0.0 (clang-1100.0.33.17)
+Target: x86_64-apple-macos10.14
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+ "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld" -demangle -lto_library /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libLTO.dylib -dynamic -arch x86_64 -macosx_version_min 10.14.0 -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -o /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug/cmTC_3fffc -L/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug -filelist /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/cmTC_3fffc.LinkFileList -object_path_lto /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/cmTC_3fffc_lto.o -no_deduplicate -v -search_paths_first -headerpad_max_install_names -dependency_info /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/cmTC_3fffc_dependency_info.dat -lSystem /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/lib/darwin/libclang_rt.osx.a -F/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug
+@(#)PROGRAM:ld  PROJECT:ld64-530
+BUILD 18:57:17 Dec 13 2019
+configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em
+Library search paths:
+	/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib
+Framework search paths:
+	/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/
+
+** BUILD SUCCEEDED **
+
+
+
+
+Parsed C implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include]
+    add: [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include]
+    add: [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include]
+  end of search list found
+  collapse include dir [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include] ==> [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include]
+  collapse include dir [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include] ==> [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include]
+  collapse include dir [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include] ==> [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include]
+  implicit include dirs: [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include;/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include]
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/xcodebuild -project CMAKE_TRY_COMPILE.xcodeproj build -target cmTC_3fffc -configuration Debug -hideShellScriptEnvironment && User defaults from command line:]
+  ignore line: [    HideShellScriptEnvironment = YES]
+  ignore line: []
+  ignore line: [Prepare build]
+  ignore line: [note: Using legacy build system]
+  ignore line: [=== BUILD TARGET cmTC_3fffc OF PROJECT CMAKE_TRY_COMPILE WITH CONFIGURATION Debug ===]
+  ignore line: []
+  ignore line: [Check dependencies]
+  ignore line: []
+  ignore line: [Write auxiliary files]
+  ignore line: [/bin/mkdir -p /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64]
+  ignore line: [write-file /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/cmTC_3fffc.LinkFileList]
+  ignore line: []
+  ignore line: [CompileC CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/CMakeCCompilerABI.o /Users/animation/Documents/Max\ 8/Packages/min-devkit/script/cmake-mac/share/cmake-3.19/Modules/CMakeCCompilerABI.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler]
+  ignore line: [    cd "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp"]
+  ignore line: [    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -target x86_64-apple-macos10.14 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-float-conversion -Wno-non-literal-null-conversion -Wno-objc-literal-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -DCMAKE_INTDIR=\"Debug\" -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -Wno-infinite-recursion -Wno-comma -Wno-block-capture-autoreleasing -Wno-strict-prototypes -Wno-semicolon-before-method-body -I/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug/include -I/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/DerivedSources-normal/x86_64 -I/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/DerivedSources/x86_64 -I/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/DerivedSources -F/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug -v -Wl -v -MMD -MT dependencies -MF /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/CMakeCCompilerABI.d --serialize-diagnostics /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/CMakeCCompilerABI.dia -c /Users/animation/Documents/Max\ 8/Packages/min-devkit/script/cmake-mac/share/cmake-3.19/Modules/CMakeCCompilerABI.c -o /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/CMakeCCompilerABI.o]
+  ignore line: [Apple clang version 11.0.0 (clang-1100.0.33.17)]
+  ignore line: [Target: x86_64-apple-macos10.14]
+  ignore line: [Thread model: posix]
+  ignore line: [InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin]
+  ignore line: [clang: warning: -Wl -v: 'linker' input unused [-Wunused-command-line-argument]]
+  ignore line: [ "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang" -cc1 -triple x86_64-apple-macosx10.14.0 -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -mthread-model posix -mdisable-fp-elim -fno-strict-return -masm-verbose -munwind-tables -target-sdk-version=10.15 -target-cpu penryn -dwarf-column-info -debug-info-kind=standalone -dwarf-version=4 -debugger-tuning=lldb -ggnu-pubnames -target-linker-version 530 -v -coverage-notes-file /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/CMakeCCompilerABI.gcno -resource-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0 -dependency-file /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/CMakeCCompilerABI.d -skip-unused-modulemap-deps -MT dependencies -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -D "CMAKE_INTDIR=\"Debug\"" -I /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug/include -I /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/DerivedSources-normal/x86_64 -I /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/DerivedSources/x86_64 -I /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/DerivedSources -F/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug -O0 -Wno-trigraphs -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-float-conversion -Wno-non-literal-null-conversion -Wno-objc-literal-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wdeprecated-declarations -Wno-sign-conversion -Wno-infinite-recursion -Wno-comma -Wno-block-capture-autoreleasing -Wno-strict-prototypes -Wno-semicolon-before-method-body -Wno-framework-include-private-from-public -Wno-atimport-in-framework-header -Wno-extra-semi-stmt -Wno-quoted-include-in-framework-header -fdebug-compilation-dir /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp -ferror-limit 19 -fmacro-backtrace-limit 0 -fmessage-length 0 -stack-protector 1 -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fobjc-runtime=macosx-10.14.0 -fpascal-strings -fmax-type-align=16 -fdiagnostics-show-option -fdiagnostics-show-note-include-stack -fasm-blocks -serialize-diagnostic-file /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/CMakeCCompilerABI.dia -o /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/CMakeCCompilerABI.o -x c /Users/animation/Documents/Max 8/Packages/min-devkit/script/cmake-mac/share/cmake-3.19/Modules/CMakeCCompilerABI.c]
+  ignore line: [clang -cc1 version 11.0.0 (clang-1100.0.33.17) default target x86_64-apple-darwin18.7.0]
+  ignore line: [ignoring nonexistent directory "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug/include"]
+  ignore line: [ignoring nonexistent directory "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/DerivedSources-normal/x86_64"]
+  ignore line: [ignoring nonexistent directory "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/DerivedSources/x86_64"]
+  ignore line: [ignoring nonexistent directory "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/DerivedSources"]
+  ignore line: [ignoring nonexistent directory "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug"]
+  ignore line: [ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/local/include"]
+  ignore line: [ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/Library/Frameworks"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include]
+  ignore line: [ /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include]
+  ignore line: [ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include]
+  ignore line: [ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks (framework directory)]
+  ignore line: [End of search list.]
+  ignore line: []
+  ignore line: [Ld Debug/cmTC_3fffc normal x86_64]
+  ignore line: [    cd "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp"]
+  ignore line: [    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -target x86_64-apple-macos10.14 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -L/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug -F/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug -filelist /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/cmTC_3fffc.LinkFileList -Xlinker -object_path_lto -Xlinker /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/cmTC_3fffc_lto.o -Xlinker -no_deduplicate -v -Wl -v -Wl -search_paths_first -Wl -headerpad_max_install_names -Xlinker -dependency_info -Xlinker /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/cmTC_3fffc_dependency_info.dat -o /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug/cmTC_3fffc]
+  ignore line: [Apple clang version 11.0.0 (clang-1100.0.33.17)]
+  ignore line: [Target: x86_64-apple-macos10.14]
+  ignore line: [Thread model: posix]
+  ignore line: [InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin]
+  reduced line: [ "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld" -demangle -lto_library /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libLTO.dylib -dynamic -arch x86_64 -macosx_version_min 10.14.0 -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -o /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug/cmTC_3fffc -L/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug -filelist /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/cmTC_3fffc.LinkFileList -object_path_lto /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/cmTC_3fffc_lto.o -no_deduplicate -v -search_paths_first -headerpad_max_install_names -dependency_info /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/cmTC_3fffc_dependency_info.dat -lSystem /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/lib/darwin/libclang_rt.osx.a -F/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug]
+            to: [ "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld" -demangle -lto_library /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libLTO.dylib -dynamic -arch x86_64 -macosx_version_min 10.14.0 -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -o /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug/cmTC_3fffc -filelist /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/cmTC_3fffc.LinkFileList -object_path_lto /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/cmTC_3fffc_lto.o -no_deduplicate -v -search_paths_first -headerpad_max_install_names -dependency_info /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/cmTC_3fffc_dependency_info.dat -lSystem /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/lib/darwin/libclang_rt.osx.a ]
+  link line: [ "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld" -demangle -lto_library /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libLTO.dylib -dynamic -arch x86_64 -macosx_version_min 10.14.0 -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -o /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug/cmTC_3fffc -filelist /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/cmTC_3fffc.LinkFileList -object_path_lto /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/cmTC_3fffc_lto.o -no_deduplicate -v -search_paths_first -headerpad_max_install_names -dependency_info /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/cmTC_3fffc_dependency_info.dat -lSystem /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/lib/darwin/libclang_rt.osx.a ]
+    arg [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld] ==> ignore
+    arg [-demangle] ==> ignore
+    arg [-lto_library] ==> ignore, skip following value
+    arg [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libLTO.dylib] ==> skip value of -lto_library
+    arg [-dynamic] ==> ignore
+    arg [-arch] ==> ignore
+    arg [x86_64] ==> ignore
+    arg [-macosx_version_min] ==> ignore
+    arg [10.14.0] ==> ignore
+    arg [-syslibroot] ==> ignore
+    arg [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk] ==> ignore
+    arg [-o] ==> ignore
+    arg [/Users/animation/Documents/Max] ==> ignore
+    arg [8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug/cmTC_3fffc] ==> ignore
+    arg [-filelist] ==> ignore
+    arg [/Users/animation/Documents/Max] ==> ignore
+    arg [8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/cmTC_3fffc.LinkFileList] ==> ignore
+    arg [-object_path_lto] ==> ignore
+    arg [/Users/animation/Documents/Max] ==> ignore
+    arg [8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/cmTC_3fffc_lto.o] ==> ignore
+    arg [-no_deduplicate] ==> ignore
+    arg [-v] ==> ignore
+    arg [-search_paths_first] ==> ignore
+    arg [-headerpad_max_install_names] ==> ignore
+    arg [-dependency_info] ==> ignore
+    arg [/Users/animation/Documents/Max] ==> ignore
+    arg [8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_3fffc.build/Objects-normal/x86_64/cmTC_3fffc_dependency_info.dat] ==> ignore
+    arg [-lSystem] ==> lib [System]
+    arg [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/lib/darwin/libclang_rt.osx.a] ==> lib [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/lib/darwin/libclang_rt.osx.a]
+  Library search paths: [;/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib]
+  Framework search paths: [;/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/]
+  remove lib [System]
+  remove lib [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/lib/darwin/libclang_rt.osx.a]
+  collapse library dir [/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug] ==> [/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug], skipping non-system directory
+  collapse library dir [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib] ==> [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib]
+  collapse framework dir [/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug] ==> [/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug], skipping non-system directory
+  collapse framework dir [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/] ==> [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks]
+  implicit libs: []
+  implicit dirs: [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib]
+  implicit fwks: [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks]
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/xcodebuild -project CMAKE_TRY_COMPILE.xcodeproj build -target cmTC_0b0bb -configuration Debug -hideShellScriptEnvironment && User defaults from command line:
+    HideShellScriptEnvironment = YES
+
+Prepare build
+note: Using legacy build system
+=== BUILD TARGET cmTC_0b0bb OF PROJECT CMAKE_TRY_COMPILE WITH CONFIGURATION Debug ===
+
+Check dependencies
+
+Write auxiliary files
+/bin/mkdir -p /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64
+write-file /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/cmTC_0b0bb.LinkFileList
+
+CompileC CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/CMakeCXXCompilerABI.o /Users/animation/Documents/Max\ 8/Packages/min-devkit/script/cmake-mac/share/cmake-3.19/Modules/CMakeCXXCompilerABI.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+    cd "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp"
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -target x86_64-apple-macos10.14 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-float-conversion -Wno-non-literal-null-conversion -Wno-objc-literal-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DCMAKE_INTDIR=\"Debug\" -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -g -Wno-sign-conversion -Wno-infinite-recursion -Wno-move -Wno-comma -Wno-block-capture-autoreleasing -Wno-strict-prototypes -Wno-range-loop-analysis -Wno-semicolon-before-method-body -I/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug/include -I/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/DerivedSources-normal/x86_64 -I/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/DerivedSources/x86_64 -I/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/DerivedSources -F/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug -v -Wl,-v -MMD -MT dependencies -MF /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/CMakeCXXCompilerABI.d --serialize-diagnostics /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/CMakeCXXCompilerABI.dia -c /Users/animation/Documents/Max\ 8/Packages/min-devkit/script/cmake-mac/share/cmake-3.19/Modules/CMakeCXXCompilerABI.cpp -o /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/CMakeCXXCompilerABI.o
+Apple clang version 11.0.0 (clang-1100.0.33.17)
+Target: x86_64-apple-macos10.14
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+clang: warning: -Wl,-v: 'linker' input unused [-Wunused-command-line-argument]
+ "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang" -cc1 -triple x86_64-apple-macosx10.14.0 -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mthread-model posix -mdisable-fp-elim -fno-strict-return -masm-verbose -munwind-tables -target-sdk-version=10.15 -target-cpu penryn -dwarf-column-info -debug-info-kind=standalone -dwarf-version=4 -debugger-tuning=lldb -ggnu-pubnames -target-linker-version 530 -v -coverage-notes-file /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/CMakeCXXCompilerABI.gcno -resource-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0 -dependency-file /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/CMakeCXXCompilerABI.d -skip-unused-modulemap-deps -MT dependencies -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -D "CMAKE_INTDIR=\"Debug\"" -I /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug/include -I /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/DerivedSources-normal/x86_64 -I /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/DerivedSources/x86_64 -I /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/DerivedSources -F/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug -stdlib=libc++ -internal-isystem /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1 -O0 -Wno-trigraphs -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-float-conversion -Wno-non-literal-null-conversion -Wno-objc-literal-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -Wdeprecated-declarations -Winvalid-offsetof -Wno-sign-conversion -Wno-infinite-recursion -Wno-move -Wno-comma -Wno-block-capture-autoreleasing -Wno-strict-prototypes -Wno-range-loop-analysis -Wno-semicolon-before-method-body -Wno-framework-include-private-from-public -Wno-atimport-in-framework-header -Wno-extra-semi-stmt -Wno-quoted-include-in-framework-header -fdeprecated-macro -fdebug-compilation-dir /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp -ferror-limit 19 -fmacro-backtrace-limit 0 -fmessage-length 0 -stack-protector 1 -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fobjc-runtime=macosx-10.14.0 -fcxx-exceptions -fexceptions -fpascal-strings -fmax-type-align=16 -fdiagnostics-show-option -fdiagnostics-show-note-include-stack -fasm-blocks -serialize-diagnostic-file /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/CMakeCXXCompilerABI.dia -o /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/CMakeCXXCompilerABI.o -x c++ /Users/animation/Documents/Max 8/Packages/min-devkit/script/cmake-mac/share/cmake-3.19/Modules/CMakeCXXCompilerABI.cpp
+clang -cc1 version 11.0.0 (clang-1100.0.33.17) default target x86_64-apple-darwin18.7.0
+ignoring nonexistent directory "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug/include"
+ignoring nonexistent directory "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/DerivedSources-normal/x86_64"
+ignoring nonexistent directory "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/DerivedSources/x86_64"
+ignoring nonexistent directory "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/DerivedSources"
+ignoring nonexistent directory "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug"
+ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include/c++/v1"
+ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/local/include"
+ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/Library/Frameworks"
+#include "..." search starts here:
+#include <...> search starts here:
+ /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1
+ /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include
+ /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include
+ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include
+ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks (framework directory)
+End of search list.
+
+Ld Debug/cmTC_0b0bb normal x86_64
+    cd "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp"
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -target x86_64-apple-macos10.14 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -L/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug -F/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug -filelist /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/cmTC_0b0bb.LinkFileList -Xlinker -object_path_lto -Xlinker /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/cmTC_0b0bb_lto.o -Xlinker -no_deduplicate -v -Wl,-v -Wl,-search_paths_first -Wl,-headerpad_max_install_names -Xlinker -dependency_info -Xlinker /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/cmTC_0b0bb_dependency_info.dat -o /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug/cmTC_0b0bb
+Apple clang version 11.0.0 (clang-1100.0.33.17)
+Target: x86_64-apple-macos10.14
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+ "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld" -demangle -lto_library /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libLTO.dylib -dynamic -arch x86_64 -macosx_version_min 10.14.0 -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -o /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug/cmTC_0b0bb -L/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug -filelist /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/cmTC_0b0bb.LinkFileList -object_path_lto /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/cmTC_0b0bb_lto.o -no_deduplicate -v -search_paths_first -headerpad_max_install_names -dependency_info /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/cmTC_0b0bb_dependency_info.dat -lc++ -lSystem /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/lib/darwin/libclang_rt.osx.a -F/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug
+@(#)PROGRAM:ld  PROJECT:ld64-530
+BUILD 18:57:17 Dec 13 2019
+configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em
+Library search paths:
+	/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib
+Framework search paths:
+	/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/
+
+** BUILD SUCCEEDED **
+
+
+
+
+Parsed CXX implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1]
+    add: [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include]
+    add: [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include]
+    add: [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include]
+  end of search list found
+  collapse include dir [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1] ==> [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1]
+  collapse include dir [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include] ==> [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include]
+  collapse include dir [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include] ==> [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include]
+  collapse include dir [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include] ==> [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include]
+  implicit include dirs: [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1;/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include;/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include]
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/xcodebuild -project CMAKE_TRY_COMPILE.xcodeproj build -target cmTC_0b0bb -configuration Debug -hideShellScriptEnvironment && User defaults from command line:]
+  ignore line: [    HideShellScriptEnvironment = YES]
+  ignore line: []
+  ignore line: [Prepare build]
+  ignore line: [note: Using legacy build system]
+  ignore line: [=== BUILD TARGET cmTC_0b0bb OF PROJECT CMAKE_TRY_COMPILE WITH CONFIGURATION Debug ===]
+  ignore line: []
+  ignore line: [Check dependencies]
+  ignore line: []
+  ignore line: [Write auxiliary files]
+  ignore line: [/bin/mkdir -p /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64]
+  ignore line: [write-file /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/cmTC_0b0bb.LinkFileList]
+  ignore line: []
+  ignore line: [CompileC CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/CMakeCXXCompilerABI.o /Users/animation/Documents/Max\ 8/Packages/min-devkit/script/cmake-mac/share/cmake-3.19/Modules/CMakeCXXCompilerABI.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler]
+  ignore line: [    cd "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp"]
+  ignore line: [    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -target x86_64-apple-macos10.14 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-float-conversion -Wno-non-literal-null-conversion -Wno-objc-literal-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DCMAKE_INTDIR=\"Debug\" -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -g -Wno-sign-conversion -Wno-infinite-recursion -Wno-move -Wno-comma -Wno-block-capture-autoreleasing -Wno-strict-prototypes -Wno-range-loop-analysis -Wno-semicolon-before-method-body -I/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug/include -I/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/DerivedSources-normal/x86_64 -I/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/DerivedSources/x86_64 -I/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/DerivedSources -F/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug -v -Wl -v -MMD -MT dependencies -MF /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/CMakeCXXCompilerABI.d --serialize-diagnostics /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/CMakeCXXCompilerABI.dia -c /Users/animation/Documents/Max\ 8/Packages/min-devkit/script/cmake-mac/share/cmake-3.19/Modules/CMakeCXXCompilerABI.cpp -o /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/CMakeCXXCompilerABI.o]
+  ignore line: [Apple clang version 11.0.0 (clang-1100.0.33.17)]
+  ignore line: [Target: x86_64-apple-macos10.14]
+  ignore line: [Thread model: posix]
+  ignore line: [InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin]
+  ignore line: [clang: warning: -Wl -v: 'linker' input unused [-Wunused-command-line-argument]]
+  ignore line: [ "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang" -cc1 -triple x86_64-apple-macosx10.14.0 -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mthread-model posix -mdisable-fp-elim -fno-strict-return -masm-verbose -munwind-tables -target-sdk-version=10.15 -target-cpu penryn -dwarf-column-info -debug-info-kind=standalone -dwarf-version=4 -debugger-tuning=lldb -ggnu-pubnames -target-linker-version 530 -v -coverage-notes-file /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/CMakeCXXCompilerABI.gcno -resource-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0 -dependency-file /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/CMakeCXXCompilerABI.d -skip-unused-modulemap-deps -MT dependencies -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -D "CMAKE_INTDIR=\"Debug\"" -I /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug/include -I /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/DerivedSources-normal/x86_64 -I /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/DerivedSources/x86_64 -I /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/DerivedSources -F/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug -stdlib=libc++ -internal-isystem /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1 -O0 -Wno-trigraphs -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-float-conversion -Wno-non-literal-null-conversion -Wno-objc-literal-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -Wdeprecated-declarations -Winvalid-offsetof -Wno-sign-conversion -Wno-infinite-recursion -Wno-move -Wno-comma -Wno-block-capture-autoreleasing -Wno-strict-prototypes -Wno-range-loop-analysis -Wno-semicolon-before-method-body -Wno-framework-include-private-from-public -Wno-atimport-in-framework-header -Wno-extra-semi-stmt -Wno-quoted-include-in-framework-header -fdeprecated-macro -fdebug-compilation-dir /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp -ferror-limit 19 -fmacro-backtrace-limit 0 -fmessage-length 0 -stack-protector 1 -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fobjc-runtime=macosx-10.14.0 -fcxx-exceptions -fexceptions -fpascal-strings -fmax-type-align=16 -fdiagnostics-show-option -fdiagnostics-show-note-include-stack -fasm-blocks -serialize-diagnostic-file /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/CMakeCXXCompilerABI.dia -o /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/CMakeCXXCompilerABI.o -x c++ /Users/animation/Documents/Max 8/Packages/min-devkit/script/cmake-mac/share/cmake-3.19/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [clang -cc1 version 11.0.0 (clang-1100.0.33.17) default target x86_64-apple-darwin18.7.0]
+  ignore line: [ignoring nonexistent directory "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug/include"]
+  ignore line: [ignoring nonexistent directory "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/DerivedSources-normal/x86_64"]
+  ignore line: [ignoring nonexistent directory "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/DerivedSources/x86_64"]
+  ignore line: [ignoring nonexistent directory "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/DerivedSources"]
+  ignore line: [ignoring nonexistent directory "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug"]
+  ignore line: [ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include/c++/v1"]
+  ignore line: [ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/local/include"]
+  ignore line: [ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/Library/Frameworks"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1]
+  ignore line: [ /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include]
+  ignore line: [ /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include]
+  ignore line: [ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include]
+  ignore line: [ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks (framework directory)]
+  ignore line: [End of search list.]
+  ignore line: []
+  ignore line: [Ld Debug/cmTC_0b0bb normal x86_64]
+  ignore line: [    cd "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp"]
+  ignore line: [    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -target x86_64-apple-macos10.14 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -L/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug -F/Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug -filelist /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/cmTC_0b0bb.LinkFileList -Xlinker -object_path_lto -Xlinker /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/cmTC_0b0bb_lto.o -Xlinker -no_deduplicate -v -Wl -v -Wl -search_paths_first -Wl -headerpad_max_install_names -Xlinker -dependency_info -Xlinker /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/cmTC_0b0bb_dependency_info.dat -o /Users/animation/Documents/Max\ 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug/cmTC_0b0bb]
+  ignore line: [Apple clang version 11.0.0 (clang-1100.0.33.17)]
+  ignore line: [Target: x86_64-apple-macos10.14]
+  ignore line: [Thread model: posix]
+  ignore line: [InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin]
+  reduced line: [ "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld" -demangle -lto_library /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libLTO.dylib -dynamic -arch x86_64 -macosx_version_min 10.14.0 -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -o /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug/cmTC_0b0bb -L/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug -filelist /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/cmTC_0b0bb.LinkFileList -object_path_lto /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/cmTC_0b0bb_lto.o -no_deduplicate -v -search_paths_first -headerpad_max_install_names -dependency_info /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/cmTC_0b0bb_dependency_info.dat -lc++ -lSystem /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/lib/darwin/libclang_rt.osx.a -F/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug]
+            to: [ "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld" -demangle -lto_library /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libLTO.dylib -dynamic -arch x86_64 -macosx_version_min 10.14.0 -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -o /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug/cmTC_0b0bb -filelist /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/cmTC_0b0bb.LinkFileList -object_path_lto /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/cmTC_0b0bb_lto.o -no_deduplicate -v -search_paths_first -headerpad_max_install_names -dependency_info /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/cmTC_0b0bb_dependency_info.dat -lc++ -lSystem /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/lib/darwin/libclang_rt.osx.a ]
+  link line: [ "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld" -demangle -lto_library /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libLTO.dylib -dynamic -arch x86_64 -macosx_version_min 10.14.0 -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -o /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug/cmTC_0b0bb -filelist /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/cmTC_0b0bb.LinkFileList -object_path_lto /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/cmTC_0b0bb_lto.o -no_deduplicate -v -search_paths_first -headerpad_max_install_names -dependency_info /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/cmTC_0b0bb_dependency_info.dat -lc++ -lSystem /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/lib/darwin/libclang_rt.osx.a ]
+    arg [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld] ==> ignore
+    arg [-demangle] ==> ignore
+    arg [-lto_library] ==> ignore, skip following value
+    arg [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libLTO.dylib] ==> skip value of -lto_library
+    arg [-dynamic] ==> ignore
+    arg [-arch] ==> ignore
+    arg [x86_64] ==> ignore
+    arg [-macosx_version_min] ==> ignore
+    arg [10.14.0] ==> ignore
+    arg [-syslibroot] ==> ignore
+    arg [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk] ==> ignore
+    arg [-o] ==> ignore
+    arg [/Users/animation/Documents/Max] ==> ignore
+    arg [8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug/cmTC_0b0bb] ==> ignore
+    arg [-filelist] ==> ignore
+    arg [/Users/animation/Documents/Max] ==> ignore
+    arg [8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/cmTC_0b0bb.LinkFileList] ==> ignore
+    arg [-object_path_lto] ==> ignore
+    arg [/Users/animation/Documents/Max] ==> ignore
+    arg [8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/cmTC_0b0bb_lto.o] ==> ignore
+    arg [-no_deduplicate] ==> ignore
+    arg [-v] ==> ignore
+    arg [-search_paths_first] ==> ignore
+    arg [-headerpad_max_install_names] ==> ignore
+    arg [-dependency_info] ==> ignore
+    arg [/Users/animation/Documents/Max] ==> ignore
+    arg [8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/CMAKE_TRY_COMPILE.build/Debug/cmTC_0b0bb.build/Objects-normal/x86_64/cmTC_0b0bb_dependency_info.dat] ==> ignore
+    arg [-lc++] ==> lib [c++]
+    arg [-lSystem] ==> lib [System]
+    arg [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/lib/darwin/libclang_rt.osx.a] ==> lib [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/lib/darwin/libclang_rt.osx.a]
+  Library search paths: [;/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib]
+  Framework search paths: [;/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/]
+  remove lib [System]
+  remove lib [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/lib/darwin/libclang_rt.osx.a]
+  collapse library dir [/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug] ==> [/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug], skipping non-system directory
+  collapse library dir [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib] ==> [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib]
+  collapse framework dir [/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug] ==> [/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/CMakeFiles/CMakeTmp/Debug], skipping non-system directory
+  collapse framework dir [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/] ==> [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks]
+  implicit libs: [c++]
+  implicit dirs: [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib]
+  implicit fwks: [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks]
+
+

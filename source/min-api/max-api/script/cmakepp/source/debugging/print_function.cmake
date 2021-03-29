@@ -1,0 +1,10 @@
+
+function(print_function func)
+	function_lines_get( "${func}")
+  ans(lines)
+	set(i "0")
+	foreach(line ${lines})		
+		message(STATUS "LINE ${i}: ${line}")
+		math(EXPR i "${i} + 1")
+	endforeach()
+endfunction()

@@ -1,0 +1,10 @@
+
+  function(query_literal_bool expected)
+    #message("bool ${expected} - ${ARGN}")
+    if(ARGN AND expected)
+      return(true)
+    elseif(NOT ARGN AND NOT expected)
+      return(true)
+    endif()
+    return(false)
+  endfunction()

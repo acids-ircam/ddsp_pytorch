@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>${MACOSX_BUNDLE_EXECUTABLE_NAME}</string>
+	<key>CFBundleIconFile</key>
+	<string></string>
+	<key>CFBundleIdentifier</key>
+	<string>com.cycling74.${PRODUCT_NAME:rfc1034identifier}</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	
+	<key>CFBundlePackageType</key>
+	<string>iLaX</string>
+	<key>CFBundleSignature</key>
+	<string>max2</string>
+
+	<key>C74ObjectProperties</key>
+	<dict>
+		<key>c74excludefromcollectives</key>
+		<string>no</string>
+	</dict>
+	
+	<key>CFBundleVersion</key>
+	<string>1.0.0</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.0</string>
+	<key>CFBundleLongVersionString</key>
+	<string>${MACOSX_BUNDLE_EXECUTABLE_NAME} 1.0.0 - Copyright (c) 2018 Cycling '74</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright (c) 2018 Cycling '74</string>
+	
+	<key>CSResourcesFileMapped</key>
+	<true/>
+	<key>LSRequiresCarbon</key>
+	<true/>
+</dict>
+</plist>

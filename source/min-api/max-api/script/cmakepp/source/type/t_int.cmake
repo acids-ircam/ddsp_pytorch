@@ -1,0 +1,7 @@
+function(t_int)
+  if("${ARGN}" MATCHES "-?(0|([1-9][0-9]*))")
+    return(true ${ARGN})
+  else()
+    return(false)
+  endif()
+endfunction()

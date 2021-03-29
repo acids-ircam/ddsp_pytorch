@@ -1,0 +1,32 @@
+
+  function(indexed_store store_dir)
+    path_qualify(store_dir)
+    ans(store_dir)
+
+    map_new()
+    ans(this)
+    assign(this.store_dir = store_dir)
+    assign(this.save = 'indexed_store_save')
+    assign(this.load = 'indexed_store_load')
+    assign(this.index_add = 'indexed_store_index_add')
+    assign(this.find_keys = 'indexed_store_find_keys')
+    assign(this.find = 'indexed_store_find')
+    assign(this.delete = 'indexed_store_delete')
+    assign(this.list = 'indexed_store_list')
+    assign(this.keys = 'indexed_store_keys')
+    assign(this.key = '')
+    return(${this})
+  endfunction()
+
+
+  function(indexed_store_list)
+    indexed_store_keys()
+    ans(keys)
+    set(itms)
+    foreach(key ${keys})
+      indexed_store_load(${key})
+      ans_append(itms)
+    endforeach()
+    return_ref(itms)
+  endfunction()
+

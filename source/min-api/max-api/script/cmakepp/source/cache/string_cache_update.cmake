@@ -1,0 +1,12 @@
+
+function(string_cache_update cache_location key value)
+  string_cache_location("${cache_location}" "${key}")
+  ans(location)
+  if(NOT EXISTS "${location}")
+    fwrite("${location}/value.txt" "${value}")
+    return(true)
+  else()
+    fwrite("${location}/value.txt" "${value}")
+    return(false)
+  endif()
+endfunction()

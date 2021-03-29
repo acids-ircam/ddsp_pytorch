@@ -1,0 +1,11 @@
+# function to escape json
+function(json_escape value)
+	string(REGEX REPLACE "\\\\" "\\\\\\\\" value "${value}")
+	string(REGEX REPLACE "\\\"" "\\\\\"" value "${value}")
+	string(REGEX REPLACE "\n" "\\\\n" value "${value}")
+	string(REGEX REPLACE "\r" "\\\\r" value "${value}")
+	string(REGEX REPLACE "\t" "\\\\t" value "${value}")
+	string(REGEX REPLACE "\\$" "\\\\$" value "${value}")	
+	string(REGEX REPLACE ";" "\\\\\\\\;" value "${value}")
+	return_ref(value)
+endfunction()

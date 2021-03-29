@@ -1,0 +1,10 @@
+## usefull to do ternary operatorion in expr syntax
+function(ternary predicate trueResult falseResult)
+    eval_predicate("${predicate}")        
+    ans(res)
+    if(res)
+        return_ref(trueResult)
+    else()
+        return_ref(falseResult)
+    endif()
+endfunction()

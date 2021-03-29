@@ -1,0 +1,6 @@
+function(print_macros)
+get_cmake_property(_variableNames MACROS)
+foreach (_variableName ${_variableNames})
+    message(STATUS "${_variableName}")
+endforeach()
+endfunction()

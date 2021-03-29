@@ -1,0 +1,6 @@
+function(test)
+  task_start_anonymous("abc" () return("1 \${ARGN}"))
+  ans(task)
+  tqr()
+  assertf("{task.return_value}" STREQUAL "1 abc")
+endfunction()

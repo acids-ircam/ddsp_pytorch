@@ -1,0 +1,18 @@
+## String Functions
+<%
+    assign(function_files = glob("**.cmake" --relative))
+%>
+
+`CMake` has one utility for working with string: `string()`. Inside of the jewel there is hidden lots of functionality which just has to be exposed correctly to the user.  I also wanted to expose this functionality in the `cmakepp` way of doing things (ie `return values`)
+
+So I have created somewhat alot of functions which does things that you might need and alot of what you will probably never need - but feel good about because its there :)
+
+
+### Function List
+
+<%= markdown_template_function_list('${function_files}') %>
+
+### Function Descriptions
+
+<%= markdown_template_function_descriptions('${function_files}') %>
+

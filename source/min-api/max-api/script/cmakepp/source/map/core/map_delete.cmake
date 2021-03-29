@@ -1,0 +1,7 @@
+function(map_delete this)
+	map_keys("${this}")
+	ans(keys)
+	foreach(key ${keys})
+		map_remove("${this}" ${key})
+	endforeach()
+endfunction()

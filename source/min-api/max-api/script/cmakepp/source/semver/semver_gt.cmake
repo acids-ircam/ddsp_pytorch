@@ -1,0 +1,10 @@
+# returns true if semver a is more up to date than semver b
+  function(semver_gt  a b)
+    semver_compare( "${a}" "${b}") 
+    ans(res)
+    ans(res)
+    if(${res} LESS 0)
+      return(true)
+    endif()
+    return(false)
+  endfunction()

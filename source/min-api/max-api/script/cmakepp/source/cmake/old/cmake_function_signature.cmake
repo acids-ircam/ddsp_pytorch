@@ -1,0 +1,16 @@
+
+    function(cmake_function_signature code)
+      regex_cmake()  
+      string(REGEX MATCHALL "${regex_cmake_function_begin}" functions "${code}")
+      list_pop_front(functions)
+      ans(function)
+
+      map_new()
+      ans(res)
+      if("${function}" MATCHES "${regex_cmake_function_signature}")
+        map_set(${res} name "${${regex_cmake_function_signature.name}}")
+        map_set(${res} args_string "${${regex_cmake_function_signature.args}}")
+        map_set(${res} signature_code "${function}")
+      endif()
+      return_ref(res)
+    endfunction()

@@ -1,0 +1,928 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		75CBABE7202C4FEB817F6889 /* API */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = E674EAA749D44E48977BB770 /* Build configuration list for PBXAggregateTarget "API" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = API;
+			productName = API;
+		};
+		BF96963F381941F68C40DA4F /* RUN_TESTS */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 43FB1DF70B594C69B721362E /* Build configuration list for PBXAggregateTarget "RUN_TESTS" */;
+			buildPhases = (
+				751F8E31633E4E4BBF2280B4 /* CMake PostBuild Rules */,
+			);
+			dependencies = (
+			);
+			name = RUN_TESTS;
+			productName = RUN_TESTS;
+		};
+		F77BF404926D4686B18D6316 /* ALL_BUILD */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 19BED298AF4546458F3851AA /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildPhases = (
+				20756199C42F482DB3395E14 /* CMake Rules */,
+			);
+			dependencies = (
+				F5AA7E0C2C3940F2B7AB0175 /* PBXTargetDependency */,
+				CCB2F5B5404D45F29C28AD48 /* PBXTargetDependency */,
+			);
+			name = ALL_BUILD;
+			productName = ALL_BUILD;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		BC1F0999AFEA4177B872CB72 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/test/mock/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = ED0681A426D34885A54EB09B /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/test/mock/CMakeLists.txt */; };
+		DD48D2D1D20C44FB9E52C05D /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/test/mock/c74_mock.cpp */ = {isa = PBXBuildFile; fileRef = 2A12F5E8D4444C3BA27C83D7 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/test/mock/c74_mock.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildStyle section */
+		25E1B6BE665D486286F43B16 /* Release */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Release;
+		};
+		6C781C4B496D4A0EBEF8D7B2 /* RelWithDebInfo */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = RelWithDebInfo;
+		};
+		74F221DDCF8E40819778E9F3 /* Debug */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Debug;
+		};
+		BE1F37AF426A43EF9C2A7C79 /* MinSizeRel */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = MinSizeRel;
+		};
+/* End PBXBuildStyle section */
+
+/* Begin PBXContainerItemProxy section */
+		9942009C94794D03BD8AED9E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 68C2004F9DC549C7809BA89E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D57B539EA0194E5F8DE0E2B4;
+			remoteInfo = mock_kernel;
+		};
+		E63C7B4FF6834F0290164676 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 68C2004F9DC549C7809BA89E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 75CBABE7202C4FEB817F6889;
+			remoteInfo = API;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		030A2C59080E4830A214EFFB /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_texteditor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_texteditor.h; path = include/c74_min_texteditor.h; sourceTree = SOURCE_ROOT; };
+		07739AB40B7440A6BB1C1516 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_object_wrapper.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_object_wrapper.h; path = include/c74_min_object_wrapper.h; sourceTree = SOURCE_ROOT; };
+		07AC08CDF4D54B8A8FBD441B /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		0D9D1DE639B04294BCF0FA7F /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/readerwriterqueue/atomicops.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = atomicops.h; path = include/readerwriterqueue/atomicops.h; sourceTree = SOURCE_ROOT; };
+		15454B9F4AE343EBB8CE9838 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/readerwriterqueue/tests/unittests/minitest.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = minitest.h; path = include/readerwriterqueue/tests/unittests/minitest.h; sourceTree = SOURCE_ROOT; };
+		2346383B635B4FE280F5DB11 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_event.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_event.h; path = include/c74_min_event.h; sourceTree = SOURCE_ROOT; };
+		23AC81EFABA24B559CDC3528 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_graphics.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_graphics.h; path = include/c74_min_graphics.h; sourceTree = SOURCE_ROOT; };
+		242BF9486547458F961ED601 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/readerwriterqueue/benchmarks/systemtime.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = systemtime.h; path = include/readerwriterqueue/benchmarks/systemtime.h; sourceTree = SOURCE_ROOT; };
+		2A12F5E8D4444C3BA27C83D7 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/test/mock/c74_mock.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = c74_mock.cpp; path = test/mock/c74_mock.cpp; sourceTree = SOURCE_ROOT; };
+		2DC8E9566D5244618BC38DFD /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_impl.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_impl.h; path = include/c74_min_impl.h; sourceTree = SOURCE_ROOT; };
+		33D3AFF5EA604154BA0BC959 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_operator_matrix.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_operator_matrix.h; path = include/c74_min_operator_matrix.h; sourceTree = SOURCE_ROOT; };
+		35C78A2EA3744E3EABE12689 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_flags.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_flags.h; path = include/c74_min_flags.h; sourceTree = SOURCE_ROOT; };
+		380DF65D57E14175A9B1A67D /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_dataspace_gain.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_dataspace_gain.h; path = include/c74_min_dataspace_gain.h; sourceTree = SOURCE_ROOT; };
+		41F876FC1279406285D0EC5E /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_outlet.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_outlet.h; path = include/c74_min_outlet.h; sourceTree = SOURCE_ROOT; };
+		42630506FDDE487BBEEEDAD1 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/readerwriterqueue/tests/common/simplethread.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = simplethread.h; path = include/readerwriterqueue/tests/common/simplethread.h; sourceTree = SOURCE_ROOT; };
+		449604E1A9264D74AC6F317F /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_api.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_api.h; path = include/c74_min_api.h; sourceTree = SOURCE_ROOT; };
+		49095DA523F14310A62A914B /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_object_components.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_object_components.h; path = include/c74_min_object_components.h; sourceTree = SOURCE_ROOT; };
+		494805DB30FF45E882275E55 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_dictionary.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_dictionary.h; path = include/c74_min_dictionary.h; sourceTree = SOURCE_ROOT; };
+		494E52532F464930B4F45C79 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_buffer_impl.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_buffer_impl.h; path = include/c74_min_buffer_impl.h; sourceTree = SOURCE_ROOT; };
+		4A6DEBFF1E31424193668278 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_buffer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_buffer.h; path = include/c74_min_buffer.h; sourceTree = SOURCE_ROOT; };
+		4A9DA3F342CA4154A7787E0E /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_string.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_string.h; path = include/c74_min_string.h; sourceTree = SOURCE_ROOT; };
+		5213F07B4F5147A39446C131 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_symbol.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_symbol.h; path = include/c74_min_symbol.h; sourceTree = SOURCE_ROOT; };
+		5730F7B1D4B74A8293AB69EB /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_dataspace_time.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_dataspace_time.h; path = include/c74_min_dataspace_time.h; sourceTree = SOURCE_ROOT; };
+		5A5B362B1DD144388514E31F /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/readerwriterqueue/benchmarks/ext/folly/ProducerConsumerQueue.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ProducerConsumerQueue.h; path = include/readerwriterqueue/benchmarks/ext/folly/ProducerConsumerQueue.h; sourceTree = SOURCE_ROOT; };
+		5EC14ADDC6D64828B8D5771D /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_attribute_impl.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_attribute_impl.h; path = include/c74_min_attribute_impl.h; sourceTree = SOURCE_ROOT; };
+		6101F6D565E54D8892F6D172 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_inlet.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_inlet.h; path = include/c74_min_inlet.h; sourceTree = SOURCE_ROOT; };
+		61FDE1A74B2B4B7CAB37AE30 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_dataspace_none.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_dataspace_none.h; path = include/c74_min_dataspace_none.h; sourceTree = SOURCE_ROOT; };
+		635970BA71FF43D1BB3AFE8C /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_attribute.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_attribute.h; path = include/c74_min_attribute.h; sourceTree = SOURCE_ROOT; };
+		644A3B66A2A349DB91571621 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/readerwriterqueue/readerwriterqueue.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = readerwriterqueue.h; path = include/readerwriterqueue/readerwriterqueue.h; sourceTree = SOURCE_ROOT; };
+		745891E9878E491593572B7E /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_queue.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_queue.h; path = include/c74_min_queue.h; sourceTree = SOURCE_ROOT; };
+		7969783D67C14983BF915AD9 /* mock_kernel */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libmock_kernel.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B31CD400A3549C1B48FDE3D /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_port.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_port.h; path = include/c74_min_port.h; sourceTree = SOURCE_ROOT; };
+		90B37227B9A34E0AA48D7E03 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		95B9BA796C724F3889A7B90E /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_dataspace.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_dataspace.h; path = include/c74_min_dataspace.h; sourceTree = SOURCE_ROOT; };
+		9D10E27DE3494A5B95977CB9 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_timer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_timer.h; path = include/c74_min_timer.h; sourceTree = SOURCE_ROOT; };
+		AC558C4395B540CB9DAB0AE7 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_operator_ui.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_operator_ui.h; path = include/c74_min_operator_ui.h; sourceTree = SOURCE_ROOT; };
+		AC6F59B30B0540B8AD554F8A /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_operator_sample.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_operator_sample.h; path = include/c74_min_operator_sample.h; sourceTree = SOURCE_ROOT; };
+		AC71B5615C9F478A8FD7A395 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_catch.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_catch.h; path = include/c74_min_catch.h; sourceTree = SOURCE_ROOT; };
+		AE52569F52E8417081688F33 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_message.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_message.h; path = include/c74_min_message.h; sourceTree = SOURCE_ROOT; };
+		B3EA31244FDC4640B7D0A802 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_limit.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_limit.h; path = include/c74_min_limit.h; sourceTree = SOURCE_ROOT; };
+		BB37EC89A8D942D0BDF7D18B /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/readerwriterqueue/benchmarks/ext/1024cores/spscqueue.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = spscqueue.h; path = include/readerwriterqueue/benchmarks/ext/1024cores/spscqueue.h; sourceTree = SOURCE_ROOT; };
+		CAC3511FA9894C22A61D2C31 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_path.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_path.h; path = include/c74_min_path.h; sourceTree = SOURCE_ROOT; };
+		CCD0ADA0507A4A3EAE6B31B9 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_logger.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_logger.h; path = include/c74_min_logger.h; sourceTree = SOURCE_ROOT; };
+		CE60F882AE2F4E098F66E4E5 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_time.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_time.h; path = include/c74_min_time.h; sourceTree = SOURCE_ROOT; };
+		CFA110E0DEAC4AC8B350B247 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_object.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_object.h; path = include/c74_min_object.h; sourceTree = SOURCE_ROOT; };
+		D0AC507EC750481DABDC657D /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_operator_vector.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_operator_vector.h; path = include/c74_min_operator_vector.h; sourceTree = SOURCE_ROOT; };
+		D0F24B2146AD4A5E9CD671BD /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_notification.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_notification.h; path = include/c74_min_notification.h; sourceTree = SOURCE_ROOT; };
+		D113D302161D4B8A9D9CCA40 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_atom.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_atom.h; path = include/c74_min_atom.h; sourceTree = SOURCE_ROOT; };
+		D1DA9DA591004F968CA2EC09 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/murmur/Murmur3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Murmur3.h; path = include/murmur/Murmur3.h; sourceTree = SOURCE_ROOT; };
+		DDBE9EC9610C49729719F54F /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_argument.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_argument.h; path = include/c74_min_argument.h; sourceTree = SOURCE_ROOT; };
+		EAC3D13528BF4483846C7037 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_threadsafety.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_threadsafety.h; path = include/c74_min_threadsafety.h; sourceTree = SOURCE_ROOT; };
+		EC4BD11B43234C9F9917840C /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_patcher.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_patcher.h; path = include/c74_min_patcher.h; sourceTree = SOURCE_ROOT; };
+		ED0681A426D34885A54EB09B /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/test/mock/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = test/mock/CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		EF907C21B3D84CB18EC52EE5 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_unittest.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_unittest.h; path = include/c74_min_unittest.h; sourceTree = SOURCE_ROOT; };
+		F3615FA5119F44418F442C45 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_doc.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_doc.h; path = include/c74_min_doc.h; sourceTree = SOURCE_ROOT; };
+		F80158397A67429A9AC00A08 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_operator_mc.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min_operator_mc.h; path = include/c74_min_operator_mc.h; sourceTree = SOURCE_ROOT; };
+		FA782FA6FD7244539A6967C7 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = c74_min.h; path = include/c74_min.h; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A605FEF1CF3341C2B5264E84 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0B8DE4CD0FEE483C92AFA3C8 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				2A12F5E8D4444C3BA27C83D7 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/test/mock/c74_mock.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		329093AD24EA4A669F273047 = {
+			isa = PBXGroup;
+			children = (
+				B9394B8F2AFC44B49269EED4 /* API */,
+				BCB41FF3224E4738A014CDB3 /* ALL_BUILD */,
+				D1E3303764B648F4AA84810E /* mock_kernel */,
+				DBB04C8AB67D497FA8621C4D /* Products */,
+				8CAEF159B40A4FB496D4B731 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		84F79F1742D84064A2782999 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		8CAEF159B40A4FB496D4B731 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9AF2A0ED7F2948E48B46BA9D /* Header Files */ = {
+			isa = PBXGroup;
+			children = (
+				FA782FA6FD7244539A6967C7 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min.h */,
+				449604E1A9264D74AC6F317F /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_api.h */,
+				DDBE9EC9610C49729719F54F /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_argument.h */,
+				D113D302161D4B8A9D9CCA40 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_atom.h */,
+				635970BA71FF43D1BB3AFE8C /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_attribute.h */,
+				5EC14ADDC6D64828B8D5771D /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_attribute_impl.h */,
+				4A6DEBFF1E31424193668278 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_buffer.h */,
+				494E52532F464930B4F45C79 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_buffer_impl.h */,
+				AC71B5615C9F478A8FD7A395 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_catch.h */,
+				95B9BA796C724F3889A7B90E /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_dataspace.h */,
+				380DF65D57E14175A9B1A67D /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_dataspace_gain.h */,
+				61FDE1A74B2B4B7CAB37AE30 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_dataspace_none.h */,
+				5730F7B1D4B74A8293AB69EB /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_dataspace_time.h */,
+				494805DB30FF45E882275E55 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_dictionary.h */,
+				F3615FA5119F44418F442C45 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_doc.h */,
+				2346383B635B4FE280F5DB11 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_event.h */,
+				35C78A2EA3744E3EABE12689 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_flags.h */,
+				23AC81EFABA24B559CDC3528 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_graphics.h */,
+				2DC8E9566D5244618BC38DFD /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_impl.h */,
+				6101F6D565E54D8892F6D172 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_inlet.h */,
+				B3EA31244FDC4640B7D0A802 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_limit.h */,
+				CCD0ADA0507A4A3EAE6B31B9 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_logger.h */,
+				AE52569F52E8417081688F33 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_message.h */,
+				D0F24B2146AD4A5E9CD671BD /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_notification.h */,
+				CFA110E0DEAC4AC8B350B247 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_object.h */,
+				49095DA523F14310A62A914B /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_object_components.h */,
+				07739AB40B7440A6BB1C1516 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_object_wrapper.h */,
+				33D3AFF5EA604154BA0BC959 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_operator_matrix.h */,
+				F80158397A67429A9AC00A08 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_operator_mc.h */,
+				AC6F59B30B0540B8AD554F8A /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_operator_sample.h */,
+				AC558C4395B540CB9DAB0AE7 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_operator_ui.h */,
+				D0AC507EC750481DABDC657D /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_operator_vector.h */,
+				41F876FC1279406285D0EC5E /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_outlet.h */,
+				EC4BD11B43234C9F9917840C /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_patcher.h */,
+				CAC3511FA9894C22A61D2C31 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_path.h */,
+				7B31CD400A3549C1B48FDE3D /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_port.h */,
+				745891E9878E491593572B7E /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_queue.h */,
+				4A9DA3F342CA4154A7787E0E /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_string.h */,
+				5213F07B4F5147A39446C131 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_symbol.h */,
+				030A2C59080E4830A214EFFB /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_texteditor.h */,
+				EAC3D13528BF4483846C7037 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_threadsafety.h */,
+				CE60F882AE2F4E098F66E4E5 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_time.h */,
+				9D10E27DE3494A5B95977CB9 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_timer.h */,
+				EF907C21B3D84CB18EC52EE5 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/c74_min_unittest.h */,
+				D1DA9DA591004F968CA2EC09 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/murmur/Murmur3.h */,
+				0D9D1DE639B04294BCF0FA7F /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/readerwriterqueue/atomicops.h */,
+				BB37EC89A8D942D0BDF7D18B /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/readerwriterqueue/benchmarks/ext/1024cores/spscqueue.h */,
+				5A5B362B1DD144388514E31F /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/readerwriterqueue/benchmarks/ext/folly/ProducerConsumerQueue.h */,
+				242BF9486547458F961ED601 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/readerwriterqueue/benchmarks/systemtime.h */,
+				644A3B66A2A349DB91571621 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/readerwriterqueue/readerwriterqueue.h */,
+				42630506FDDE487BBEEEDAD1 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/readerwriterqueue/tests/common/simplethread.h */,
+				15454B9F4AE343EBB8CE9838 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/include/readerwriterqueue/tests/unittests/minitest.h */,
+			);
+			name = "Header Files";
+			sourceTree = "<group>";
+		};
+		B9394B8F2AFC44B49269EED4 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				9AF2A0ED7F2948E48B46BA9D /* Header Files */,
+				07AC08CDF4D54B8A8FBD441B /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/CMakeLists.txt */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		BCB41FF3224E4738A014CDB3 /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				84F79F1742D84064A2782999 /* CMake Rules */,
+				90B37227B9A34E0AA48D7E03 /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+		D1E3303764B648F4AA84810E /* mock_kernel */ = {
+			isa = PBXGroup;
+			children = (
+				0B8DE4CD0FEE483C92AFA3C8 /* Source Files */,
+				ED0681A426D34885A54EB09B /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/test/mock/CMakeLists.txt */,
+			);
+			name = mock_kernel;
+			sourceTree = "<group>";
+		};
+		DBB04C8AB67D497FA8621C4D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7969783D67C14983BF915AD9 /* mock_kernel */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D57B539EA0194E5F8DE0E2B4 /* mock_kernel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C84DC1D061DC46C3831376F1 /* Build configuration list for PBXNativeTarget "mock_kernel" */;
+			buildPhases = (
+				4A85E5998C634094ADA39C18 /* Sources */,
+				A605FEF1CF3341C2B5264E84 /* Frameworks */,
+				3F74C636FC9D44E290BA4194 /* CMake PostBuild Rules */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = mock_kernel;
+			productName = mock_kernel;
+			productReference = 7969783D67C14983BF915AD9 /* mock_kernel */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		68C2004F9DC549C7809BA89E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1130;
+			};
+			buildConfigurationList = 5BD6B40D08494ABDA96CB79A /* Build configuration list for PBXProject "min-api" */;
+			buildSettings = {
+			};
+			buildStyles = (
+				74F221DDCF8E40819778E9F3 /* Debug */,
+				25E1B6BE665D486286F43B16 /* Release */,
+				BE1F37AF426A43EF9C2A7C79 /* MinSizeRel */,
+				6C781C4B496D4A0EBEF8D7B2 /* RelWithDebInfo */,
+			);
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 0;
+			mainGroup = 329093AD24EA4A669F273047;
+			projectDirPath = "../../../source/min-api";
+			projectRoot = "";
+			targets = (
+				F77BF404926D4686B18D6316 /* ALL_BUILD */,
+				75CBABE7202C4FEB817F6889 /* API */,
+				BF96963F381941F68C40DA4F /* RUN_TESTS */,
+				D57B539EA0194E5F8DE0E2B4 /* mock_kernel */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		20756199C42F482DB3395E14 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/animation/Documents/Max\\ 8/Packages/KlingKlangKlong/build/source/min-api -f /Users/animation/Documents/Max\\ 8/Packages/KlingKlangKlong/build/source/min-api/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION OBJDIR=$(basename \"$OBJECT_FILE_DIR_normal\") all";
+			showEnvVarsInLog = 0;
+		};
+		3F74C636FC9D44E290BA4194 /* CMake PostBuild Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake PostBuild Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/animation/Documents/Max\\ 8/Packages/KlingKlangKlong/build/source/min-api/test/mock -f /Users/animation/Documents/Max\\ 8/Packages/KlingKlangKlong/build/source/min-api/test/mock/CMakeScripts/mock_kernel_postBuildPhase.make$CONFIGURATION OBJDIR=$(basename \"$OBJECT_FILE_DIR_normal\") all";
+			showEnvVarsInLog = 0;
+		};
+		751F8E31633E4E4BBF2280B4 /* CMake PostBuild Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake PostBuild Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/animation/Documents/Max\\ 8/Packages/KlingKlangKlong/build/source/min-api -f /Users/animation/Documents/Max\\ 8/Packages/KlingKlangKlong/build/source/min-api/CMakeScripts/RUN_TESTS_postBuildPhase.make$CONFIGURATION OBJDIR=$(basename \"$OBJECT_FILE_DIR_normal\") all";
+			showEnvVarsInLog = 0;
+		};
+		910A41151295C5F9742C25BD = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		9797FCCB055ED8894E72B7F5 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		9B50530E35CC49C82C2FACCF = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4A85E5998C634094ADA39C18 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD48D2D1D20C44FB9E52C05D /* /Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/test/mock/c74_mock.cpp */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CCB2F5B5404D45F29C28AD48 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D57B539EA0194E5F8DE0E2B4 /* mock_kernel */;
+			targetProxy = 9942009C94794D03BD8AED9E /* PBXContainerItemProxy */;
+		};
+		F5AA7E0C2C3940F2B7AB0175 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 75CBABE7202C4FEB817F6889 /* API */;
+			targetProxy = E63C7B4FF6834F0290164676 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		06CD51A1FFA146E4A3236179 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/source/min-api";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		09D923DCBCDC463A900D9D3D /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk;
+				SYMROOT = "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/source/min-api/build";
+			};
+			name = MinSizeRel;
+		};
+		0AB163CAC8A743DB9C6EE4FE /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = x86_64;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/tests/MinSizeRel";
+				DYLIB_COMPATIBILITY_VERSION = "";
+				DYLIB_CURRENT_VERSION = "";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .dylib;
+				FRAMEWORK_SEARCH_PATHS = ("$(inherited)");
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",mock_kernel_EXPORTS);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("\"/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/test/mock/../../../min-api/max-api/include\"","\"/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/test/mock/.\"");
+				INSTALL_PATH = "@rpath";
+				LIBRARY_SEARCH_PATHS = ("$(inherited)");
+				LIBRARY_STYLE = DYNAMIC;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG -fPIC '-std=gnu++17' ";
+				OTHER_LDFLAGS = (" -dynamiclib -Wl,-headerpad_max_install_names");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = mock_kernel;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/source/min-api/test/mock";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		0E445695A12F4213B267F67D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = API;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/source/min-api";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		1789E9AC5CE8428BB26B7E2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = RUN_TESTS;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/source/min-api";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		25ECD44B1F2843AC94CEAFAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = API;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/source/min-api";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		2742DBD6CEAE4B71BC46AE8E /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk;
+				SYMROOT = "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/source/min-api/build";
+			};
+			name = RelWithDebInfo;
+		};
+		4B1B5D9322624430AB60EE25 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = API;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/source/min-api";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		51863E1007C84CE88687EEC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/source/min-api";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		58AF60BDAFD24CF1BC807E1C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = RUN_TESTS;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/source/min-api";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		84D7714A2C504F0783DCB66A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = x86_64;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/tests";
+				DYLIB_COMPATIBILITY_VERSION = "";
+				DYLIB_CURRENT_VERSION = "";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .dylib;
+				FRAMEWORK_SEARCH_PATHS = ("$(inherited)");
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",mock_kernel_EXPORTS);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("\"/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/test/mock/../../../min-api/max-api/include\"","\"/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/test/mock/.\"");
+				INSTALL_PATH = "@rpath";
+				LIBRARY_SEARCH_PATHS = ("$(inherited)");
+				LIBRARY_STYLE = DYNAMIC;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG -fPIC '-std=gnu++17' ";
+				OTHER_LDFLAGS = (" -dynamiclib -Wl,-headerpad_max_install_names");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = mock_kernel;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/source/min-api/test/mock";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		87893703EFFE498B890E9948 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = RUN_TESTS;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/source/min-api";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		930ECE0BBC5C4BF782711855 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/source/min-api";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		A2C291C495B04D3285BA05EE /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = RUN_TESTS;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/source/min-api";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		BF8F2E90DE6C4F12B0D32923 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = x86_64;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/tests/RelWithDebInfo";
+				DYLIB_COMPATIBILITY_VERSION = "";
+				DYLIB_CURRENT_VERSION = "";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .dylib;
+				FRAMEWORK_SEARCH_PATHS = ("$(inherited)");
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",mock_kernel_EXPORTS);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("\"/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/test/mock/../../../min-api/max-api/include\"","\"/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/test/mock/.\"");
+				INSTALL_PATH = "@rpath";
+				LIBRARY_SEARCH_PATHS = ("$(inherited)");
+				LIBRARY_STYLE = DYNAMIC;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG -fPIC '-std=gnu++17' ";
+				OTHER_LDFLAGS = (" -dynamiclib -Wl,-headerpad_max_install_names");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = mock_kernel;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/source/min-api/test/mock";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		C739AF1AE0F9470A951A4187 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = x86_64;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/tests";
+				DYLIB_COMPATIBILITY_VERSION = "";
+				DYLIB_CURRENT_VERSION = "";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .dylib;
+				FRAMEWORK_SEARCH_PATHS = ("$(inherited)");
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",mock_kernel_EXPORTS);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("\"/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/test/mock/../../../min-api/max-api/include\"","\"/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/source/min-api/test/mock/.\"");
+				INSTALL_PATH = "@rpath";
+				LIBRARY_SEARCH_PATHS = ("$(inherited)");
+				LIBRARY_STYLE = DYNAMIC;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "   -fPIC '-std=gnu++17' ";
+				OTHER_LDFLAGS = (" -dynamiclib -Wl,-headerpad_max_install_names");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = mock_kernel;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/source/min-api/test/mock";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		C7CD1DA7F1EF469CBA5BA95C /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = API;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/source/min-api";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		D852C99EA1B444A688145047 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/source/min-api";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		E1C1E3BB7D0540F99C7FA2FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk;
+				SYMROOT = "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/source/min-api/build";
+			};
+			name = Debug;
+		};
+		EE27459634F042DDB6D477C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk;
+				SYMROOT = "/Users/animation/Documents/Max 8/Packages/KlingKlangKlong/build/source/min-api/build";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		19BED298AF4546458F3851AA /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				51863E1007C84CE88687EEC6 /* Debug */,
+				930ECE0BBC5C4BF782711855 /* Release */,
+				06CD51A1FFA146E4A3236179 /* MinSizeRel */,
+				D852C99EA1B444A688145047 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		43FB1DF70B594C69B721362E /* Build configuration list for PBXAggregateTarget "RUN_TESTS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58AF60BDAFD24CF1BC807E1C /* Debug */,
+				1789E9AC5CE8428BB26B7E2D /* Release */,
+				A2C291C495B04D3285BA05EE /* MinSizeRel */,
+				87893703EFFE498B890E9948 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		5BD6B40D08494ABDA96CB79A /* Build configuration list for PBXProject "min-api" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1C1E3BB7D0540F99C7FA2FC /* Debug */,
+				EE27459634F042DDB6D477C4 /* Release */,
+				09D923DCBCDC463A900D9D3D /* MinSizeRel */,
+				2742DBD6CEAE4B71BC46AE8E /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		C84DC1D061DC46C3831376F1 /* Build configuration list for PBXNativeTarget "mock_kernel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C739AF1AE0F9470A951A4187 /* Debug */,
+				84D7714A2C504F0783DCB66A /* Release */,
+				0AB163CAC8A743DB9C6EE4FE /* MinSizeRel */,
+				BF8F2E90DE6C4F12B0D32923 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E674EAA749D44E48977BB770 /* Build configuration list for PBXAggregateTarget "API" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				25ECD44B1F2843AC94CEAFAC /* Debug */,
+				0E445695A12F4213B267F67D /* Release */,
+				C7CD1DA7F1EF469CBA5BA95C /* MinSizeRel */,
+				4B1B5D9322624430AB60EE25 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 68C2004F9DC549C7809BA89E /* Project object */;
+}

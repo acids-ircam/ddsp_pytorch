@@ -1,0 +1,14 @@
+## CSV Serialization and Deserialization
+<%
+    assign(function_files = glob("**.cmake" --relative))
+%>
+
+
+### Function List
+
+<%= markdown_template_function_list('${function_files}') %>
+
+### Function Descriptions
+
+<%= markdown_template_function_descriptions('${function_files}') %>
+

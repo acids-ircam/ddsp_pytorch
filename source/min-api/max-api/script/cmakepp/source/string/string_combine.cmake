@@ -1,0 +1,15 @@
+## combines the varargs into a string joining them with separator
+## e.g. string_combine(, a b c) => "a,b,c"
+function(string_combine separator )
+  set(first true)
+  set(res)
+  foreach(arg ${ARGN})
+    if(first )
+      set(first false)
+    else()
+      set(res "${res}${separator}")
+    endif()
+    set(res "${res}${arg}")
+  endforeach()
+  return_ref(res)
+endfunction()

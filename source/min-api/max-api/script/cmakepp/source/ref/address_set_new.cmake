@@ -1,0 +1,6 @@
+function(address_set_new)
+	address_new()
+  ans(res)
+	address_set(${res} "${ARGN}")
+  return(${res})
+endfunction()

@@ -1,0 +1,6 @@
+function(message_indent_get)
+  message_indent_level()
+  ans(level)
+  string_repeat(" " ${level})
+  return_ans()
+endfunction()

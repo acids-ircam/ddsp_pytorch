@@ -1,0 +1,22 @@
+
+  function(ref_prop_get ref prop)
+    map_get_special("${ref}" object)
+    ans(isobject)
+    if(isobject)
+      obj_get("${ref}" "${prop}")
+    else()
+      map_tryget("${ref}" "${prop}")
+    endif()
+    return_ans()
+  endfunction()
+
+  ## faster
+  macro(ref_prop_get ref prop)
+    map_get_special("${ref}" object)
+    ans(isobject)
+    if(isobject)
+      obj_get("${ref}" "${prop}")
+    else()
+      map_tryget("${ref}" "${prop}")
+    endif()
+  endmacro()

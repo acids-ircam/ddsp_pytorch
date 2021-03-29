@@ -1,0 +1,53 @@
+## Events
+
+Events are often usefull when working with modules. CMake of course has no need for events generally. Some of my projects (cutil/cps) needed them however. For example the package manager cps uses them to allow hooks on package install/uninstall/load events which the packages can register.
+
+
+## Example
+
+
+```
+# create an event handler
+function(my_event_handler arg)
+ message("${event_name} called: ${arg}")
+ return("answer1")
+endfunction()
+
+# add an event handler
+event_addhandler(irrelevant_event_name my_event_handler)
+# add lambda event handler
+event_addhandler(irrelevant_event_name "(arg)->return($arg)")
+# anything callable can be used as an event handler (even a cmake file containing a single function)
+
+# emit event calls all registered event handlers in order
+# and concatenates their return values
+# side effects: prints irrelevent_event_name called: i am an argument
+event_emit(irrelevant_event_name "i am an argument")
+ans(result)
+
+
+assert(EQUALS ${result} answer1 "i am an argument")
+```
+
+## Functions and Datatypes
+
+* `<event id>` a globally unique identifier for an event (any name you want except `on_event` )
+* `on event` a special event that gets fired on all events (mainly for debugging purposes)
+* `event_addhandler(<event id> <callable>)` registers an event handler for the globally unique event identified by `<event id>` see definition for callable in [functions section](#functions)
+* `event_removehandler(<event id> <callable>)` removes the specified event handler from the handler list (it is no longer invoked when event is emitted)
+* `event_emit(<event id> [arg ...]) -> any[]` invokes the event identified by `<event id>` calls every handler passing along the argument list. every eventhandler's return value is concatenated and returned.  It is possible to register event handlers during call of the event itself the emit routine continues as long as their are uncalled registered event handlers but does not call them twice.
+* ... (functions for dynamic events, access to all available events)
+
+
+
+<%
+    assign(function_files = glob("**.cmake" --relative))
+%>
+### Function List
+
+<%= markdown_template_function_list('${function_files}') %>
+
+
+### Function Descriptions
+
+<%= markdown_template_function_descriptions('${function_files}') %>

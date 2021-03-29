@@ -1,0 +1,11 @@
+# Creating Checksums
+
+`CMake` provides you with two hashing functions: `string(<hash-algorithm>)` and `file(<hash-algorithm>)`.  These work just fine but I reformed them to work well with `cmakepp` and extended the functionality: 
+
+<% assign(function_files = glob("**.cmake" --relative)) %>
+
+<%= markdown_template_function_list('${function_files}') %>
+
+### Function Details
+
+<%= markdown_template_function_descriptions('${function_files}') %>

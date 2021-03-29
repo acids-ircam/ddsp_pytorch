@@ -1,0 +1,33 @@
+## Functions
+
+<%
+    assign(function_files = glob("**.cmake" --relative))
+%>
+
+CMake is a function oriented language. Every line in a cmake script is a function just a function call. It is the only available statement.  CMake does not allow dynamic function calling (ie calling a function which you first know at runtime). This has problem and some further funcitonality issues are addressed in this section.
+
+Functions in cmake are not variables - they have a separate global only scope in which they are defined.  
+*A Note on Macros* Macros are also functions.  They do not have their own scope and evaluate arguments differently. They will more likely than not have unintended side effects because of the way the are evaluated. There are valid reasons to use macros but if you do not know them, you SHOULD NOT use macros...
+
+
+
+
+### Datatypes
+
+  * `<cmake code> ::= <string>` any valid cmake code
+  * `<cmake function file> ::= <cmake file>` a cmake script file containing a single function 
+  * `<function string> :: <cmake code>` a string containing a single function
+  * `<cmake file> ::= <path>` a file containing valid cmake code
+  * `<function call> ::=<function?!>(<any...>)` a function call can be evaluated to a valid cmake code line which executes the function specified
+  * `<function>` ::= <identifier>` any cmake function or macro name for which `if(COMMAND <function>)` evaluates to true.  This can be directly called
+  * `<function?!>` ::= <function>|<cmake function file>|<lambda>|<function&>|<function string>|<function string&>  a function?! can be any type of code which somehow evaluates to a function
+  * `<function info> ::= {type:<function type>, name:<identifier>, args:<arg ...>, code:<function string>|<function call>}` a map containing information on a specific function. if possible the info map contains the original source code of the function
+
+### Function List
+
+<%= markdown_template_function_list('${function_files}') %>
+
+
+### Function Descriptions
+
+<%= markdown_template_function_descriptions('${function_files}') %>

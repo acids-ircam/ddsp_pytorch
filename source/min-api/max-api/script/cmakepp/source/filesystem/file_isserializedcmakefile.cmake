@@ -1,0 +1,12 @@
+
+function(file_isserializedcmakefile file)
+  path_qualify(file)
+  if(NOT EXISTS "${file}" OR IS_DIRECTORY "${file}")
+    return(false)
+  endif()
+  file(READ "${file}" result LIMIT 7)
+  if("${result}" MATCHES "^#cmake")
+    return(true)
+  endif()
+  return(false)
+endfunction()

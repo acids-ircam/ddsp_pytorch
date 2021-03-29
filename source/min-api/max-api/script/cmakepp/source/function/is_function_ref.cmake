@@ -1,0 +1,12 @@
+function(is_function_ref result func)
+	is_address("${func}" )
+  ans(is_ref)
+	if(NOT is_ref)
+		return(false)
+	endif()
+	address_get(${func} )
+  ans(val)
+	is_function(res "${val}")
+	return_value(${res})
+	
+endfunction()
