@@ -73,7 +73,7 @@ void DDSPModel::perform(float *pitch, float *loudness, float *out_buffer, int bu
     }
 }
 
-class hello_world : public object<hello_world>, public sample_operator<2, 1> {
+class ddsp : public object<ddsp>, public sample_operator<2, 1> {
     private:
         // inlets and outlets that will be defined at runtime
         std::vector< std::unique_ptr<inlet<>> > m_inlets;
@@ -115,7 +115,7 @@ class hello_world : public object<hello_world>, public sample_operator<2, 1> {
         };
     
         // on startup
-        hello_world(const atoms& args = {}) {
+        ddsp(const atoms& args = {}) {
             // to ensure safety in possible attribute settings
             model = new DDSPModel;
             m_initialized = true;
@@ -155,7 +155,7 @@ class hello_world : public object<hello_world>, public sample_operator<2, 1> {
             if (!(head % B_SIZE)) // if it is B_SIZE or B_SIZE * 2
             {
                 model_head = ((head + B_SIZE) % (2 * B_SIZE)); // points to the next / previous B_SIZE spaces available
-                compute_thread = new std::thread(&hello_world::thread_perform, this,
+                compute_thread = new std::thread(&ddsp::thread_perform, this,
                                                 pitch_buffer + model_head,
                                                 loudness_buffer + model_head,
                                                 out_buffer + model_head,
@@ -169,4 +169,4 @@ class hello_world : public object<hello_world>, public sample_operator<2, 1> {
 };
 
 
-MIN_EXTERNAL(hello_world);
+MIN_EXTERNAL(ddsp);
