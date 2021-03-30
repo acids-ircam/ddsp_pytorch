@@ -1,0 +1,40 @@
+#!/usr/bin/ruby
+
+
+def substitute_strings_in_file(file_path, old_string, new_string)
+  f = File.open("#{file_path}", "r+")
+  str = f.read
+  str.gsub!(old_string, new_string)
+  f.rewind
+  f.write(str)
+  f.truncate(f.pos)
+  f.close
+end
+
+
+@filelist = `git diff --cached --name-only`
+@files = @filelist.split("\n")
+@files.each { |filename| 
+  if filename.end_with?(".cpp") || filename.end_with?(".h")
+    substitute_strings_in_file(filename, "MIN_FUNCTION", "/*MIN_FUNCTION*/ [this](const c74::min::atoms& args, int inlet) -> c74::min::atoms")
+    substitute_strings_in_file(filename, "MIN_ARGUMENT_FUNCTION", "/*MIN_ARGUMENT_FUNCTION*/ [this](const c74::min::atom& arg)")
+    substitute_strings_in_file(filename, "MIN_GETTER_FUNCTION", "/*MIN_GETTER_FUNCTION*/ [this](const c74::min::atoms& args, int inlet) -> c74::min::atoms")
+
+    puts `clang-format -verbose -i #{filename} 2>&1`
+
+    substitute_strings_in_file(filename, '/*MIN_FUNCTION*/ [this](const c74::min::atoms& args, int inlet) -> c74::min::atoms', "MIN_FUNCTION")
+    substitute_strings_in_file(filename, /\/\*MIN_FUNCTION\*\/\n\s+\[this\]\(const c74::min::atoms& args, int inlet\) -> c74::min::atoms/, "MIN_FUNCTION")
+    substitute_strings_in_file(filename, /(\S)MIN_FUNCTION/, "\\1 MIN_FUNCTION")
+
+    substitute_strings_in_file(filename, '/*MIN_ARGUMENT_FUNCTION*/ [this](const c74::min::atom& arg)', "MIN_ARGUMENT_FUNCTION")
+    substitute_strings_in_file(filename, /\/\*MIN_ARGUMENT_FUNCTION\*\/\n\s+\[this\]\(const c74::min::atom& arg\)/, "MIN_ARGUMENT_FUNCTION")
+    substitute_strings_in_file(filename, /(\S)MIN_ARGUMENT_FUNCTION/, "\\1 MIN_ARGUMENT_FUNCTION")
+
+    substitute_strings_in_file(filename, '/*MIN_GETTER_FUNCTION*/ [this](const c74::min::atoms& args, int inlet) -> c74::min::atoms', "MIN_GETTER_FUNCTION")
+    substitute_strings_in_file(filename, /\/\*MIN_GETTER_FUNCTION\*\/\n\s+\[this\]\(const c74::min::atoms& args, int inlet\) -> c74::min::atoms/, "MIN_GETTER_FUNCTION")
+    substitute_strings_in_file(filename, /(\S)MIN_GETTER_FUNCTION/, "\\1 MIN_GETTER_FUNCTION")
+
+    substitute_strings_in_file(filename, /(\S){/, "\\1 {")
+  end
+}
+

@@ -1,0 +1,9 @@
+[submodule "max-api"]
+	path = max-api
+	url = https://github.com/Cycling74/max-api.git
+[submodule "include/readerwriterqueue"]
+	path = include/readerwriterqueue
+	url = https://github.com/cameron314/readerwriterqueue.git
+[submodule "test/mock"]
+	path = test/mock
+	url = https://github.com/Cycling74/mock.git

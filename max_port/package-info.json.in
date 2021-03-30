@@ -1,0 +1,24 @@
+{
+	"author" : "Cycling '74",
+	"description" : "Lightweight reference implementation of a package built using the Min-API.",
+	"homepatcher" : "C++ Object Development Kit.maxpat",
+	"max_version_min" : "8.0", "max_version_max" : "none",
+	"name" : "@C74_PACKAGE_NAME@",
+	"os" : {
+		"macintosh" : {
+			"platform" : [ "x64" ],
+			"min_version" : "none"
+		},
+		"windows" : {
+			"platform" : [ "x64" ],
+			"min_version" : "none"
+		}
+	},
+	"package_extra" : {
+		"reverse_domain" : "com.cycling74",
+		"copyright" : "Copyright (c) 2018 Cycling '74"
+	},
+	"tags" : [ ],
+	"version" : "@GIT_VERSION_MAJ@.@GIT_VERSION_MIN@.@GIT_VERSION_SUB@",
+	"website" : "http://www.github.com/Cycling74/min-devkit"
+}

@@ -1,0 +1,44 @@
+# script to build Jamoma on Travis-ci.org
+# see : https://travis-ci.org/jamoma/jamoma2/
+
+# calling it objective-c, which is a lie, to trick travis into building it on a mac
+language: 
+  - objective-c
+  - c++
+  
+compiler:
+ # - gcc
+  - clang
+sudo: false
+
+os: osx
+
+osx_image: xcode6.4
+
+#addons:
+#  apt:
+#    sources:
+#    - llvm-toolchain-precise-3.6
+#    - ubuntu-toolchain-r-test
+#    packages:
+#    - clang-3.6
+ #   - gcc-4.9
+#    - g++-4.9
+
+before_install:
+  - mkdir -p /tmp/cmake
+  - wget http://www.cmake.org/files/v3.3/cmake-3.3.1-Darwin-x86_64.tar.gz
+  - tar -xf cmake-3.3.1-Darwin-x86_64.tar.gz -C /tmp/cmake --strip-components=1
+  - ln -s /tmp/cmake/CMake.app/Contents/bin /tmp/cmake/bin
+  - brew install portmidi
+  - brew install portaudio
+
+  # Prepare compiler
+#  - if [ "$CXX" = "clang++" ]; then export CXX="clang++-3.6" CC="clang-3.6"; fi
+#  - if [ "$CXX" = "g++" ]; then export CXX="g++-4.9" CC="clang-4.9"; fi
+
+
+script:
+- "cmake ."
+- "make"
+- "make test"
