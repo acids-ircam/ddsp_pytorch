@@ -14,12 +14,14 @@ namespace c74::min::lib {
     class adsr {
     public:
 
-        enum class adsr_state {
+        enum class adsr_stage {
             inactive,
             attack,
             decay,
             sustain,
-            release
+            release,
+            retrigger,      // start a new envelope while the current one is still active
+            early_release,  // release before the sustain has been reached
         };
 
 
@@ -29,8 +31,10 @@ namespace c74::min::lib {
 
             void operator = (number percentage) {
                 m_is_linear = std::abs(percentage) < 0.001;
-                if (m_is_linear)
+                if (m_is_linear) {
+                    m_curve = 0.0;
                     m_exp = 1.0;
+                }
                 else {
                     m_curve = percentage / 100.0;
                     if (m_curve > 0)
@@ -41,8 +45,9 @@ namespace c74::min::lib {
             }
 
             number operator()(number x) {
-                // Profile this: What's worse? branching or calculating even when linear?
-                if (m_curve > 0.0)
+                if (m_is_linear)
+                    return x;
+                else if (m_curve > 0.0)
                     return 1.0 - pow(std::abs(x - 1.0), m_exp);
                 else
                     return pow(x, m_exp);
@@ -71,7 +76,7 @@ namespace c74::min::lib {
 
 
         sample active() {
-            return m_state != adsr_state::inactive;
+            return m_stage != adsr_stage::inactive;
         }
 
 
@@ -101,9 +106,7 @@ namespace c74::min::lib {
         /// @param	sampling_frequency	The sampling frequency of the environment in hertz.
 
         void attack(number attack_ms, number sampling_frequency) {
-            m_attack_step_count = static_cast<int>( (attack_ms / 1000.0) * sampling_frequency );
-            m_attack_step_count = std::max(m_attack_step_count, 1);
-            recalc();
+            m_attack_new = static_cast<int>( (attack_ms / 1000.0) * sampling_frequency );
         }
 
 
@@ -120,8 +123,7 @@ namespace c74::min::lib {
         /// @param	sampling_frequency	The sampling frequency of the environment in hertz.
 
         void decay(number decay_ms, number sampling_frequency) {
-            m_decay_step_count = static_cast<int>( (decay_ms / 1000.0) * sampling_frequency );
-            recalc();
+            m_decay_new = static_cast<int>( (decay_ms / 1000.0) * sampling_frequency );
         }
 
 
@@ -138,8 +140,7 @@ namespace c74::min::lib {
         /// @param	sampling_frequency	The sampling frequency of the environment in hertz.
 
         void release(number release_ms, number sampling_frequency) {
-            m_release_step_count = static_cast<int>( (release_ms / 1000.0) * sampling_frequency );
-            recalc();
+            m_release_new = static_cast<int>( (release_ms / 1000.0) * sampling_frequency );
         }
 
 
@@ -151,26 +152,55 @@ namespace c74::min::lib {
         }
 
 
+        /// Set the re-trigger time of the envelope generator.
+        /// @param    retrigger_ms                 The retrigger time in milliseconds.
+        /// @param    sampling_frequency    The sampling frequency of the environment in hertz.
+
+        void retrigger(number retrigger_ms, number sampling_frequency) {
+            m_retrigger_step_count = static_cast<int>( (retrigger_ms / 1000.0) * sampling_frequency );
+        }
+
+
+        void return_to_zero(bool rtz) {
+            m_return_to_zero = rtz;
+        }
+
+
         void trigger(bool active) {
             if (active != m_active) {
                 m_active = active;
 
                 if (m_active) {
-                    m_state = adsr_state::attack;
+                    m_stage = adsr_stage::attack;
                     m_index = 0;
                     m_attack_current = 0.0;
                 }
                 else {
-                    m_state = adsr_state::release;
-                    m_index = 0;
-                    m_release_current = 0.0;
+                    if (m_stage == adsr_stage::sustain) {
+                        m_stage = adsr_stage::release;
+                        m_index = 0;
+                        m_release_current = 0.0;
+                    }
+                    else {
+                        m_stage = adsr_stage::early_release;
+                        m_index = 0;
+                        m_release_current = 0.0;
+                        m_retrigger_start = m_last_output; // re-using m_retrigger_start for release_start
+                    }
                 }
             }
+            else if (active) { // re-trigger when we are already active
+                m_stage = adsr_stage::retrigger;
+                m_index = 0;
+                m_retrigger_start = m_last_output;
+            }
+
+            recalc();
         }
 
 
-        adsr_state state() {
-            return m_state;
+        adsr_stage stage() {
+            return m_stage;
         }
 
 
@@ -180,66 +210,132 @@ namespace c74::min::lib {
         sample operator()() {
 			sample output {};
 
-            switch (m_state) {
-                case adsr_state::attack:
+            switch (m_stage) {
+                case adsr_stage::attack:
                     m_attack_current += m_attack_step;
                     ++m_index;
                     if (m_index == m_attack_step_count) {
                         output = m_peak_cached;
-                        m_state = adsr_state::decay;
+                        m_stage = adsr_stage::decay;
                         m_index = 0;
                         m_decay_current = 0.0;
                     }
                     else
                         output = m_attack_exp(m_attack_current) * (m_peak_cached - m_initial_cached) + m_initial_cached;
                     break;
-                case adsr_state::decay:
+                case adsr_stage::decay:
                     m_decay_current += m_decay_step;
                     ++m_index;
                     if (m_index == m_decay_step_count) {
                         output = m_sustain_cached;
                         if (m_envelope_mode == envelope_mode::adsr)
-                            m_state = adsr_state::sustain;
+                            m_stage = adsr_stage::sustain;
                         else
-                            m_state = adsr_state::release;
+                            m_stage = adsr_stage::release;
                         m_index = 0;
                         m_release_current = 0;
                     }
                     else
                         output = m_decay_exp(m_decay_current) * (m_sustain_cached - m_peak_cached) + m_peak_cached;
                     break;
-                case adsr_state::sustain:
+                case adsr_stage::sustain:
                     output = m_sustain_cached;
                     break;
-                case adsr_state::release:
+                case adsr_stage::release:
                     m_release_current += m_release_step;
                     ++m_index;
                     if (m_index >= m_release_step_count) {
                         output = m_end_cached;
-                        m_state = adsr_state::inactive;
+                        m_stage = adsr_stage::inactive;
                         m_active = false;
                     }
                     else
                         output = m_release_exp(m_release_current) * (m_end_cached - m_sustain_cached) + m_sustain_cached;
                     break;
-                case adsr_state::inactive:
+                case adsr_stage::early_release:
+                     m_release_current += m_release_step;
+                    ++m_index;
+                    if (m_index >= m_release_step_count) {
+                        output = m_end_cached;
+                        m_stage = adsr_stage::inactive;
+                        m_active = false;
+                    }
+                    else
+                        output = m_release_exp(m_release_current) * (m_end_cached - m_retrigger_start) + m_retrigger_start;
+                    break;
+                case adsr_stage::retrigger:
+                    if (m_return_to_zero) {
+                        ++m_index;
+                        output = m_retrigger_start - (((m_retrigger_start - m_end_cached) / m_retrigger_step_count) * m_index);
+                        if (m_index >= m_retrigger_step_count) {
+                            m_stage = adsr_stage::attack;
+                            m_index = 0;
+                            m_attack_current = 0.0;
+                        }
+                    }
+                    else {
+                        if (m_return_to_zero) {
+                            m_stage = adsr_stage::attack;
+                            m_index = 0;
+                            m_attack_current = 0.0;
+                            output = m_initial_cached;
+                        }
+                        else {
+                            // we aren't returning to zero -- instead starting in the middle of the attack ftom the value where already are
+
+                            number attack_current {};
+                            number attack_curved {};
+
+                            bool was_below { false };
+                            if (m_peak_cached > m_initial_cached)
+                                was_below = true;
+                            bool is_below;
+                            bool found {};
+
+                            for (auto i=0; i<m_attack_step_count; ++i) {
+                                attack_current += m_attack_step;
+                                attack_curved = m_attack_exp(attack_current) * (m_peak_cached - m_initial_cached) + m_initial_cached;
+                                is_below = attack_curved < m_last_output;
+                                if (is_below != was_below) { // we found the position from which to retrigger
+                                    m_stage = adsr_stage::attack;
+                                    m_index = i;
+                                    m_attack_current = attack_current;
+                                    output = m_last_output;
+                                    found = true;
+                                }
+                            }
+
+                            if (!found) { // so return to zero
+                                m_stage = adsr_stage::attack;
+                                m_index = 0;
+                                m_attack_current = 0.0;
+                                output = m_initial_cached;
+                            }
+                        }
+                    }
+                    break;
+                case adsr_stage::inactive:
                     output = m_end_cached;
                     break;
             }
+            m_last_output = output;
             return output;
         }
 
     private:
+        int     m_attack_new;
         slope	m_attack_exp;
         number	m_attack_step;
         int		m_attack_step_count;
         sample	m_attack_current;
 
+        int     m_decay_new;
         slope	m_decay_exp;
         number	m_decay_step;
         int		m_decay_step_count;
         sample 	m_decay_current;
 
+        int     m_release_new;
         slope	m_release_exp;
         number	m_release_step;
         int		m_release_step_count;
@@ -252,13 +348,20 @@ namespace c74::min::lib {
 
         int	m_index { 0xFFFFFF };
 
-        adsr_state m_state { adsr_state::inactive };
+        adsr_stage m_stage { adsr_stage::inactive };
 
         bool	        m_active { false };
         envelope_mode   m_envelope_mode { envelope_mode::adsr };
-
+        sample          m_last_output {};
+        sample          m_retrigger_start {};
+        int             m_retrigger_step_count {};
+        bool            m_return_to_zero { true };
 
         void recalc() {
+            m_attack_step_count = std::max(m_attack_new, 1);
+            m_decay_step_count = std::max(m_decay_new, 1);
+            m_release_step_count = std::max(m_release_new, 1);
+
             m_attack_step = 1.0 / m_attack_step_count;
             m_decay_step = 1.0 / m_decay_step_count;
             m_release_step = 1.0 / m_release_step_count;

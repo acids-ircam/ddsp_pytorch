@@ -42,6 +42,13 @@ if (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${TEST_NAME}.cpp")
 
 	add_executable(${TEST_NAME} ${TEST_NAME}.cpp ${TEST_SOURCE_FILES})
 
+	if (NOT TARGET mock_kernel)
+		set(C74_MOCK_TARGET_DIR "${CMAKE_CURRENT_LIST_DIR}/../../../tests")
+		add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/../test/mock ${CMAKE_BINARY_DIR}/mock)
+	endif ()
+
+	add_dependencies(${TEST_NAME} mock_kernel)
+
 	target_compile_definitions(${TEST_NAME} PUBLIC -DMIN_TEST)
 
 	set_property(TARGET ${TEST_NAME} PROPERTY CXX_STANDARD 17)

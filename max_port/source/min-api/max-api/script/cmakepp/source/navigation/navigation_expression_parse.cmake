@@ -1,8 +1,0 @@
-function(navigation_expression_parse)
-    string(REPLACE "." ";" expression "${ARGN}")
-    string(REPLACE "[" "<" expression "${expression}")
-    string(REPLACE "]" ">" expression "${expression}")
-    string(REGEX REPLACE "([<>][0-9:-]*[<>])" ";\\1" expression "${expression}")
-    string(REGEX REPLACE "^;" "" expression "${expression}")
-    return_ref(expression)
-endfunction()

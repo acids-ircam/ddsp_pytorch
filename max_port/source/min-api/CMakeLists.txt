@@ -12,9 +12,13 @@ if (${CMAKE_GENERATOR} MATCHES "Xcode")
 		endif ()
 endif ()
 
-
-include(${CMAKE_CURRENT_SOURCE_DIR}/script/min-package.cmake)
-
+if (WIN32)
+    add_definitions(
+		-DMAXAPI_USE_MSCRT
+		-DWIN_VERSION
+		-D_USE_MATH_DEFINES
+	)
+endif ()
 
 file(GLOB_RECURSE MIN_API_HEADERS
 	 RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
@@ -24,28 +28,18 @@ add_custom_target( API ALL
 )
 
 
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/test/mock)
 
+enable_testing()
 
-# Add unit tests for the API
-if ("${THIS_PACKAGE_NAME}" MATCHES ".*devkit")
-
-	enable_testing()
-
-	SUBDIRLIST(TESTDIRS ${CMAKE_CURRENT_SOURCE_DIR}/test)
-	foreach(testdir ${TESTDIRS})
-		if (${testdir} STREQUAL "mock")
-		elseif (${testdir} STREQUAL "catch")
-		else ()
-			if (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test/${testdir}/CMakeLists.txt")
-				message("Generating Unit Test: ${testdir}")
-				add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/test/${testdir})
-			endif ()
-		endif()
-	endforeach()
-
-endif ()
-
+# min-devkit and probably many user projects add the min-api as a subdirectory,
+# however, we want the min-api to be able to act as a standalone project as well.
+# so projects including the min-api should use the various .cmake scripts instead
+# of including min-api as a subdirectory.
+if(CMAKE_SOURCE_DIR STREQUAL PROJECT_SOURCE_DIR)
+    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/test)
+else()
+    message(DEPRECATION "Adding min-api via add_subdirectory() is deprecated and might break your setup in the future. Please remove the add_subdirectory() line from your CMakeLists.txt file.")
+endif()
 
 find_package (Doxygen QUIET)
 option (BUILD_DOCUMENTATION "Create and install the HTML based API documentation (requires Doxygen)" ${DOXYGEN_FOUND})

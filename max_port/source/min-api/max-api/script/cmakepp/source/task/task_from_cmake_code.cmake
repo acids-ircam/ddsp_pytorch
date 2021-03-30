@@ -1,7 +1,0 @@
-  function(task_from_cmake_code code)
-    function_new()
-    ans(function)
-    eval("function(${function})\n ${code} \nendfunction()")
-    task_new("${function}")
-    return_ans()
-  endfunction()

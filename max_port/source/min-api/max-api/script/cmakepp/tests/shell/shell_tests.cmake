@@ -1,5 +1,0 @@
-function(test)
-  shell("echo hello")
-  ans(res)
-  assert("${res}" MATCHES "hello")
-endfunction()

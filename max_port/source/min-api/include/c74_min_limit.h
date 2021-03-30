@@ -177,11 +177,11 @@ namespace c74::min {
 
     template<class T>
     static T scale(const T value, const T in_low, const T in_high, const T out_low, const T out_high) {
-        number in_scale = 1 / (in_high - in_low);
-        number out_diff = out_high - out_low;
-        T out = static_cast<T>((value - in_low) * in_scale);
-        out = static_cast<T>((out * out_diff) + out_low);
-        return out;
+        const auto in_diff = static_cast<number>(in_high - in_low);
+        const auto in_scale = (in_diff != 0.0) ? (1.0 / in_diff) : 1.0;
+        const auto out_diff = out_high - out_low;
+        const auto normalized = static_cast<T>((value - in_low) * in_scale);
+        return static_cast<T>((normalized * out_diff) + out_low);
     }
 
 

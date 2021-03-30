@@ -1,0 +1,88 @@
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+Makefile
+*.xcodeproj
+.DS_Store
+build-xcode
+
+# Debug Symbols
+*.dSYM
+
+# Examples
+examples/simple/simple
+
+# Unit Test Binaries
+*.test
+
+# Coverage Tools
+*.gcda
+*.gcno
+cov.info
+build
+
+# CMake Temporaries
+CMakeFiles
+CMakeScripts
+*.build
+CMakeCache.txt
+cmake_install.cmake
+CTestTestfile.cmake
+Testing
+
+# Doxygen builds
+doc/html
+
+# Explicitly Ignored by ending in --
+*--
+*--.*
+
+# temp/backup files from unix text editors
+*.txt~
+*.cmake~
+*.h~
+*.c~
+.gitignore~
+
+# detritus from portaudio build
+dependencies/portaudio/bin-stamp
+dependencies/portaudio/bin
+dependencies/portaudio/config.log
+dependencies/portaudio/config.status
+dependencies/portaudio/lib-stamp
+dependencies/portaudio/lib
+dependencies/portaudio/libtool
+dependencies/portaudio/portaudio-2.0.pc
+dependencies/portaudio/src/portaudio-stamp
+dependencies/portaudio/tmp
+
+# Octave output files
+*.mat
+
+tmp

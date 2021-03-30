@@ -156,13 +156,13 @@ namespace c74::min {
         // All attributes must define what happens when you set their value.
         // Args may be modified if the range is constrained
 
-        virtual attribute_base& operator=(atoms& args) = 0;
+        virtual attribute_base& operator=(const atoms& args) = 0;
 
 
         // All attributes must define what happens when you set their value.
         // NOTE: args may be modified after this call due to range limiting behavior
 
-        virtual void set(atoms& args, const bool notify = true, const bool override_readonly = false) = 0;
+        virtual void set(const atoms& args, const bool notify = true, const bool override_readonly = false) = 0;
 
 
         // All attributes must define what happens when you get their value.
@@ -335,7 +335,7 @@ namespace c74::min {
     class attribute_threadsafe_helper;
 
     template<typename T, threadsafe threadsafety, template<typename> class limit_type, allow_repetitions repetitions>
-    void attribute_threadsafe_helper_do_set(attribute_threadsafe_helper<T, threadsafety, limit_type, repetitions>* helper, atoms& args);
+    void attribute_threadsafe_helper_do_set(attribute_threadsafe_helper<T, threadsafety, limit_type, repetitions>* helper, const atoms& args);
 
 
     /// An Attribute.
@@ -502,6 +502,12 @@ namespace c74::min {
             return m_range;
         }
 
+        void set_range(const std::vector<T>& range) {
+            m_range = range;
+            const auto value = static_cast<atoms>(*this);
+            set(value);
+        }
+
 
         // DO NOT USE
         // This is an internal method used to fetch the range in string format when creating the peer Max attribute.
@@ -553,24 +559,8 @@ namespace c74::min {
         /// Set the attribute value using atoms.
         /// @param	args	The new value to be assigned to the attribute.
 
-        attribute& operator=(atoms& args) override {
+        attribute& operator=(const atoms& args) override {
            set(args);
-            return *this;
-        }
-
-
-        // DO NOT USE
-		// This is an internal method
-        //
-        // This exists because MIN_FUNCTION, which is used by every attribute setter in user code,
-        // declares its args to be const to make it clear to users that they shouldn't be changing the args.
-        // We are priviledged in this scenario because we made the atoms as a copy of what Max provided us and
-        // we know it is safe to use them -- and potentially modify them when range limiting is applied.
-        //
-        // For user code, please use the version above and pass mutable atoms
-        
-        attribute& operator=(const atoms& args) {
-            set(const_cast<atoms&>(args));
             return *this;
         }
 
@@ -602,11 +592,11 @@ namespace c74::min {
         ///								Setting this to true will allow you to override the readonly flag and set the attribute value
         ///anyway.
 
-        void set(atoms& args, const bool notify = true, const bool override_readonly = false) override {
+        void set(const atoms& args, const bool notify = true, const bool override_readonly = false) override {
             if (!writable() && !override_readonly)
                 return;    // we're all done... unless this is a readonly attr that we are forcing to update
 
-            if (repetitions == allow_repetitions::no && compare_to_current_value(args))
+            if (repetitions == allow_repetitions::no && compare_to_current_value(constrain(args)))
                 return;
 
 #ifndef MIN_TEST    // At this time the Mock Kernel does not implement object_attr_setvalueof(), so we can't use it for unit tests
@@ -737,7 +727,7 @@ namespace c74::min {
         enum_map       m_enum_map;      // The enum mapping for indexed enums (as opposed to symbol enums).
         attribute_threadsafe_helper<T, threadsafety, limit_type, repetitions> m_helper{this};    // Attribute setting implementation for the specified threadsafety.
 
-        friend void attribute_threadsafe_helper_do_set<T, threadsafety, limit_type, repetitions>(attribute_threadsafe_helper<T, threadsafety, limit_type, repetitions>* helper, atoms& args);
+        friend void attribute_threadsafe_helper_do_set<T, threadsafety, limit_type, repetitions>(attribute_threadsafe_helper<T, threadsafety, limit_type, repetitions>* helper, const atoms& args);
 
 
         // Copy m_range_args to m_range when the attribute is created.
@@ -755,8 +745,8 @@ namespace c74::min {
         // Optimization for the most common case: no limiting at all.
 
         template<class U = T, typename enable_if<is_same<limit_type<U>, limit::none<U>>::value, int>::type = 0>
-        void constrain(atoms& args) {
-            // no limiting, so do nothing
+        atoms constrain(const atoms& args) const {
+			return args;
         }
 
 
@@ -764,9 +754,9 @@ namespace c74::min {
         // Note that enums are already range-limited within the min::atom.
 
         template<class U = T, typename enable_if<!is_same<limit_type<U>, limit::none<U>>::value, int>::type = 0>
-        void constrain(atoms& args) {
-            // TODO: type checking on the above so that it is not applied to vectors or colors
-            args[0] = limit_type<T>::apply(args[0], m_range[0], m_range[1]);
+        atoms constrain(const atoms& args) const {
+            static_assert(std::is_arithmetic<T>::value, "limiting can only be applied to arithmetic types");
+            return {limit_type<T>::apply(args[0], m_range[0], m_range[1])};
         }
 
 
@@ -831,15 +821,15 @@ namespace c74::min {
     // args may be modified as a side-effect of calling this method (e.g. for range limiting)
 
     template<typename T, threadsafe threadsafety, template<typename> class limit_type, allow_repetitions repetitions>
-    void attribute_threadsafe_helper_do_set(attribute_threadsafe_helper<T, threadsafety, limit_type, repetitions>* helper, atoms& args) {
+    void attribute_threadsafe_helper_do_set(attribute_threadsafe_helper<T, threadsafety, limit_type, repetitions>* helper, const atoms& args) {
         auto& attr = *helper->m_attribute;
 
-        attr.constrain(args);
+        const auto constrained_args = attr.constrain(args);
 
         if (attr.m_setter)
-            attr.m_value = from_atoms<T>(attr.m_setter(args, -1));
+            attr.m_value = from_atoms<T>(attr.m_setter(constrained_args, -1));
         else
-            attr.assign(args);
+            attr.assign(constrained_args);
     }
 
 
@@ -850,14 +840,14 @@ namespace c74::min {
 
     template<typename T, template<typename> class limit_type, allow_repetitions repetitions>
     class attribute_threadsafe_helper<T, threadsafe::yes, limit_type, repetitions> {
-        friend void attribute_threadsafe_helper_do_set<T, threadsafe::yes, limit_type>(attribute_threadsafe_helper<T, threadsafe::yes, limit_type, repetitions>* helper, atoms& args);
+        friend void attribute_threadsafe_helper_do_set<T, threadsafe::yes, limit_type>(attribute_threadsafe_helper<T, threadsafe::yes, limit_type, repetitions>* helper, const atoms& args);
 
     public:
         explicit attribute_threadsafe_helper(attribute<T, threadsafe::yes, limit_type, repetitions>* an_attribute)
         : m_attribute(an_attribute)
         {}
 
-        void set(atoms& args) {
+        void set(const atoms& args) {
             attribute_threadsafe_helper_do_set(this, args);
         }
 
@@ -882,7 +872,7 @@ namespace c74::min {
 
     template<typename T, template<typename> class limit_type, allow_repetitions repetitions>
     class attribute_threadsafe_helper<T, threadsafe::no, limit_type, repetitions> {
-        friend void attribute_threadsafe_helper_do_set<T, threadsafe::no, limit_type>(attribute_threadsafe_helper<T, threadsafe::no, limit_type, repetitions>* helper, atoms& args);
+        friend void attribute_threadsafe_helper_do_set<T, threadsafe::no, limit_type>(attribute_threadsafe_helper<T, threadsafe::no, limit_type, repetitions>* helper, const atoms& args);
         friend void attribute_threadsafe_helper_qfn<T, threadsafe::no, limit_type, repetitions>(attribute_threadsafe_helper<T, threadsafe::no, limit_type, repetitions>* helper);
 
     public:
@@ -895,7 +885,7 @@ namespace c74::min {
             max::qelem_free(m_qelem);
         }
 
-        void set(atoms& args) {
+        void set(const atoms& args) {
             if (max::systhread_ismainthread())
                 attribute_threadsafe_helper_do_set(this, args);
             else {
@@ -917,7 +907,7 @@ namespace c74::min {
 
     template<typename T, template<typename> class limit_type, allow_repetitions repetitions>
     class attribute_threadsafe_helper<T, threadsafe::undefined, limit_type, repetitions> {
-        friend void attribute_threadsafe_helper_do_set<T, threadsafe::undefined, limit_type, repetitions>(attribute_threadsafe_helper<T, threadsafe::undefined, limit_type, repetitions>* helper, atoms& args);
+        friend void attribute_threadsafe_helper_do_set<T, threadsafe::undefined, limit_type, repetitions>(attribute_threadsafe_helper<T, threadsafe::undefined, limit_type, repetitions>* helper, const atoms& args);
         friend void attribute_threadsafe_helper_qfn<T, threadsafe::undefined, limit_type, repetitions>(attribute_threadsafe_helper<T, threadsafe::undefined, limit_type, repetitions>* helper);
 
     public:
@@ -930,7 +920,7 @@ namespace c74::min {
             max::qelem_free(m_qelem);
         }
 
-        void set(atoms& args) {
+        void set(const atoms& args) {
             if (m_attribute->owner().is_assumed_threadsafe() || max::systhread_ismainthread())
                 attribute_threadsafe_helper_do_set(this, args);
             else {

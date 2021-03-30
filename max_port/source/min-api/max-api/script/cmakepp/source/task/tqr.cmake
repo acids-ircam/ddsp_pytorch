@@ -1,5 +1,0 @@
-function(tqr)
-  task_queue_global()
-  ans(task_queue)
-  task_queue_run("${task_queue}" ${ARGN})
-endfunction()

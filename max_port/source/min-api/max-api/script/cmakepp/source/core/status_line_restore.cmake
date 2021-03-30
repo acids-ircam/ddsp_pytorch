@@ -1,8 +1,0 @@
-function(status_line_restore)
-  map_tryget(global status)
-  ans(status)
-  if("${status}_" STREQUAL "_")
-    return()
-  endif()
-  echo_append("${status}")
-endfunction()
