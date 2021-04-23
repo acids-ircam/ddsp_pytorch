@@ -62,7 +62,7 @@ def resample(x, factor: int):
 
 def upsample(signal, factor):
     signal = signal.permute(0, 2, 1)
-    signal = nn.functional.interpolate(signal, scale_factor=factor)
+    signal = nn.functional.interpolate(signal, size=signal.shape[-1] * factor)
     return signal.permute(0, 2, 1)
 
 
