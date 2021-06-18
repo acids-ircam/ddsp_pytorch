@@ -1,6 +1,5 @@
 #include "m_pd.h"
 #include "ddsp_model.h"
-#include "dlfcn.h"
 #include <string>
 #include <thread>
 
