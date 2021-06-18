@@ -1,4 +1,9 @@
 {
-    "python.pythonPath": "/home/caillon/miniconda3/bin/python",
-    "python.formatting.provider": "yapf"
+    "python.pythonPath": "/Users/acaillon/miniconda3/bin/python",
+    "python.formatting.provider": "yapf",
+    "python.languageServer": "Jedi",
+    "cmake.sourceDirectory": "${workspaceFolder}/realtime/pd_external",
+    "cmake.configureSettings": {
+        "CMAKE_PREFIX_PATH": "/Users/acaillon/miniforge3/lib/python3.9/site-packages/torch"
+    }
 }
