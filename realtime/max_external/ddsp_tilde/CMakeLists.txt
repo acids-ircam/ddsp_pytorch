@@ -17,7 +17,7 @@ add_library(
 	MODULE
 	${SOURCE_FILES}
 )
-target_link_libraries(ddsp_tilde PUBLIC "${TORCH_LIBRARIES}")
+target_link_libraries(${PROJECT_NAME} PUBLIC "${TORCH_LIBRARIES}")
 
 include(${C74_MIN_API_DIR}/script/min-posttarget.cmake)
 include(${C74_MIN_API_DIR}/test/min-object-unittest.cmake)
