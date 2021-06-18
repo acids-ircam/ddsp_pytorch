@@ -2,18 +2,19 @@
 
 using namespace c74::min;
 
-class ddsp_tilde : public object<ddsp_tilde>, public sample_operator<1, 1> {
+class ddsp_tilde : public object<ddsp_tilde>, public vector_operator<> {
 public:
-  MIN_DESCRIPTION{"Divide signal by 2"};
+  MIN_DESCRIPTION{
+      "Differentiable Digital Signal Processing wrapper for MAX/MSP"};
   MIN_AUTHOR{"Antoine Caillon"};
 
-  inlet<> in1{this, "(signal) Input 1"};
+  inlet<> f0{this, "(signal) fundamental frequency"};
+  inlet<> lo{this, "(signal) loudness"};
 
-  outlet<> out{this, "(signal) Output 1", "signal"};
+  outlet<> out{this, "(signal) synthesized audio", "signal"};
 
-  sample operator()(sample input) {
+  void operator()(audio_bundle input, audio_bundle output) {
     // ACTUAL GUTS OF THE EXTERNAL
-    return input / 2.;
   }
 };
 

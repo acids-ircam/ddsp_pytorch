@@ -6,3 +6,4 @@ export/*
 preprocessed/*
 externals/
 tests/
+docs/
