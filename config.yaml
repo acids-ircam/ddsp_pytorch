@@ -12,7 +12,7 @@ preprocess:
 
 model:
   hidden_size: 512
-  n_harmonic: 101
+  n_harmonic: 100
   n_bands: 65
   sampling_rate: *samplingrate
   block_size: *blocksize
