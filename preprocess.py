@@ -16,7 +16,7 @@ def get_files(data_location, extension, **kwargs):
 
 
 def preprocess(f, sampling_rate, block_size, signal_length, oneshot, **kwargs):
-    x, sr = li.load(f, sampling_rate)
+    x, sr = li.load(f)
     N = (signal_length - len(x) % signal_length) % signal_length
     x = np.pad(x, (0, N))
 
@@ -34,6 +34,7 @@ def preprocess(f, sampling_rate, block_size, signal_length, oneshot, **kwargs):
 
 
 class Dataset(torch.utils.data.Dataset):
+
     def __init__(self, out_dir):
         super().__init__()
         self.signals = np.load(path.join(out_dir, "signals.npy"))
@@ -51,6 +52,7 @@ class Dataset(torch.utils.data.Dataset):
 
 
 def main():
+
     class args(Config):
         CONFIG = "config.yaml"
 

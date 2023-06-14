@@ -1,0 +1,24 @@
+{
+    "data": {
+        "data_location": "./data",
+        "extension": "wav"
+    },
+    "preprocess": {
+        "sampling_rate": 16000,
+        "signal_length": 64000,
+        "block_size": 160,
+        "oneshot": false,
+        "out_dir": "./preprocessed/"
+    },
+    "model": {
+        "hidden_size": 512,
+        "n_harmonic": 100,
+        "n_bands": 65,
+        "sampling_rate": 16000,
+        "block_size": 160
+    },
+    "train": {
+        "scales": [4096, 2048, 1024, 512, 256, 128],
+        "overlap": 0.75
+    }
+}

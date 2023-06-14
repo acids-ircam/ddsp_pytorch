@@ -86,7 +86,7 @@ def extract_loudness(signal, sampling_rate, block_size, n_fft=2048):
         center=True,
     )
     S = np.log(abs(S) + 1e-7)
-    f = li.fft_frequencies(sampling_rate, n_fft)
+    f = li.fft_frequencies()
     a_weight = li.A_weighting(f)
 
     S = S + a_weight.reshape(-1, 1)
