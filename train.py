@@ -25,7 +25,6 @@ class args(Config):
 
 
 def train():
-    args.parse_args()
 
     with open(args.CONFIG, "r") as config:
         config = yaml.safe_load(config)

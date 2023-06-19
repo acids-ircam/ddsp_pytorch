@@ -13,3 +13,5 @@ tensorboard
 pynvim
 fastapi
 uvicorn
+huggingface_hub
+datasets
