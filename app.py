@@ -3,8 +3,8 @@ import uvicorn
 from fastapi import FastAPI
 from web.config import Configuration
 from web.utils import json_to_yaml, get_dataset
-from preprocess import main as preprocess
-# from train import main as train
+from preprocess import main as ddsp_preprocess
+from train import main as ddsp_train
 # from export import main as export
 import os
 
@@ -24,10 +24,10 @@ def pull_data(data_id):
 def train(config: Configuration):
     config_instance = Configuration.parse_obj(config)
 
-    config_yaml = json_to_yaml(config_instance)
+    json_to_yaml(config_instance)
 
-    preprocess()
-    # train()
+    ddsp_preprocess()
+    ddsp_train()
 
     return "Success!"
 

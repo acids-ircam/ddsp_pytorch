@@ -24,8 +24,7 @@ class args(Config):
     DECAY_OVER = 400000
 
 
-def train():
-
+def main():
     with open(args.CONFIG, "r") as config:
         config = yaml.safe_load(config)
 
@@ -37,7 +36,7 @@ def train():
 
     dataloader = torch.utils.data.DataLoader(
         dataset,
-        args.BATCH,
+        config["train"]["batch"],
         True,
         drop_last=True,
     )
@@ -67,7 +66,7 @@ def train():
     mean_loss = 0
     n_element = 0
     step = 0
-    epochs = int(np.ceil(args.STEPS / len(dataloader)))
+    epochs = int(np.ceil(config["train"]["steps"] / len(dataloader)))
 
     for e in tqdm(range(epochs)):
         for s, p, l in dataloader:

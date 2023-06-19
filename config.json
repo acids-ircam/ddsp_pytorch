@@ -18,7 +18,10 @@
         "block_size": 160
     },
     "train": {
+        "name": "train",
         "scales": [4096, 2048, 1024, 512, 256, 128],
-        "overlap": 0.75
+        "overlap": 0.75,
+        "batch": 1,
+        "steps": 1
     }
 }

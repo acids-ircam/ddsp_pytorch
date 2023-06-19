@@ -25,6 +25,8 @@ class ModelConfig(BaseModel):
 class TrainConfig(BaseModel):
     scales: list[int] = Field(..., description="List of scales")
     overlap: float = Field(..., description="Overlap value")
+    steps: int = Field(..., description="Number of steps")
+    batch: int = Field(..., description="Batch size")
 
 
 class Configuration(BaseModel):

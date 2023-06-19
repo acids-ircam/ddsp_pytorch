@@ -14,7 +14,6 @@ def json_to_yaml(config: Configuration):
     config_yaml = open("config.yaml", "w")
     yaml.dump(config_json_dict, config_yaml)
     config_yaml.close()
-    return config_yaml
 
 
 def get_dataset(dataset_id, api_token):
