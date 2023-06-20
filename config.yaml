@@ -15,6 +15,7 @@ preprocess:
   signal_length: 64000
 train:
   batch: 1
+  name: model2
   overlap: 0.75
   scales:
   - 4096

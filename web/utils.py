@@ -1,6 +1,7 @@
 import yaml
 import json
 import os
+import zipfile
 import requests
 import soundfile as sf
 from datasets import load_dataset
@@ -14,6 +15,15 @@ def json_to_yaml(config: Configuration):
     config_yaml = open("config.yaml", "w")
     yaml.dump(config_json_dict, config_yaml)
     config_yaml.close()
+
+
+def zip_folder(folder_path, zip_path):
+    with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
+        for root, _, files in os.walk(folder_path):
+            for file in files:
+                file_path = os.path.join(root, file)
+                zipf.write(file_path,
+                           arcname=os.path.relpath(file_path, folder_path))
 
 
 def get_dataset(dataset_id, api_token):

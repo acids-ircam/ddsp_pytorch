@@ -12,15 +12,11 @@ torch.set_grad_enabled(False)
 class args(Config):
     RUN = None
     DATA = False
-    OUT_DIR = "export"
     REALTIME = False
 
 
-args.parse_args()
-makedirs(args.OUT_DIR, exist_ok=True)
-
-
 class ScriptDDSP(torch.nn.Module):
+
     def __init__(self, ddsp, mean_loudness, std_loudness, realtime):
         super().__init__()
         self.ddsp = ddsp
@@ -40,45 +36,53 @@ class ScriptDDSP(torch.nn.Module):
             return self.ddsp(pitch, loudness)
 
 
-with open(path.join(args.RUN, "config.yaml"), "r") as config:
-    config = yaml.safe_load(config)
+def main(train_id):
+    makedirs(train_id, exist_ok=True)
 
-ddsp = DDSP(**config["model"])
+    with open(path.join("models/", train_id, "config.yaml"), "r") as config:
+        config = yaml.safe_load(config)
 
-state = ddsp.state_dict()
-pretrained = torch.load(path.join(args.RUN, "state.pth"), map_location="cpu")
-state.update(pretrained)
-ddsp.load_state_dict(state)
+    ddsp = DDSP(**config["model"])
 
-name = path.basename(path.normpath(args.RUN))
+    state = ddsp.state_dict()
+    pretrained = torch.load(path.join("models/", train_id, "state.pth"),
+                            map_location="cpu")
+    state.update(pretrained)
+    ddsp.load_state_dict(state)
 
-scripted_model = torch.jit.script(
-    ScriptDDSP(
-        ddsp,
-        config["data"]["mean_loudness"],
-        config["data"]["std_loudness"],
-        args.REALTIME,
-    ))
-torch.jit.save(
-    scripted_model,
-    path.join(args.OUT_DIR, f"ddsp_{name}_pretrained.ts"),
-)
+    name = path.basename(path.normpath(path.join("models/", train_id)))
 
-impulse = ddsp.reverb.build_impulse().reshape(-1).numpy()
-sf.write(
-    path.join(args.OUT_DIR, f"ddsp_{name}_impulse.wav"),
-    impulse,
-    config["preprocess"]["sampling_rate"],
-)
+    scripted_model = torch.jit.script(
+        ScriptDDSP(
+            ddsp,
+            config["data"]["mean_loudness"],
+            config["data"]["std_loudness"],
+            args.REALTIME,
+        ))
+    torch.jit.save(
+        scripted_model,
+        path.join(train_id, f"ddsp_{name}_pretrained.ts"),
+    )
 
-with open(
-        path.join(args.OUT_DIR, f"ddsp_{name}_config.yaml"),
-        "w",
-) as config_out:
-    yaml.safe_dump(config, config_out)
+    impulse = ddsp.reverb.build_impulse().reshape(-1).detach().numpy()
+    sf.write(
+        path.join(train_id, f"ddsp_{name}_impulse.wav"),
+        impulse,
+        config["preprocess"]["sampling_rate"],
+    )
 
-if args.DATA:
-    makedirs(path.join(args.OUT_DIR, "data"), exist_ok=True)
-    file_list = get_files(**config["data"])
-    file_list = [str(f).replace(" ", "\\ ") for f in file_list]
-    system(f"cp {' '.join(file_list)} {path.normpath(args.OUT_DIR)}/data/")
+    with open(
+            path.join(train_id, f"ddsp_{name}_config.yaml"),
+            "w",
+    ) as config_out:
+        yaml.safe_dump(config, config_out)
+
+    if args.DATA:
+        makedirs(path.join(train_id, "data"), exist_ok=True)
+        file_list = get_files(**config["data"])
+        file_list = [str(f).replace(" ", "\\ ") for f in file_list]
+        system(f"cp {' '.join(file_list)} {path.normpath(train_id)}/data/")
+
+
+if __name__ == "__main__":
+    main()

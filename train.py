@@ -16,7 +16,7 @@ import numpy as np
 class args(Config):
     CONFIG = "config.yaml"
     NAME = "debug"
-    ROOT = "runs"
+    ROOT = "models"
     STEPS = 500000
     BATCH = 16
     START_LR = 1e-3
@@ -45,9 +45,10 @@ def main():
     config["data"]["mean_loudness"] = mean_loudness
     config["data"]["std_loudness"] = std_loudness
 
-    writer = SummaryWriter(path.join(args.ROOT, args.NAME), flush_secs=20)
+    writer = SummaryWriter(path.join(args.ROOT, config["train"]["name"]),
+                           flush_secs=20)
 
-    with open(path.join(args.ROOT, args.NAME, "config.yaml"),
+    with open(path.join(args.ROOT, config["train"]["name"], "config.yaml"),
               "w") as out_config:
         yaml.safe_dump(config, out_config)
 
@@ -115,7 +116,7 @@ def main():
                 best_loss = mean_loss
                 torch.save(
                     model.state_dict(),
-                    path.join(args.ROOT, args.NAME, "state.pth"),
+                    path.join(args.ROOT, config["train"]["name"], "state.pth"),
                 )
 
             mean_loss = 0
@@ -124,7 +125,8 @@ def main():
             audio = torch.cat([s, y], -1).reshape(-1).detach().cpu().numpy()
 
             sf.write(
-                path.join(args.ROOT, args.NAME, f"eval_{e:06d}.wav"),
+                path.join(args.ROOT, config["train"]["name"],
+                          f"eval_{e:06d}.wav"),
                 audio,
                 config["preprocess"]["sampling_rate"],
             )
