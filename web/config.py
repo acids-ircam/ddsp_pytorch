@@ -1,4 +1,5 @@
 from pydantic import BaseModel, Field
+from typing import List
 
 
 class DataConfig(BaseModel):
@@ -24,7 +25,7 @@ class ModelConfig(BaseModel):
 
 class TrainConfig(BaseModel):
     name: str = Field(..., description="Name of training session / model")
-    scales: list[int] = Field(..., description="List of scales")
+    scales: List[int] = Field(..., description="List of scales")
     overlap: float = Field(..., description="Overlap value")
     steps: int = Field(..., description="Number of steps")
     batch: int = Field(..., description="Batch size")
