@@ -1,7 +1,7 @@
 # 1. Library imports
 import uvicorn
 from fastapi import FastAPI
-from fastapi.responses import FileResponse, Response
+from fastapi.responses import RedirectResponse, FileResponse, Response
 from web.config import Configuration
 from web.utils import json_to_yaml, zip_folder, get_dataset
 from preprocess import main as ddsp_preprocess
@@ -12,6 +12,11 @@ import shutil
 
 # 2. Create app and model objects
 app = FastAPI()
+
+
+@app.get("/")
+async def docs_redirect():
+    return RedirectResponse(url='/docs')
 
 
 @app.post('/pull_data')
