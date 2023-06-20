@@ -30,6 +30,8 @@ def main():
 
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
+    print("GPU Is Available: ", torch.cuda.is_available())
+
     model = DDSP(**config["model"]).to(device)
 
     dataset = Dataset(config["preprocess"]["out_dir"])
