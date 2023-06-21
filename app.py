@@ -10,6 +10,7 @@ from export import main as ddsp_export
 import os
 from subprocess import Popen
 import shutil
+import git
 
 # 2. Create app and model objects
 app = FastAPI()
@@ -18,6 +19,14 @@ app = FastAPI()
 @app.get("/")
 async def docs_redirect():
     return RedirectResponse(url='/docs')
+
+
+@app.post('/pull_branch')
+def pull_branch():
+    g = git.cmd.Git(os.getcwd())
+    g.pull()
+
+    return Response(status_code=201)
 
 
 @app.post('/pull_data')
@@ -40,7 +49,7 @@ def train(config: Configuration):
     json_to_yaml(config_instance)
 
     # Preprocess data
-    # ddsp_preprocess()
+    ddsp_preprocess()
 
     # Open up asynchronous instance of tensorboard
     board = Popen(["tensorboard", "--logdir=" + os.getcwd() + "/models"])
