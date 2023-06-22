@@ -11,6 +11,7 @@ import os
 from subprocess import Popen
 import shutil
 import git
+import subprocess
 
 # 2. Create app and model objects
 app = FastAPI()
@@ -25,6 +26,8 @@ async def docs_redirect():
 def pull_branch():
     g = git.cmd.Git(os.getcwd())
     g.pull()
+
+    subprocess.run(["pip", "install", "-r", "requirements.txt"])
 
     return Response(status_code=201)
 

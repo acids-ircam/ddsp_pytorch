@@ -17,3 +17,5 @@ uvicorn
 huggingface_hub
 datasets
 GitPython
+cudatoolkit=11.8.0 
+nvidia-cudnn-cu11==8.6.0.163
