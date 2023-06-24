@@ -9,8 +9,6 @@ SoundFile>=0.10.3.post1
 Flask>=1.1.2
 PyYAML>=5.3.1
 tensorflow
-cudnn
-cudatoolkit
 tensorboard
 pynvim
 fastapi
