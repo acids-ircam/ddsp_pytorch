@@ -56,7 +56,6 @@ def main():
     class args(Config):
         CONFIG = "config.yaml"
 
-    args.parse_args()
     with open(args.CONFIG, "r") as config:
         config = yaml.safe_load(config)
 
