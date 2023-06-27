@@ -38,7 +38,7 @@ def main():
 
     dataloader = torch.utils.data.DataLoader(
         dataset,
-        config["train"]["batch"],
+        arts.BATCH,
         True,
         drop_last=True,
     )
@@ -69,7 +69,7 @@ def main():
     mean_loss = 0
     n_element = 0
     step = 0
-    epochs = int(np.ceil(config["train"]["steps"] / len(dataloader)))
+    epochs = int(np.ceil(args.STEPS / len(dataloader)))
 
     for e in tqdm(range(epochs)):
         for s, p, l in dataloader:
