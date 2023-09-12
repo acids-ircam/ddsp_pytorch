@@ -4,3 +4,6 @@
 *__pycache__*
 export/*
 preprocessed/*
+externals/
+tests/
+docs/
