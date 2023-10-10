@@ -6,22 +6,22 @@ model:
   hidden_size: 512
   n_bands: 65
   n_harmonic: 100
-  sampling_rate: 16000
+  sampling_rate: 44100
 preprocess:
   block_size: 160
   oneshot: false
   out_dir: ./preprocessed/
-  sampling_rate: 16000
+  sampling_rate: 44100
   signal_length: 64000
 train:
   batch: 1
   name: train
   overlap: 0.75
   scales:
-  - 4096
-  - 2048
-  - 1024
-  - 512
-  - 256
-  - 128
-  steps: 100
+    - 4096
+    - 2048
+    - 1024
+    - 512
+    - 256
+    - 128
+  steps: 1

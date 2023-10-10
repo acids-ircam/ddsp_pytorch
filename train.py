@@ -17,8 +17,8 @@ class args(Config):
     CONFIG = "config.yaml"
     NAME = "debug"
     ROOT = "models"
-    STEPS = 500000
-    BATCH = 16
+    STEPS = 1
+    BATCH = 2
     START_LR = 1e-3
     STOP_LR = 1e-4
     DECAY_OVER = 400000
@@ -38,7 +38,7 @@ def main():
 
     dataloader = torch.utils.data.DataLoader(
         dataset,
-        arts.BATCH,
+        args.BATCH,
         True,
         drop_last=True,
     )
