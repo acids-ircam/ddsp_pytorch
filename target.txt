@@ -1,0 +1,8 @@
+Embedded shape:  torch.Size([2, 400, 65])
+Kernel:  torch.Size([2, 64001])
+Signal:  torch.Size([1, 64001])
+
+Note: In order to ensure the right tensor dimensions,
+the harmonic component of the model's forward pass
+should be removed, and the noise part should be modified
+so that it is conditioned on centroid 
