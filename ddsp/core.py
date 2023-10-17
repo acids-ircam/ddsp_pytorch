@@ -3,7 +3,6 @@ import torch.nn as nn
 import torch.fft as fft
 import numpy as np
 import librosa as li
-import crepe
 import math
 
 
@@ -77,7 +76,7 @@ def scale_function(x):
     return 2 * torch.sigmoid(x)**(math.log(10)) + 1e-7
 
 
-def extract_loudness(signal, sampling_rate, block_size, n_fft=2048):
+def extract_loudness(signal, block_size, n_fft=2048):
     S = li.stft(
         signal,
         n_fft=n_fft,
@@ -96,26 +95,17 @@ def extract_loudness(signal, sampling_rate, block_size, n_fft=2048):
     return S
 
 
-def extract_pitch(signal, sampling_rate, block_size):
-    length = signal.shape[-1] // block_size
-    f0 = crepe.predict(
-        signal,
-        sampling_rate,
-        step_size=int(1000 * block_size / sampling_rate),
-        verbose=1,
-        center=True,
-        viterbi=True,
+def extract_centroid(signal, sampling_rate, block_size, n_fft=2048):
+    c = li.feature.spectral_centroid(
+        y=signal,
+        sr=sampling_rate,
+        n_fft=n_fft,
+        hop_length=block_size,
     )
-    f0 = f0[1].reshape(-1)[:-1]
 
-    if f0.shape[-1] != length:
-        f0 = np.interp(
-            np.linspace(0, 1, length, endpoint=False),
-            np.linspace(0, 1, f0.shape[-1], endpoint=False),
-            f0,
-        )
+    c = c[0].reshape(-1)[:-1]
 
-    return f0
+    return c
 
 
 def mlp(in_size, hidden_size, n_layers):
