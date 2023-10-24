@@ -16,8 +16,15 @@ You can then train your model using
 python train.py --name mytraining --steps 10000000 --batch 16 --lr .001
 ```
 
-Each flag is an override of the configuration provided in `config.yaml`. Once trained,
-export it using
+Each flag is an override of the configuration provided in `config.yaml`.
+
+You can monitor the progress with tensorboard
+
+```bash
+tensorboard
+```
+
+Once trained, export it using
 
 ```bash
 python export.py --run models/mytraining
