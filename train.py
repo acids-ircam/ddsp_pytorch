@@ -15,13 +15,7 @@ import numpy as np
 
 class args(Config):
     CONFIG = "config.yaml"
-    NAME = "debug"
     ROOT = "models"
-    STEPS = 1
-    BATCH = 2
-    START_LR = 1e-3
-    STOP_LR = 1e-4
-    DECAY_OVER = 400000
 
 
 def main():
@@ -38,7 +32,7 @@ def main():
 
     dataloader = torch.utils.data.DataLoader(
         dataset,
-        args.BATCH,
+        config["train"]["batch"],
         True,
         drop_last=True,
     )
@@ -54,13 +48,13 @@ def main():
               "w") as out_config:
         yaml.safe_dump(config, out_config)
 
-    opt = torch.optim.Adam(model.parameters(), lr=args.START_LR)
+    opt = torch.optim.Adam(model.parameters(), lr=config["train"]["start_lr"])
 
     schedule = get_scheduler(
         len(dataloader),
-        args.START_LR,
-        args.STOP_LR,
-        args.DECAY_OVER,
+        config["train"]["start_lr"],
+        config["train"]["stop_lr"],
+        config["train"]["decay"],
     )
 
     # scheduler = torch.optim.lr_scheduler.LambdaLR(opt, schedule)
@@ -69,17 +63,18 @@ def main():
     mean_loss = 0
     n_element = 0
     step = 0
-    epochs = int(np.ceil(args.STEPS / len(dataloader)))
+    epochs = int(np.ceil(config["train"]["steps"] / len(dataloader)))
 
     for e in tqdm(range(epochs)):
-        for s, c, l in dataloader:
+        for s, p, c, l in dataloader:
             s = s.to(device)
+            p = p.unsqueeze(-1).to(device)
             c = c.unsqueeze(-1).to(device)
             l = l.unsqueeze(-1).to(device)
 
             l = (l - mean_loudness) / std_loudness
 
-            y = model(c, l).squeeze(-1)
+            y = model(p, c, l).squeeze(-1)
 
             ori_stft = multiscale_fft(
                 s,

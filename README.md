@@ -21,7 +21,7 @@ Each flag is an override of the configuration provided in `config.yaml`.
 You can monitor the progress with tensorboard
 
 ```bash
-tensorboard models/train
+tensorboard --logdir models/train
 ```
 
 Once trained, export it using

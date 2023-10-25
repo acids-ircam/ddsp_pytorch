@@ -22,14 +22,16 @@ def preprocess(f, sampling_rate, block_size, signal_length, oneshot, **kwargs):
     if oneshot:
         x = x[..., :signal_length]
 
+    pitch = extract_pitch(x, sampling_rate, block_size)
     centroid = extract_centroid(x, sampling_rate, block_size)
     loudness = extract_loudness(x, block_size)
 
     x = x.reshape(-1, signal_length)
+    pitch = pitch.reshape(x.shape[0], -1)
     centroid = centroid.reshape(x.shape[0], -1)
     loudness = loudness.reshape(x.shape[0], -1)
 
-    return x, centroid, loudness
+    return x, pitch, centroid, loudness
 
 
 class Dataset(torch.utils.data.Dataset):
@@ -37,6 +39,7 @@ class Dataset(torch.utils.data.Dataset):
     def __init__(self, out_dir):
         super().__init__()
         self.signals = np.load(path.join(out_dir, "signals.npy"))
+        self.pitchs = np.load(path.join(out_dir, "pitchs.npy"))
         self.centroids = np.load(path.join(out_dir, "centroids.npy"))
         self.loudness = np.load(path.join(out_dir, "loudness.npy"))
 
@@ -45,9 +48,10 @@ class Dataset(torch.utils.data.Dataset):
 
     def __getitem__(self, idx):
         s = torch.from_numpy(self.signals[idx])
+        p = torch.from_numpy(self.pitchs[idx])
         c = torch.from_numpy(self.centroids[idx])
         l = torch.from_numpy(self.loudness[idx])
-        return s, c, l
+        return s, p, c, l
 
 
 def main():
@@ -62,18 +66,20 @@ def main():
     pb = tqdm(files)
 
     signals = []
-
+    pitchs = []
     centroids = []
     loudness = []
 
     for f in pb:
         pb.set_description(str(f))
-        x, c, l = preprocess(f, **config["preprocess"])
+        x, p, c, l = preprocess(f, **config["preprocess"])
         signals.append(x)
+        pitchs.append(x)
         centroids.append(c)
         loudness.append(l)
 
     signals = np.concatenate(signals, 0).astype(np.float32)
+    pitchs = np.concatenate(pitchs, 0).astype(np.float32)
     centroids = np.concatenate(centroids, 0).astype(np.float32)
     loudness = np.concatenate(loudness, 0).astype(np.float32)
 
@@ -81,6 +87,7 @@ def main():
     makedirs(out_dir, exist_ok=True)
 
     np.save(path.join(out_dir, "signals.npy"), signals)
+    np.save(path.join(out_dir, "pitchs.npy"), signals)
     np.save(path.join(out_dir, "centroids.npy"), centroids)
     np.save(path.join(out_dir, "loudness.npy"), loudness)
 

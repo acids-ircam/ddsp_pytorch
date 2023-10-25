@@ -25,3 +25,6 @@ train:
     - 256
     - 128
   steps: 1
+  start_lr: 1e-3
+  stop_lr: 1e-4
+  decay: 400000
