@@ -6,3 +6,4 @@ preprocessed/*
 models/*
 data
 *.wav
+nohup.out

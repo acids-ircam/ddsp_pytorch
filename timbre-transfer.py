@@ -8,18 +8,6 @@ import yaml
 import librosa
 
 
-@torch.no_grad()
-def mean_std_loudness_arr(loudness):
-    mean = 0
-    std = 0
-    n = 0
-    for l in loudness:
-        n += 1
-        mean += (l.mean().item() - mean) / n
-        std += (l.std().item() - std) / n
-    return mean, std
-
-
 def extract_features(
     signal,
     sampling_rate,
@@ -41,9 +29,6 @@ def main():
     with open(args.CONFIG, "r") as config:
         config = yaml.safe_load(config)
 
-    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-    print("GPU Is Available: ", torch.cuda.is_available())
-
     # Load the model
     model = torch.jit.load(config["timbre_transfer"]["model"])
 
@@ -54,15 +39,24 @@ def main():
     p, c, l = extract_features(signal, sampling_rate,
                                config["model"]["block_size"])
 
-    mean_loudness, std_loudness = mean_std_loudness_arr(l)
+    p = torch.tensor(p, dtype=torch.float).unsqueeze(0).unsqueeze(2)
+    c = torch.tensor(c, dtype=torch.float).unsqueeze(0).unsqueeze(2)
+    l = torch.tensor(l, dtype=torch.float).unsqueeze(0).unsqueeze(2)
 
-    p = torch.tensor(p, dtype=torch.float).unsqueeze(0).unsqueeze(2).to(device)
-    c = torch.tensor(c, dtype=torch.float).unsqueeze(0).unsqueeze(2).to(device)
-    l = torch.tensor(l, dtype=torch.float).unsqueeze(0).unsqueeze(2).to(device)
+    # Centroid experiments!
+    # Calculate the logarithmic frequencies
+    # log_start = np.log10(9000)
+    # log_end = np.log10(19000)
+    # log_frequencies = np.logspace(log_start, log_end, num=c.shape[1], endpoint=True, base=10.0)
 
-    l = (l - mean_loudness) / std_loudness
+    # Reshape the frequencies to match the tensor shape
+    # log_frequencies = log_frequencies.reshape(c.shape)
 
-    y = model(p, c, l).squeeze(-1)
+    # Replace the values in the tensor with the logarithmic frequencies
+    # c[:, :, :] = torch.tensor(log_frequencies,
+    #                           dtype=torch.float32).view(c.shape)
+
+    y = model(p, c, l)
 
     audio = y.squeeze().detach().numpy()
 
