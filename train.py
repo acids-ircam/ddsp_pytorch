@@ -38,6 +38,7 @@ def main():
     )
 
     mean_loudness, std_loudness = mean_std_loudness(dataloader)
+
     config["data"]["mean_loudness"] = mean_loudness
     config["data"]["std_loudness"] = std_loudness
 

@@ -46,9 +46,9 @@ class DDSP(nn.Module):
         self.register_buffer("sampling_rate", torch.tensor(sampling_rate))
         self.register_buffer("block_size", torch.tensor(block_size))
 
-        self.in_mlps = nn.ModuleList([mlp(1, hidden_size, 3)] * 2)
-        self.gru = gru(2, hidden_size)
-        self.out_mlp = mlp(hidden_size + 2, hidden_size, 3)
+        self.in_mlps = nn.ModuleList([mlp(1, hidden_size, 3)] * 3)
+        self.gru = gru(3, hidden_size)
+        self.out_mlp = mlp(hidden_size + 3, hidden_size, 3)
 
         self.proj_matrices = nn.ModuleList([
             nn.Linear(hidden_size, n_harmonic + 1),

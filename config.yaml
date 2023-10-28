@@ -3,7 +3,7 @@ data:
   extension: wav
 model:
   block_size: 160
-  hidden_size: 512
+  hidden_size: 512 
   n_bands: 65
   n_harmonic: 100
   sampling_rate: 44100
@@ -12,10 +12,10 @@ preprocess:
   oneshot: false
   out_dir: ./preprocessed/
   sampling_rate: 44100
-  signal_length: 64000
+  signal_length: 64000 
 train:
-  batch: 1
-  name: train
+  batch: 4 
+  name: gamba 
   overlap: 0.75
   scales:
     - 4096
@@ -24,7 +24,7 @@ train:
     - 512
     - 256
     - 128
-  steps: 1
-  start_lr: 1e-3
-  stop_lr: 1e-4
+  steps: 256000 
+  start_lr: 0.001 
+  stop_lr: 0.0001 
   decay: 400000

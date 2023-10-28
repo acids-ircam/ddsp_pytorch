@@ -1,7 +1,7 @@
 import yaml
 import pathlib
 import librosa as li
-from ddsp.core import extract_loudness, extract_centroid
+from ddsp.core import extract_loudness, extract_pitch, extract_centroid
 from effortless_config import Config
 import numpy as np
 from tqdm import tqdm
@@ -71,10 +71,11 @@ def main():
     loudness = []
 
     for f in pb:
+        print("Processing file: ", str(f))
         pb.set_description(str(f))
         x, p, c, l = preprocess(f, **config["preprocess"])
         signals.append(x)
-        pitchs.append(x)
+        pitchs.append(p)
         centroids.append(c)
         loudness.append(l)
 
@@ -87,7 +88,7 @@ def main():
     makedirs(out_dir, exist_ok=True)
 
     np.save(path.join(out_dir, "signals.npy"), signals)
-    np.save(path.join(out_dir, "pitchs.npy"), signals)
+    np.save(path.join(out_dir, "pitchs.npy"), pitchs)
     np.save(path.join(out_dir, "centroids.npy"), centroids)
     np.save(path.join(out_dir, "loudness.npy"), loudness)
 
