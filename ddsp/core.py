@@ -100,8 +100,6 @@ def extract_loudness(signal, block_size, n_fft=2048):
             np.linspace(0, 1, S.shape[-1], endpoint=False),
             S,
         )
-    print("Loudness: ", S.shape)
-
 
     return S
 
@@ -125,7 +123,6 @@ def extract_pitch(signal, sampling_rate, block_size):
             np.linspace(0, 1, f0.shape[-1], endpoint=False),
             f0,
         )
-    print("Pitch: ", f0.shape)
 
     return f0
 
@@ -147,7 +144,6 @@ def extract_centroid(signal, sampling_rate, block_size, n_fft=2048):
             np.linspace(0, 1, c.shape[-1], endpoint=False),
             c,
         )
-    print("Centroid: ", c.shape)
 
     return c
 
